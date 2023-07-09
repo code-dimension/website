@@ -20,21 +20,25 @@ module.exports = {
         // => @media (min-width: 1920px) { ... }
       },
     },
+
     colors: {
-      black: '#212121',
-      light: '#FFFFFF',
+      black: "#212121",
+      light: "#FFFFFF",
       background: {
-        light: '#FFFFFF'
+        light: "#FFFFFF",
       },
       button: {
         filled: {
-          borderColor: '#FFFFFF29'
-        }
-      }
+          borderColor: "#FFFFFF29",
+        },
+      },
     },
 
-    extend: {},
-
+    extend: {
+      fontFamily: {
+        inter: ["Inter"],
+      },
+    },
   },
-  plugins: []
-}
+  plugins: [],
+};

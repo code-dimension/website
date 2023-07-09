@@ -1,14 +1,28 @@
 ---
-import Head from "./../components/Head.astro";
-import Header from "./../components/Header.astro";
+import Head from "../partials/head/Head.astro";
+import Header from "../partials/header/Header.astro";
+import Container from "../shared/containers/Container.astro";
 ---
 
 <!DOCTYPE html>
-<html lang="en">
-	<Head />
-	<body class="bg-black">
-		<Header />
-		<slot />
-	</body>
+<html lang="pt-br">
+  <Head />
+
+  <body class="bg-[#111518]">
+	<div class="banner">
+		<Container>
+			<Header />
+
+			<slot />
+		</Container>
+	</div>
+  </body>
+  
 </html>
 
+<style>
+    .banner {
+      background: url("/images/home/banner.svg");
+      background-size: cover;
+    }
+  </style>
