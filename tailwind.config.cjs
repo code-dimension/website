@@ -38,6 +38,9 @@ module.exports = {
       fontFamily: {
         inter: ["Inter"],
       },
+      backgroundColor: {
+        website: '#111518'
+      },
     },
   },
   plugins: [],

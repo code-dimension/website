@@ -1,9 +1,13 @@
 ---
-import Badge from "./Badge.astro";
+import DesktopHeader from "./DesktopHeader.astro";
+import MobileHeader from "./MobileHeader.astro";
 ---
 
-<header class="flex py-[64px] px-[120px]">
-  <img src={"images/logo.svg"} alt="Code Dimension Logo" class="w-20 h-12" />
-
-  <Badge />
+<header>
+  <div class="hidden lg:block">
+    <DesktopHeader />
+  </div>
+  <div class="block lg:hidden">
+    <MobileHeader />
+  </div>
 </header>

@@ -1,28 +1,17 @@
 ---
 import Head from "../partials/head/Head.astro";
 import Header from "../partials/header/Header.astro";
-import Container from "../shared/containers/Container.astro";
+import GlobalStyles from "../partials/global-styles/GlobalStyles.astro";
 ---
 
 <!DOCTYPE html>
 <html lang="pt-br">
   <Head />
+  <GlobalStyles />
 
-  <body class="bg-[#111518]">
-	<div class="banner">
-		<Container>
+  <body class="bg-website">
 			<Header />
-
 			<slot />
-		</Container>
-	</div>
   </body>
   
 </html>
-
-<style>
-    .banner {
-      background: url("/images/home/banner.svg");
-      background-size: cover;
-    }
-  </style>
