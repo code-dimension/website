@@ -1,0 +1,35 @@
+---
+import ContentContainer from "./../../shared/containers/ContentContainer.astro";
+---
+
+<ContentContainer>
+  <div class="flex flex-col justify-center xl:flex-row xl:items-center h-[500px] xl:h-[800px]">
+    <div class="flex flex-col items-center text-center xl:text-left xl:items-start xl:basis-6/12">
+      <h1 class="text-5xl text-light leading-relaxed">
+        Se torne um dev melhor!
+      </h1>
+
+      <h3 class="text-2xl text-light leading-relaxed mt-16 xl:mt-8">
+        O espaço para você se tornar um desenvolvedor <strong
+          class="gradient-text">Angular</strong
+        > melhor!
+      </h1>
+    </div>
+    <div class="hidden xl:flex basis-7/12 justify-end">
+      <img
+        class="w-[500px]"
+        src="images/home/banner/astronaut-1.svg"
+        alt="Astronaut"
+      />
+    </div>
+  </div>
+</ContentContainer>
+
+<style>
+  .gradient-text {
+    background: #6657ec;
+    background: linear-gradient(to right, #6657ec 0%, #c44fff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+</style>
