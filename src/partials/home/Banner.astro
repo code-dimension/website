@@ -2,28 +2,43 @@
 import ContentContainer from "./../../shared/containers/ContentContainer.astro";
 ---
 
-<ContentContainer>
-  <div class="flex flex-col justify-center xl:flex-row xl:items-center h-[500px] xl:h-[800px]">
-    <div class="flex flex-col items-center text-center xl:text-left xl:items-start xl:basis-6/12">
-      <h1 class="text-5xl text-light leading-relaxed">
-        Se torne um dev melhor!
-      </h1>
+<section class="bg-gradient-to-b from-code">
+  <ContentContainer>
+    <div
+      class="flex flex-col justify-center xl:flex-row xl:items-center h-[400px] xl:h-[800px] relative"
+    >
+      <div class="flex flex-col items-center text-center">
+        <h1 class="text-5xl text-light leading-relaxed">
+          Se torne um dev melhor!
+        </h1>
 
-      <h3 class="text-2xl text-light leading-relaxed mt-16 xl:mt-8">
-        O espaço para você se tornar um desenvolvedor <strong
-          class="gradient-text">Angular</strong
-        > melhor!
-      </h1>
-    </div>
-    <div class="hidden xl:flex basis-7/12 justify-end">
+        <h3 class="text-2xl text-light leading-relaxed mt-16 xl:mt-8">
+          O espaço para você se tornar um desenvolvedor <strong
+            class="gradient-text animate__pulse">Angular</strong
+          > melhor!
+        </h3>
+      </div>
+
       <img
-        class="w-[500px]"
-        src="images/home/banner/astronaut-1.svg"
+        class="hidden xl:block w-[50px] animate__headShake animate__delay-4s animate__slow animate__animated animate__infinite absolute top-[100px] left-[100px]"
+        src="images/home/banner/rocket.svg"
+        alt="Astronaut"
+      />
+
+      <img
+        class="hidden xl:block w-[50px] animate__headShake animate__delay-2s animate__slow animate__animated animate__infinite absolute bottom-[50px] left-[300px]"
+        src="images/home/banner/rocket.svg"
+        alt="Astronaut"
+      />
+
+      <img
+        class="hidden xl:block w-[50px] animate__headShake animate__delay-3s animate__slow animate__animated animate__infinite absolute top-[300px] right-[100px]"
+        src="images/home/banner/rocket.svg"
         alt="Astronaut"
       />
     </div>
-  </div>
-</ContentContainer>
+  </ContentContainer>
+</section>
 
 <style>
   .gradient-text {
