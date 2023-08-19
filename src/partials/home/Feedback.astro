@@ -1,0 +1,102 @@
+---
+import ContentContainer from "../../shared/containers/ContentContainer.astro";
+
+const feedbacks = [
+  {
+    text: "Muito interessante e simples de entender da forma que você explicou!! Obrigada por compartilhar.",
+    author: "@danielaferreira4682",
+  },
+  {
+    text: "Parabéns pela série de vídeos sobre angular, Henrique! Seu conteúdo tem sido uma ótima fonte de aprendizado! Sem dúvidas, o melhor e mais atual em português!!",
+    author: "@brunogomes2909",
+  },
+  {
+    text: 'Show 🎉 uma abordagem sucinta e simples aplicado em um conceito de "certo modo" um pouco complexo, parabéns ❤',
+    author: "@JonnathanLS ",
+  },
+  {
+    text: "Seu conteúdo é bom demais Henrique. Estou maratonando para aprender as novidades enquanto me preparo para uma entrevista e gostei demais. Parabéns!",
+    author: "@victorcardosolima2640  ",
+  },
+  {
+    text: "Essa sem dúvida foi as features que mais me surpreendeu, e parabéns pelos videos.",
+    author: "@Xandrules",
+  },
+  {
+    text: "Muito maneiro trazer conteúdo sobre Angular. Difícil achar bons conteúdos de angular, geralmente pesquiso em inglês e estudo a documentação.",
+    author: "@leonardocamargo5412",
+  },
+];
+---
+
+<section class="lg:mt-24">
+  <ContentContainer>
+    <div class="flex flex-col items-center">
+      <div class="max-w-[780px] w-full">
+        <h1 class="text-[32px] text-light font-bold text-center">
+          E olha só os feedbacks que estamos recebendo
+        </h1>
+
+        <p class="text-[18px] leading-relaxed text-center text-light mt-8">
+          A Code Dimension está empenhada em entregar conteúdo relevante e atualizado para você que quer evoluir dia após dia!
+        </p>
+      </div>
+    </div>
+
+    <swiper-container
+      class="mt-20"
+      pagination="false"
+      effect="coverflow"
+      grab-cursor="true"
+      centered-slides="true"
+      autoplay="true"
+      loop="true"
+      coverflow-effect-rotate="50"
+      coverflow-effect-stretch="0"
+      coverflow-effect-depth="100"
+      coverflow-effect-modifier="1"
+      coverflow-effect-slide-shadows="true"
+      init="false"
+    >
+      {
+        feedbacks.map((feedback) => (
+          <swiper-slide class="h-[250px] p-8 sm:m-2 lg:p-8 border border-light rounded flex flex-col items-center">
+            <p class="text-light text-[18px]">{feedback.text}</p>
+
+            <em class="text-light mt-auto">{feedback.author}</em>
+          </swiper-slide>
+        ))
+      }
+    </swiper-container>
+  </ContentContainer>
+</section>
+
+<script>
+  // import function to register Swiper custom elements
+  import { register } from "swiper/element/bundle";
+  // register Swiper custom elements
+  register();
+
+  const isDesktop = window.matchMedia("(min-width: 980px)").matches;
+  const isTablet = window.matchMedia("(min-width: 650px)").matches;
+
+  function getSlidesPerView() {
+    if (isDesktop) {
+      return 3;
+    }
+
+    if (isTablet) {
+      return 2;
+    }
+
+    return 1;
+  }
+
+  const swiperEl: any = document.querySelector("swiper-container");
+
+  Object.assign(swiperEl, {
+    slidesPerView: getSlidesPerView(),
+  });
+
+  swiperEl.initialize();
+</script>
