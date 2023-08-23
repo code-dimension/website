@@ -2,94 +2,127 @@
 import ContentContainer from "../../shared/containers/ContentContainer.astro";
 ---
 
-<section class="bg-website">
+<section class="bg-website lg:py-5 mt-32">
   <ContentContainer>
     <div class="flex flex-col items-center">
-      <div class="flex flex-col max-w-[500px] w-full">
-        
+      <div class="flex flex-col max-w-[700px] w-full">
         <div class="flex justify-center">
           <img
-            class="w-[300px]"
+            class="w-[200px] lg:w-[300px]"
             src="/images/logomark/logo-cd-full.svg"
             alt="Youtube"
           />
         </div>
 
-        <div class="flex justify-center mt-20">
-          <div class="flex flex-col">
-            <h3 class="text-lg font-bold text-light">Sobre</h3>
+        <div class="flex flex-col lg:flex-row mt-20 lg:mt-20">
+          <div class="flex justify-center lg:justify-start lg:mt-0 lg:basis-1/3">
+            <div class="flex flex-col items-center lg:items-start">
+              <h3 class="text-lg font-bold text-light">Sobre</h3>
 
-            <a
-              class="flex mt-6 text-light hover:decoration-light hover:decoration-solid hover:underline hover:underline-offset-2"
-              href="https://blog.codedimension.com.br"
-            >
-              Blog
-            </a>
+              <a
+                class="flex mt-6 text-light hover:decoration-light hover:decoration-solid hover:underline hover:underline-offset-2"
+                href="https://blog.codedimension.com.br"
+              >
+                Blog
+              </a>
 
-            <a
-              class="flex mt-6 text-light hover:decoration-light hover:decoration-solid hover:underline hover:underline-offset-2"
-              href="https://codedimension.substack.com"
-            >
-              Assine nossa Newsletter
-            </a>
+              <a
+                class="flex mt-6 text-light hover:decoration-light hover:decoration-solid hover:underline hover:underline-offset-2"
+                href="https://codedimension.substack.com"
+              >
+                Assine nossa Newsletter
+              </a>
+            </div>
           </div>
 
-          <div class="flex flex-col ml-auto">
-            <h3 class="text-lg font-bold text-light">Rede Sociais</h3>
+          <div class="flex justify-center mt-12 lg:mt-0  lg:basis-1/3">
+            <div class="flex flex-col items-center lg:items-baseline">
+              <h3 class="text-lg font-bold text-light">Podimension</h3>
 
-            <a class="flex mt-6" href="https://www.youtube.com/@code.dimension">
-              <img
-                class="w-[25px]"
-                src="/images/social/youtube.svg"
-                alt="Youtube"
-              />
-              <span
-                class="text-light hover:decoration-light hover:decoration-solid hover:underline hover:underline-offset-2 ml-1"
-                >YouTube</span
+              <a
+                class="flex mt-6 text-light hover:decoration-light hover:decoration-solid hover:underline hover:underline-offset-2"
+                href="https://podcasts.google.com/feed/aHR0cHM6Ly9hbmNob3IuZm0vcy9kYWM4MGZhYy9wb2RjYXN0L3Jzcw?sa=X&ved=2ahUKEwizmMX78_OAAxVVBLkGHT4zAZAQ9sEGegQIARAC&hl=pt-br"
               >
-            </a>
+                Google Podcasts
+              </a>
 
-            <a class="flex mt-4" href="https://discord.gg/VFNmgxEHXF">
-              <img
-                class="w-[25px]"
-                src="/images/social/discord.svg"
-                alt="Discord"
-              />
-              <span
-                class="text-light hover:decoration-light hover:decoration-solid hover:underline hover:underline-offset-2 ml-1"
-                >Discord</span
+              <a
+                class="flex mt-6 text-light hover:decoration-light hover:decoration-solid hover:underline hover:underline-offset-2"
+                href="https://open.spotify.com/show/6mCmhpeOn0JgpF3Wf5nvtx?si=41e1567f8442474e"
               >
-            </a>
+                Spotify
+              </a>
 
-            <a
-              class="flex mt-4"
-              href="https://www.linkedin.com/company/code-dimension/"
-            >
-              <img
-                class="w-[25px]"
-                src="/images/social/linkedin.svg"
-                alt="LinkedIn"
-              />
-              <span
-                class="text-light hover:decoration-light hover:decoration-solid hover:underline hover:underline-offset-2 ml-1"
-                >LinkedIn</span
+              <a
+                class="flex mt-6 text-light hover:decoration-light hover:decoration-solid hover:underline hover:underline-offset-2"
+                href="https://music.amazon.com/podcasts/7c318b6b-27a9-412f-b3f5-f1e92396922d/podimension"
               >
-            </a>
+                Amazon Music
+              </a>
+            </div>
+          </div>
 
-            <a
-              class="flex mt-4"
-              href="https://www.instagram.com/codedimension_/"
-            >
-              <img
-                class="w-[25px]"
-                src="/images/social/instagram.svg"
-                alt="Instagram"
-              />
-              <span
-                class="text-light hover:decoration-light hover:decoration-solid hover:underline hover:underline-offset-2 ml-1"
-                >Instagram</span
+          <div class="flex justify-center mt-12 lg:mt-0 lg:justify-end lg:basis-1/3">
+            <div class="flex flex-col items-center lg:items-start">
+              <h3 class="text-lg font-bold text-light">Rede Sociais</h3>
+
+              <a
+                class="flex mt-6"
+                href="https://www.youtube.com/@code.dimension"
               >
-            </a>
+                <img
+                  class="w-[25px]"
+                  src="/images/social/youtube.svg"
+                  alt="Youtube"
+                />
+                <span
+                  class="text-light hover:decoration-light hover:decoration-solid hover:underline hover:underline-offset-2 ml-1"
+                  >YouTube</span
+                >
+              </a>
+
+              <a class="flex mt-4" href="https://discord.gg/VFNmgxEHXF">
+                <img
+                  class="w-[25px]"
+                  src="/images/social/discord.svg"
+                  alt="Discord"
+                />
+                <span
+                  class="text-light hover:decoration-light hover:decoration-solid hover:underline hover:underline-offset-2 ml-1"
+                  >Discord</span
+                >
+              </a>
+
+              <a
+                class="flex mt-4"
+                href="https://www.linkedin.com/company/code-dimension/"
+              >
+                <img
+                  class="w-[25px]"
+                  src="/images/social/linkedin.svg"
+                  alt="LinkedIn"
+                />
+                <span
+                  class="text-light hover:decoration-light hover:decoration-solid hover:underline hover:underline-offset-2 ml-1"
+                  >LinkedIn</span
+                >
+              </a>
+
+              <a
+                class="flex mt-4"
+                href="https://www.instagram.com/codedimension_/"
+              >
+                <img
+                  class="w-[25px]"
+                  src="/images/social/instagram.svg"
+                  alt="Instagram"
+                />
+                <span
+                  class="text-light hover:decoration-light hover:decoration-solid hover:underline hover:underline-offset-2 ml-1"
+                  >Instagram</span
+                >
+              </a>
+            </div>
           </div>
         </div>
       </div>
