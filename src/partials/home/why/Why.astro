@@ -4,67 +4,59 @@ import LeftSection from "./left-section.astro";
 import RightSection from "./right-section.astro";
 ---
 
-<section class="bg-gradient-to-t">
-  <ContentContainer>
-    <div class="flex flex-col items-center text-center my-32">
-      <p class="text-xl xl:text-2xl text-light">
-        Angular é utilizado amplamente por grandes empresas do Brasil e do
-        mundo.
-      </p>
-      <p class="text-xl mt-6 xl:text-2xl text-light">
-        E essa preferência tem um porquê!
-      </p>
-    </div>
+<ContentContainer>
+  <div class="flex flex-col items-center text-center my-32">
+    <p class="text-xl xl:text-2xl text-light">
+      Angular é utilizado amplamente por grandes empresas do Brasil e do mundo.
+    </p>
+    <p class="text-xl mt-6 xl:text-2xl text-light">
+      E essa preferência tem um porquê!
+    </p>
+  </div>
 
-    <LeftSection
-      imageUrl="/images/home/why/robot.svg"
-      imageAltText="Big Company Image"
-    >
-      <Fragment slot="title">Desenvolvimento de aplicações modernas</Fragment>
+  <LeftSection
+    imageUrl="/images/home/why/robot.svg"
+    imageAltText="Big Company Image"
+  >
+    <Fragment slot="title">Desenvolvimento de aplicações modernas</Fragment>
 
-      <Fragment slot="text">
-        Angular permite criar aplicativos web modernos, responsivos e com
-        recursos avançados, como roteamento, animações e suporte para
-        desenvolvimento mobile.
-      </Fragment>
-    </LeftSection>
+    <Fragment slot="text">
+      Angular permite criar aplicativos web modernos, responsivos e com recursos
+      avançados, como roteamento, animações e suporte para desenvolvimento
+      mobile.
+    </Fragment>
+  </LeftSection>
 
-    <RightSection
-      imageUrl="/images/home/why/tools.svg"
-      imageAltText="Ferramentas"
-    >
-      <Fragment slot="title">Ferramentas e ecossistema robustos</Fragment>
+  <RightSection
+    imageUrl="/images/home/why/tools.svg"
+    imageAltText="Ferramentas"
+  >
+    <Fragment slot="title">Ferramentas e ecossistema robustos</Fragment>
 
-      <Fragment slot="text">
-        Angular possui um ecossistema rico em ferramentas, bibliotecas e
-        recursos adicionais que podem aumentar sua produtividade e facilitar o
-        desenvolvimento de aplicativos web.
-      </Fragment>
-    </RightSection>
+    <Fragment slot="text">
+      Angular possui um ecossistema rico em ferramentas, bibliotecas e recursos
+      adicionais que podem aumentar sua produtividade e facilitar o
+      desenvolvimento de aplicativos web.
+    </Fragment>
+  </RightSection>
 
-    <LeftSection imageUrl="/images/home/why/test.svg" imageAltText="Testes">
-      <Fragment slot="title">Testabilidade e manutenibilidade</Fragment>
+  <LeftSection imageUrl="/images/home/why/test.svg" imageAltText="Testes">
+    <Fragment slot="title">Testabilidade e manutenibilidade</Fragment>
 
-      <Fragment slot="text">
-        Angular promove a escrita de código testável e modular, facilitando a
-        criação de testes automatizados e a manutenção do código ao longo do
-        tempo.
-      </Fragment>
-    </LeftSection>
+    <Fragment slot="text">
+      Angular promove a escrita de código testável e modular, facilitando a
+      criação de testes automatizados e a manutenção do código ao longo do
+      tempo.
+    </Fragment>
+  </LeftSection>
 
-    <RightSection
-      imageUrl="/images/home/why/trust.svg"
-      imageAltText="Confiança"
-    >
-      <Fragment slot="title">Suporte e atualizações contínuas</Fragment>
+  <RightSection imageUrl="/images/home/why/trust.svg" imageAltText="Confiança">
+    <Fragment slot="title">Suporte e atualizações contínuas</Fragment>
 
-      <Fragment slot="text">
-        Angular é mantido pelo Google, o que significa que você terá acesso a
-        suporte técnico de alta qualidade e atualizações regulares para manter
-        seus conhecimentos atualizados.
-      </Fragment>
-    </RightSection>
-  </ContentContainer>
-</section>
-
-<style></style>
+    <Fragment slot="text">
+      Angular é mantido pelo Google, o que significa que você terá acesso a
+      suporte técnico de alta qualidade e atualizações regulares para manter
+      seus conhecimentos atualizados.
+    </Fragment>
+  </RightSection>
+</ContentContainer>

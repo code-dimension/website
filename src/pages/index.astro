@@ -9,10 +9,37 @@ import Youtube from "../partials/home/Youtube.astro";
 
 <Layout title="Welcome to Astro.">
   <main>
-    <Banner />
-    <Why />
-    <Youtube />
-    <Feedback />
-    <Newsletter />
+    <section class="bg-gradient-to-b from-darkBlue to-lightDarkBlueAlpha03">
+      <section>
+        <Banner />
+      </section>
+      <section>
+        <Why />
+      </section>
+    </section>
+    <!-- <section class="bg-gradient-to-b from-[rgba(12,7,61,0.3)]  to-darkBlue"> -->
+    <section
+      class="pt-32 bg-gradient-to-b from-lightDarkBlueAlpha03 to-lightDarkRedAlpha03"
+    >
+      <Youtube />
+    </section>
+    <section class="lg:pt-24 bg-gradient-to-b from-lightDarkRedAlpha03 to-lightDarkBlueAlpha03">
+      <Feedback />
+    </section>
+    <section class="pt-32 bg-gradient-to-b from-lightDarkBlueAlpha03 to-darkBlue">
+      <Newsletter />
+    </section>
   </main>
 </Layout>
+
+<style lang="scss">
+  .gradient-top-to-bottom {
+    background: linear-gradient(180deg, #03020f 0%, #0c073d 100%);
+  }
+
+  .g2 {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, #03020f 0%, #0c073d 100%);
+  }
+</style>

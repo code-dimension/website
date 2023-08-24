@@ -29,47 +29,46 @@ const feedbacks = [
 ];
 ---
 
-<section class="lg:mt-24">
-  <ContentContainer>
-    <div class="flex flex-col items-center">
-      <div class="max-w-[780px] w-full">
-        <h1 class="text-[32px] text-light font-bold text-center">
-          E olha só os feedbacks que estamos recebendo
-        </h1>
+<ContentContainer>
+  <div class="flex flex-col items-center">
+    <div class="max-w-[780px] w-full">
+      <h1 class="text-[32px] text-light font-bold text-center">
+        E olha só os feedbacks que estamos recebendo
+      </h1>
 
-        <p class="text-[18px] leading-relaxed text-center text-light mt-8">
-          A Code Dimension está empenhada em entregar conteúdo relevante e atualizado para você que quer evoluir dia após dia!
-        </p>
-      </div>
+      <p class="text-[18px] leading-relaxed text-center text-light mt-8">
+        A Code Dimension está empenhada em entregar conteúdo relevante e
+        atualizado para você que quer evoluir dia após dia!
+      </p>
     </div>
+  </div>
 
-    <swiper-container
-      class="mt-20"
-      pagination="false"
-      effect="coverflow"
-      grab-cursor="true"
-      centered-slides="true"
-      autoplay="true"
-      loop="true"
-      coverflow-effect-rotate="50"
-      coverflow-effect-stretch="0"
-      coverflow-effect-depth="100"
-      coverflow-effect-modifier="1"
-      coverflow-effect-slide-shadows="true"
-      init="false"
-    >
-      {
-        feedbacks.map((feedback) => (
-          <swiper-slide class="h-[250px] p-8 sm:m-2 lg:p-8 border border-light rounded flex flex-col items-center">
-            <p class="text-light text-[18px]">{feedback.text}</p>
+  <swiper-container
+    class="mt-20"
+    pagination="false"
+    effect="coverflow"
+    grab-cursor="true"
+    centered-slides="true"
+    autoplay="true"
+    loop="true"
+    coverflow-effect-rotate="50"
+    coverflow-effect-stretch="0"
+    coverflow-effect-depth="100"
+    coverflow-effect-modifier="1"
+    coverflow-effect-slide-shadows="true"
+    init="false"
+  >
+    {
+      feedbacks.map((feedback) => (
+        <swiper-slide class="min-h-[350px] p-8 sm:m-2 lg:p-8 border border-light rounded flex flex-col items-center">
+          <p class="text-light text-[18px]">{feedback.text}</p>
 
-            <em class="text-light mt-auto">{feedback.author}</em>
-          </swiper-slide>
-        ))
-      }
-    </swiper-container>
-  </ContentContainer>
-</section>
+          <em class="text-light mt-auto">{feedback.author}</em>
+        </swiper-slide>
+      ))
+    }
+  </swiper-container>
+</ContentContainer>
 
 <script>
   // import function to register Swiper custom elements

@@ -3,23 +3,21 @@ import ContentContainer from "../../shared/containers/ContentContainer.astro";
 import SubstackForm from "../../shared/forms/substack-form.astro";
 ---
 
-<section class="mt-32">
-  <ContentContainer>
-    <div class="flex flex-col items-center">
-      <div class="max-w-[780px] w-full">
-        <h1 class="text-[32px] text-light font-bold text-center">
-          Assine nossa Newsletter e não perca nada!
-        </h1>
+<ContentContainer>
+  <div class="flex flex-col items-center">
+    <div class="max-w-[780px] w-full">
+      <h1 class="text-[32px] text-light font-bold text-center">
+        Assine nossa Newsletter e não perca nada!
+      </h1>
 
-        <p class="text-[18px] leading-relaxed text-center text-light mt-8">
-          Nossa Newsletter é um compilado dos conteúdos mais relevantes sobre
-          Front-End e Angular, organizados de forma muito prática e intuitiva.
-        </p>
-      </div>
-
-      <div class="mt-10">
-        <SubstackForm />
-      </div>
+      <p class="text-[18px] leading-relaxed text-center text-light mt-8">
+        Nossa Newsletter é um compilado dos conteúdos mais relevantes sobre
+        Front-End e Angular, organizados de forma muito prática e intuitiva.
+      </p>
     </div>
-  </ContentContainer>
-</section>
+
+    <div class="mt-10">
+      <SubstackForm />
+    </div>
+  </div>
+</ContentContainer>
