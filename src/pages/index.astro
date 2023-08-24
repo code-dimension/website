@@ -3,30 +3,25 @@ import Layout from "../layouts/Layout.astro";
 import Banner from "../partials/home/Banner.astro";
 import Feedback from "../partials/home/Feedback.astro";
 import Newsletter from "../partials/home/Newsletter.astro";
-import Why from "../partials/home/why/Why.astro";
+import ExplainingWhy from "../partials/home/ExplainingWhy.astro";
+import Why from "../partials/home/Why.astro";
 import Youtube from "../partials/home/Youtube.astro";
 ---
 
-<Layout title="Welcome to Astro.">
-  <main>
-    <section class="bg-gradient-to-b from-darkBlue to-lightDarkBlueAlpha03">
-      <section>
-        <Banner />
-      </section>
-      <section>
-        <Why />
-      </section>
-    </section>
-    <!-- <section class="bg-gradient-to-b from-[rgba(12,7,61,0.3)]  to-darkBlue"> -->
-    <section
-      class="pt-32 bg-gradient-to-b from-lightDarkBlueAlpha03 to-lightDarkRedAlpha03"
-    >
+<Layout>
+  <main
+    class="bg-gradient-to-b from-lightDarkRedAlpha03 from-20% via-lightDarkBlueAlpha03 via-30% to-darkBlue to-70%"
+  >
+    <Banner />
+    <Why />
+    <ExplainingWhy />
+    <section class="pt-32">
       <Youtube />
     </section>
-    <section class="lg:pt-24 bg-gradient-to-b from-lightDarkRedAlpha03 to-lightDarkBlueAlpha03">
+    <section class="lg:pt-24">
       <Feedback />
     </section>
-    <section class="pt-32 bg-gradient-to-b from-lightDarkBlueAlpha03 to-darkBlue">
+    <section class="pt-32">
       <Newsletter />
     </section>
   </main>

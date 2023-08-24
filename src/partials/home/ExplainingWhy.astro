@@ -1,19 +1,10 @@
 ---
-import ContentContainer from "../../../shared/containers/ContentContainer.astro";
-import LeftSection from "./left-section.astro";
-import RightSection from "./right-section.astro";
+import ContentContainer from "../../shared/containers/ContentContainer.astro";
+import LeftSection from "../../shared/sections/LeftSection.astro";
+import RightSection from "../../shared/sections/RightSection.astro";
 ---
 
 <ContentContainer>
-  <div class="flex flex-col items-center text-center my-32">
-    <p class="text-xl xl:text-2xl text-light">
-      Angular é utilizado amplamente por grandes empresas do Brasil e do mundo.
-    </p>
-    <p class="text-xl mt-6 xl:text-2xl text-light">
-      E essa preferência tem um porquê!
-    </p>
-  </div>
-
   <LeftSection
     imageUrl="/images/home/why/robot.svg"
     imageAltText="Big Company Image"

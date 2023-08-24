@@ -35,8 +35,8 @@ module.exports = {
       },
       darkBlue: '#03020f',
       lightDarkBlue: '#0c073d',
-      lightDarkRedAlpha03: 'rgba(74,6,20,0.3)',
-      lightDarkBlueAlpha03: 'rgba(12,7,61,0.3)'
+      lightDarkRedAlpha03: 'rgba(74,6,20,0.1)',
+      lightDarkBlueAlpha03: 'rgba(12,7,61,0.1)'
     },
 
     extend: {
