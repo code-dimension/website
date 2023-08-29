@@ -1,5 +1,18 @@
 ---
 import ContentContainer from "../../shared/containers/ContentContainer.astro";
+
+const links = [
+  {
+    url: '/', label: 'Home'
+  },
+  {
+    url: '/podimension', label: 'Podimension'
+  },
+  {
+    url: 'https://blog.codedimension.com.br', label: 'Blog'
+  },
+]
+
 ---
 
 <div class="h-[105px] xl:h-[90px] w-full"></div>
@@ -8,12 +21,11 @@ import ContentContainer from "../../shared/containers/ContentContainer.astro";
   <ContentContainer>
     <div class="py-3 sm:px-6 flex items-center xl:py-4">
       <img src="images/logo.svg" alt="Code Dimension Logo" class="w-[50px]" />
-
+      
       <nav class="px-8 hidden xl:inline-block">
-        <a class="link" href="/">Home</a>
-        <a class="link" href="/podimension">Podimension</a>
-        <a class="link" href="sobre-a-code">Sobre a Code</a>
-        <a class="link" href="blog.codedimension.com.br">Nosso Blog</a>
+        { links.map((link) => {
+          return <a class="link" href={link.url}>{link.label}</a>
+        }) }
       </nav>
 
       <a class="cursor-pointer ml-auto block xl:hidden" id="mobile-menu-handler">
@@ -50,10 +62,9 @@ import ContentContainer from "../../shared/containers/ContentContainer.astro";
     <nav
       class="flex flex-col items-center justify-center h-[calc(100%_-_44px)]"
     >
-      <a class="link" href="/">Home</a>
-      <a class="link" href="/podimension">Podimension</a>
-      <a class="link" href="sobre-a-code">Sobre a Code</a>
-      <a class="link" href="blog.codedimension.com.br">Nosso Blog</a>
+      { links.map((link) => {
+        return <a class="link" href={link.url}>{link.label}</a>
+      }) }
     </nav>
   </ContentContainer>
 </div>
