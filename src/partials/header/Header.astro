@@ -2,33 +2,46 @@
 import ContentContainer from "../../shared/containers/ContentContainer.astro";
 
 const links = [
+  // {
+  //   url: '/', label: 'Home'
+  // },
+  // {
+  //   url: '/podimension', label: 'Podimension'
+  // },
   {
-    url: '/', label: 'Home'
+    url: "https://medium.com/code-dimension",
+    label: "Blog",
   },
-  {
-    url: '/podimension', label: 'Podimension'
-  },
-  {
-    url: 'https://blog.codedimension.com.br', label: 'Blog'
-  },
-]
-
+];
 ---
 
 <div class="h-[105px] xl:h-[90px] w-full"></div>
 
-<div class="w-full glass-it fixed top-0 left-0 z-40 border-bottom h-[105px] xl:h-[90px]">
+<div
+  class="w-full glass-it fixed top-0 left-0 z-40 border-bottom h-[105px] xl:h-[90px]"
+>
   <ContentContainer>
     <div class="py-3 sm:px-6 flex items-center xl:py-4">
-      <img src="images/logo.svg" alt="Code Dimension Logo" class="w-[50px]" />
-      
-      <nav class="px-8 hidden xl:inline-block">
-        { links.map((link) => {
-          return <a class="link" href={link.url}>{link.label}</a>
-        }) }
+      <a href="/">
+        <img src="images/logo.svg" alt="Code Dimension Logo" class="w-[50px]" />
+      </a>
+
+      <nav class="px-8 hidden xl:inline-block ml-auto">
+        {
+          links.map((link) => {
+            return (
+              <a class="link" href={link.url}>
+                {link.label}
+              </a>
+            );
+          })
+        }
       </nav>
 
-      <a class="cursor-pointer ml-auto block xl:hidden" id="mobile-menu-handler">
+      <a
+        class="cursor-pointer ml-auto block xl:hidden"
+        id="mobile-menu-handler"
+      >
         <img
           class="w-[32px] ml-auto"
           src="images/header/mobile/mobile-menu.svg"
@@ -47,10 +60,7 @@ const links = [
     <div class="flex">
       <img src="images/logo.svg" alt="Code Dimension Logo" class="w-[50px]" />
 
-      <a
-        id="close-mobile-menu-modal"
-        class="cursor-pointer ml-auto text-light"
-      >
+      <a id="close-mobile-menu-modal" class="cursor-pointer ml-auto text-light">
         <img
           src="images/header/mobile/close-menu.svg"
           alt="Close Mobile Menu"
@@ -62,9 +72,15 @@ const links = [
     <nav
       class="flex flex-col items-center justify-center h-[calc(100%_-_44px)]"
     >
-      { links.map((link) => {
-        return <a class="link" href={link.url}>{link.label}</a>
-      }) }
+      {
+        links.map((link) => {
+          return (
+            <a class="link" href={link.url}>
+              {link.label}
+            </a>
+          );
+        })
+      }
     </nav>
   </ContentContainer>
 </div>
@@ -100,7 +116,7 @@ const links = [
     width: 100%;
     border-bottom: 1px solid rgb(255, 255, 255, 0.1);
     padding: 24px;
-    
+
     @media screen and (min-width: 1280px) {
       font-size: 16px;
       padding: 8px;
