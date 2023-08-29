@@ -1,8 +1,8 @@
 ---
-import 'animate.css';
+import "animate.css";
 ---
 
-<style is:global>
+<style is:global lang="scss">
   .glass-it {
     background: transparent;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -11,5 +11,40 @@ import 'animate.css';
 
   .border-bottom {
     border-bottom: 1px solid rgb(255, 255, 255, 0.1);
+  }
+
+  .underlined {
+    /*   background: red; */
+    position: relative;
+    &:after {
+      content: "";
+      position: absolute;
+      top: 105%;
+      width: 100%;
+      aspect-ratio: 3 / 1;
+      left: 50%;
+      transform: translate(-50%, 0);
+      border-width: 2px;
+      border-style: solid;
+      --spread: 140deg;
+      --start: 290deg;
+      mask: conic-gradient(
+        from var(--start),
+        white 0 var(--spread),
+        transparent var(--spread)
+      );
+    }
+
+    &.undelined-red::after {
+      border-color: rgba(178, 0, 18, 0.8);
+    }
+
+    &.undelined-code::after {
+      border-color: #6657ec;
+    }
+
+    &.undelined-green::after {
+      border-color: #1a5d1a;
+    }
   }
 </style>
