@@ -1,13 +1,66 @@
 ---
-import Styles from './styles/Styles.astro'
+import Styles from "./styles/Styles.astro";
+
+const siteConfig = {
+  url: "https://effulgent-liger-d5025f.netlify.app",
+  title: "Code Dimension",
+  description:
+    "A Code Dimension é uma plataforma focada em ensinar Front-End e Angular, através de conteúdos didáticos e relevantes!",
+  ogImage: "https://effulgent-liger-d5025f.netlify.app/images/og-code.png",
+};
+
+const socialImage = `${siteConfig.url}/images/og-code.png`;
 ---
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="description" content="Astro description" />
+  <meta name="robots" content="index, follow" />
   <meta name="viewport" content="width=device-width" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  
-  <title>Code Dimension</title>
+
+  <!-- Primary Meta Tags -->
+  <title>{siteConfig.title}</title>
+  <meta name="title" content={siteConfig.title} />
+  <meta name="description" content={siteConfig.description} />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={siteConfig.url} />
+  <meta property="og:title" content={siteConfig.title} />
+  <meta property="og:description" content={siteConfig.description} />
+  <meta property="og:image" content={socialImage} />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content={siteConfig.url} />
+  <meta property="twitter:title" content={siteConfig.title} />
+  <meta property="twitter:description" content={siteConfig.description} />
+  <meta property="twitter:image" content={socialImage} />
+
+  <!-- realfavicongenerator -->
+  <link
+    rel="apple-touch-icon"
+    sizes="180x180"
+    href="/images/apple-touch-icon.png"
+  />
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="32x32"
+    href="/images/favicon-32x32.png"
+  />
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="16x16"
+    href="/images/favicon-16x16.png"
+  />
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#03020f" />
+  <link rel="shortcut icon" href="/images/favicon.ico" />
+  <meta name="msapplication-TileColor" content="#03020f" />
+  <meta name="msapplication-config" content="/images/browserconfig.xml" />
+  <meta name="theme-color" content="#03020f" />
+
+  <link rel="manifest" href="/site.webmanifest" />
 
   <Styles />
 </head>
