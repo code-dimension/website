@@ -3,17 +3,18 @@ import Head from "../partials/head/Head.astro";
 import Header from "../partials/header/Header.astro";
 import Footer from "../partials/footer/Footer.astro";
 import GlobalStyles from "../partials/global-styles/GlobalStyles.astro";
+
+const { title } = Astro.props;
 ---
 
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <Head />
+  <Head title={title} />
   <GlobalStyles />
 
   <body class="bg-website">
-			<Header />
-			<slot />
-      <Footer />
+    <Header />
+    <slot />
+    <Footer />
   </body>
-  
 </html>

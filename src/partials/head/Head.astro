@@ -4,10 +4,12 @@ import BasicMetaTag from "./metatags/basic.astro";
 import OpenGraphMetaTag from "./metatags/open-graph.astro";
 import TwitterMetaTag from "./metatags/open-graph.astro";
 import FaviconMetaTag from "./metatags/favicon.astro";
+
+const { title } = Astro.props;
 ---
 
 <head>
-  <BasicMetaTag />
+  <BasicMetaTag title={title} />
   <OpenGraphMetaTag />
   <TwitterMetaTag />
   <FaviconMetaTag />
