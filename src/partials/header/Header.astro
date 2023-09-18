@@ -1,0 +1,130 @@
+---
+import ContentContainer from "../../shared/containers/ContentContainer.astro";
+
+const links = [
+  // {
+  //   url: '/', label: 'Home'
+  // },
+  // {
+  //   url: '/podimension', label: 'Podimension'
+  // },
+  {
+    url: "https://medium.com/code-dimension",
+    label: "Blog",
+  },
+];
+---
+
+<div class="h-[105px] xl:h-[90px] w-full"></div>
+
+<div
+  class="w-full glass-it fixed top-0 left-0 z-40 border-bottom h-[105px] xl:h-[90px]"
+>
+  <ContentContainer>
+    <div class="py-3 sm:px-6 flex items-center xl:py-4">
+      <a href="/">
+        <img src="images/logo.svg" alt="Code Dimension Logo" class="w-[50px]" />
+      </a>
+
+      <nav class="px-8 hidden xl:inline-block ml-auto">
+        {
+          links.map((link) => {
+            return (
+              <a class="link" href={link.url}>
+                {link.label}
+              </a>
+            );
+          })
+        }
+      </nav>
+
+      <a
+        class="cursor-pointer ml-auto block xl:hidden"
+        id="mobile-menu-handler"
+      >
+        <img
+          class="w-[32px] ml-auto"
+          src="images/header/mobile/mobile-menu.svg"
+          alt="Hamburger Menu"
+        />
+      </a>
+    </div>
+  </ContentContainer>
+</div>
+
+<div
+  id="mobile-menu-modal"
+  class="header fixed top-0 z-50 w-full h-full hidden bg-website"
+>
+  <ContentContainer>
+    <div class="flex">
+      <img src="images/logo.svg" alt="Code Dimension Logo" class="w-[50px]" />
+
+      <a id="close-mobile-menu-modal" class="cursor-pointer ml-auto text-light">
+        <img
+          src="images/header/mobile/close-menu.svg"
+          alt="Close Mobile Menu"
+          class="w-[48px]"
+        />
+      </a>
+    </div>
+
+    <nav
+      class="flex flex-col items-center justify-center h-[calc(100%_-_44px)]"
+    >
+      {
+        links.map((link) => {
+          return (
+            <a class="link" href={link.url}>
+              {link.label}
+            </a>
+          );
+        })
+      }
+    </nav>
+  </ContentContainer>
+</div>
+
+<script>
+  const mobileMenu = document.querySelector("#mobile-menu-handler");
+  const mobileMenuModal = document.querySelector("#mobile-menu-modal");
+  const closeMobileMenuModal = document.querySelector(
+    "#close-mobile-menu-modal"
+  );
+
+  const openModal = () => {
+    mobileMenuModal?.classList.add("block");
+    mobileMenuModal?.classList.remove("hidden");
+  };
+
+  const closeModal = () => {
+    mobileMenuModal?.classList.add("hidden");
+    mobileMenuModal?.classList.remove("block");
+  };
+
+  mobileMenu?.addEventListener("click", () => openModal());
+  closeMobileMenuModal?.addEventListener("click", () => closeModal());
+</script>
+
+<style lang="scss">
+  .link {
+    font-family: "Inter";
+    color: #fff;
+    margin: 0 16px;
+    text-align: center;
+    font-size: 18px;
+    width: 100%;
+    border-bottom: 1px solid rgb(255, 255, 255, 0.1);
+    padding: 24px;
+
+    @media screen and (min-width: 1280px) {
+      font-size: 16px;
+      padding: 8px;
+      border: none;
+      &:hover {
+        padding-bottom: 8px;
+        border-bottom: 1px solid #fff;
+      }
+    }
+  }
+</style>

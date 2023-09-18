@@ -20,21 +20,34 @@ module.exports = {
         // => @media (min-width: 1920px) { ... }
       },
     },
+
     colors: {
-      black: '#212121',
-      light: '#FFFFFF',
+      code: "#6657EC",
+      black: "#212121",
+      light: "#FFFFFF",
       background: {
-        light: '#FFFFFF'
+        light: "#FFFFFF",
       },
       button: {
         filled: {
-          borderColor: '#FFFFFF29'
-        }
-      }
+          borderColor: "#FFFFFF29",
+        },
+      },
+      darkBlue: '#03020f',
+      lightDarkBlue: '#0c073d',
+      lightDarkRedAlpha03: 'rgba(74,6,20,0.1)',
+      lightDarkBlueAlpha03: 'rgba(12,7,61,0.1)',
+      redFromAngular: '#b20012'
     },
 
-    extend: {},
-
+    extend: {
+      fontFamily: {
+        inter: ["Inter"],
+      },
+      backgroundColor: {
+        website: '#03020f'
+      },
+    },
   },
-  plugins: []
-}
+  plugins: [],
+};

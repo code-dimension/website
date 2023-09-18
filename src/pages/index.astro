@@ -1,10 +1,48 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
+import Banner from "../partials/home/Banner.astro";
+import Feedback from "../partials/home/Feedback.astro";
+import Newsletter from "../partials/home/Newsletter.astro";
+import ExplainingWhy from "../partials/home/ExplainingWhy.astro";
+import Why from "../partials/home/Why.astro";
+import Youtube from "../partials/home/Youtube.astro";
+import ContentContainer from "../shared/containers/ContentContainer.astro";
 ---
 
-<Layout title="Welcome to Astro.">
-	<main>
-		
-	</main>
+<Layout title="Home">
+  <main
+    class="bg-gradient-to-b from-lightDarkRedAlpha03 from-20% via-lightDarkBlueAlpha03 via-30% to-darkBlue to-70%"
+  >
+    <Banner />
+
+    <section class="py-32" data-aos="fade-up">
+      <Why />
+    </section>
+
+    <ExplainingWhy />
+    
+    <section class="pt-32 lg:pt-56" data-aos="fade-up">
+      <Youtube />
+    </section>
+    
+    <section class="lg:pt-48" data-aos="fade-up">
+      <Feedback />
+    </section>
+    
+    <section class="pt-32 lg:pt-56 lg:pb-28">
+      <Newsletter />
+    </section>
+  </main>
 </Layout>
 
+<style lang="scss">
+  @import "aos/dist/aos.css";
+</style>
+
+<script>
+  import AOS from "aos";
+
+  AOS.init({
+    delay: 500,
+  });
+</script>

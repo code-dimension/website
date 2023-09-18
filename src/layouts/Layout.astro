@@ -1,14 +1,20 @@
 ---
-import Head from "./../components/Head.astro";
-import Header from "./../components/Header.astro";
+import Head from "../partials/head/Head.astro";
+import Header from "../partials/header/Header.astro";
+import Footer from "../partials/footer/Footer.astro";
+import GlobalStyles from "../partials/global-styles/GlobalStyles.astro";
+
+const { title } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang="en">
-	<Head />
-	<body class="bg-black">
-		<Header />
-		<slot />
-	</body>
-</html>
+<html lang="pt-BR">
+  <Head title={title} />
+  <GlobalStyles />
 
+  <body class="bg-website">
+    <Header />
+    <slot />
+    <Footer />
+  </body>
+</html>

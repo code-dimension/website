@@ -1,0 +1,71 @@
+---
+import ContentContainer from "../../shared/containers/ContentContainer.astro";
+
+type Image = { url: string; altText: string };
+
+const images: Image[] = [
+  {
+    url: "/images/home/youtube/app-initializer-thumbnail.svg",
+    altText: "App Initializer Thumbnail",
+  },
+  {
+    url: "/images/home/youtube/http-interceptors-thumbnail.svg",
+    altText: "HTTP Interceptor Thumbnail",
+  },
+  {
+    url: "/images/home/youtube/injection-token-thumbnail.svg",
+    altText: "Injection Token Thumbnail",
+  },
+];
+---
+
+<section class="min-h-[900px] lg:min-h-[650px]">
+  <ContentContainer>
+    <div class="flex flex-col items-center">
+      <div class="max-w-[780px] w-full">
+        <h1 class="text-[32px] text-light font-bold text-center">
+          Muito conteúdo no nosso canal do YouTube!
+        </h1>
+
+        <p class="text-[18px] leading-relaxed text-center text-light mt-8">
+          No nosso canal você encontra muito contéudo atualizado sobre <strong>Front-End</strong>
+          e <strong class="underlined undelined-red">Angular</strong>, dicas sobre desenvolvimento web e, claro, cursos gratuitos
+          para você ir sempre além!
+        </p>
+      </div>
+      <a
+        class="relative mt-28 w-full"
+        href="https://www.youtube.com/@code.dimension"
+      >
+        <div
+          class="shadow-lg shadow-code absolute w-[250px] h-[135px] top-[0px] left-[0px] z-[10] lg:w-[450px] lg:h-[252px]"
+        >
+          <img
+            class="w-full h-full"
+            src="/images/home/youtube/app-initializer-thumbnail.svg"
+            alt=""
+          />
+        </div>
+        <div
+          class="shadow-lg shadow-code absolute w-[250px] h-[135px] z-[11] top-[100px] right-[calc(50%_-_125px)] lg:top-[0px] lg:right-[0px] lg:w-[450px] lg:h-[252px]"
+        >
+          <img
+            class="w-full h-full"
+            src="/images/home/youtube/http-interceptors-thumbnail.svg"
+            alt=""
+          />
+        </div>
+
+        <div
+          class="shadow-2lg shadow-code absolute w-[250px] h-[135px] top-[200px] right-0 lg:w-[450px] lg:h-[252px] lg:top-[50px] lg:left-[calc(50%_-_225px)] z-[12]"
+        >
+          <img
+            class="w-full h-full"
+            src="/images/home/youtube/injection-token-thumbnail.svg"
+            alt=""
+          />
+        </div>
+      </a>
+    </div>
+  </ContentContainer>
+</section>

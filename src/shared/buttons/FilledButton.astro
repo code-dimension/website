@@ -1,0 +1,27 @@
+---
+const { url } = Astro.props;
+---
+
+<a class="button font-inter text-light" href={url}>
+  <slot />
+</a>
+
+<style lang="scss">
+  .button {
+    display: inline-flex;
+    padding: 16px;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 8px;
+    border-radius: 10000px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    background: rgba(51, 64, 71, 0.4);
+    color: white;
+
+    &:hover {
+      border-radius: 74px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      background: rgba(51, 64, 71, 0.88);
+    }
+  }
+</style>
