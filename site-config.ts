@@ -1,16 +1,21 @@
-const baseConfig = {
-  url: "https://effulgent-liger-d5025f.netlify.app",
-  title: "Code Dimension",
-  description:
-    "A Code Dimension é uma plataforma focada em ensinar Front-End e Angular, através de conteúdos didáticos e relevantes!",
-  ogImage: "https://effulgent-liger-d5025f.netlify.app/images/og-code.png",
-  themeColor: "#03020f",
-};
+const siteUrl = "https://codedimension.com.br";
 
-const socialImage = `${baseConfig.url}/images/og-code.png`;
+const title = "Code Dimension";
+
+const description =
+  "A Code Dimension é uma plataforma focada em ensinar Front-End e Angular, através de conteúdos didáticos e relevantes!";
+
+const ogImage = `${siteUrl}/images/og-code.png`;
+
+const themeColor = "#03020f";
+
+const socialImage = `${siteUrl}/images/social-media-image.png`;
 
 export const siteConfig = {
-    ...baseConfig,
-    socialImage
-}
-
+  url: siteUrl,
+  title,
+  description,
+  ogImage,
+  themeColor,
+  socialImage,
+};
