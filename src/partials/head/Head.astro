@@ -4,7 +4,6 @@ import BasicMetaTag from "./metatags/basic.astro";
 import OpenGraphMetaTag from "./metatags/open-graph.astro";
 import TwitterMetaTag from "./metatags/twitter.astro";
 import FaviconMetaTag from "./metatags/favicon.astro";
-import GA from "./ga/ga.astro";
 import GTM from "./gtm/gtm.astro";
 
 const { title } = Astro.props;
@@ -16,7 +15,6 @@ const { title } = Astro.props;
   <TwitterMetaTag />
   <FaviconMetaTag />
 
-  <GA />
   <GTM />
 
   <link rel="manifest" href="/site.webmanifest" />
