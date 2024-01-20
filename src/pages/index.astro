@@ -10,29 +10,25 @@ import ContentContainer from "../shared/containers/ContentContainer.astro";
 ---
 
 <Layout title="Home">
-  <main
-    class="bg-gradient-to-b from-lightDarkRedAlpha03 from-20% via-lightDarkBlueAlpha03 via-30% to-darkBlue to-70%"
-  >
-    <Banner />
+  <Banner />
 
-    <section class="py-32" data-aos="fade-up">
-      <Why />
-    </section>
+  <section class="py-32" data-aos="fade-up">
+    <Why />
+  </section>
 
-    <ExplainingWhy />
-    
-    <section class="pt-32 lg:pt-56" data-aos="fade-up">
-      <Youtube />
-    </section>
-    
-    <section class="lg:pt-48" data-aos="fade-up">
-      <Feedback />
-    </section>
-    
-    <section class="pt-32 lg:pt-56 lg:pb-28">
-      <Newsletter />
-    </section>
-  </main>
+  <ExplainingWhy />
+
+  <section class="pt-32 lg:pt-56" data-aos="fade-up">
+    <Youtube />
+  </section>
+
+  <section class="lg:pt-48" data-aos="fade-up">
+    <Feedback />
+  </section>
+
+  <section class="pt-32 lg:pt-56 lg:pb-28">
+    <Newsletter />
+  </section>
 </Layout>
 
 <style lang="scss">
