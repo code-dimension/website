@@ -33,11 +33,11 @@ module.exports = {
           borderColor: "#FFFFFF29",
         },
       },
-      darkBlue: '#03020f',
-      lightDarkBlue: '#0c073d',
-      lightDarkRedAlpha03: 'rgba(74,6,20,0.1)',
-      lightDarkBlueAlpha03: 'rgba(12,7,61,0.1)',
-      redFromAngular: '#b20012'
+      darkBlue: "#03020f",
+      lightDarkBlue: "#0c073d",
+      lightDarkRedAlpha03: "rgba(74,6,20,0.1)",
+      lightDarkBlueAlpha03: "rgba(12,7,61,0.1)",
+      redFromAngular: "#b20012",
     },
 
     extend: {
@@ -45,9 +45,34 @@ module.exports = {
         inter: ["Inter"],
       },
       backgroundColor: {
-        website: '#03020f'
+        website: "#03020f",
       },
     },
   },
-  plugins: [],
+  daisyui: {
+    themes: [
+      {
+        mytheme: {
+          primary: "#6657ec",
+
+          secondary: "#374151",
+
+          accent: "#db2777",
+
+          neutral: "#f3f4f6",
+
+          "base-100": "#f3f4f6",
+
+          info: "#1d4ed8",
+
+          success: "#10b981",
+
+          warning: "#facc15",
+
+          error: "#dc2626",
+        },
+      },
+    ],
+  },
+  plugins: [require("daisyui")],
 };
