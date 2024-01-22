@@ -12,17 +12,11 @@ import ContentContainer from "../shared/containers/ContentContainer.astro";
 <Layout title="Home">
   <Banner />
 
-  <section class="py-32" data-aos="fade-up">
-    <Why />
-  </section>
-
-  <ExplainingWhy />
-
   <section class="pt-32 lg:pt-56" data-aos="fade-up">
     <Youtube />
   </section>
 
-  <section class="lg:pt-48" data-aos="fade-up">
+  <section class="pt-32 lg:pt-48" data-aos="fade-up">
     <Feedback />
   </section>
 
@@ -30,15 +24,3 @@ import ContentContainer from "../shared/containers/ContentContainer.astro";
     <Newsletter />
   </section>
 </Layout>
-
-<style lang="scss">
-  @import "aos/dist/aos.css";
-</style>
-
-<script>
-  import AOS from "aos";
-
-  AOS.init({
-    delay: 500,
-  });
-</script>

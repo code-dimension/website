@@ -3,6 +3,10 @@ import "animate.css";
 ---
 
 <style is:global lang="scss">
+  * {
+    font-family: "Inter";
+  }
+
   .glass-it {
     background: transparent;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -11,6 +15,10 @@ import "animate.css";
 
   .border-bottom {
     border-bottom: 1px solid rgb(255, 255, 255, 0.1);
+  }
+
+  .link {
+    @apply no-underline hover:decoration-primary hover:decoration-solid hover:underline hover:underline-offset-2;
   }
 
   .underlined {
@@ -39,7 +47,7 @@ import "animate.css";
       border-color: rgba(178, 0, 18, 0.8);
     }
 
-    &.undelined-code::after {
+    &.underlined-code::after {
       border-color: #6657ec;
     }
 

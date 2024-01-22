@@ -2,12 +2,6 @@
 import ContentContainer from "../../shared/containers/ContentContainer.astro";
 
 const links = [
-  // {
-  //   url: '/', label: 'Home'
-  // },
-  // {
-  //   url: '/podimension', label: 'Podimension'
-  // },
   {
     url: "/contato",
     label: "Contato",
@@ -22,7 +16,7 @@ const links = [
 <div class="h-[105px] xl:h-[90px] w-full"></div>
 
 <div
-  class="w-full glass-it fixed top-0 left-0 z-40 border-bottom h-[105px] xl:h-[90px]"
+  class="w-full glass fixed top-0 left-0 z-40 border-bottom h-[105px] xl:h-[90px]"
 >
   <ContentContainer>
     <div class="py-3 sm:px-6 flex items-center xl:py-4">
@@ -34,7 +28,7 @@ const links = [
         {
           links.map((link) => {
             return (
-              <a class="link" href={link.url}>
+              <a class="link header-link" href={link.url}>
                 {link.label}
               </a>
             );
@@ -58,11 +52,11 @@ const links = [
 
 <div
   id="mobile-menu-modal"
-  class="header fixed top-0 z-50 w-full h-full hidden bg-website"
+  class="header fixed top-0 z-50 w-full h-full hidden bg-base-100"
 >
   <ContentContainer>
     <div class="flex">
-      <img src="images/logo.svg" alt="Code Dimension Logo" class="w-[50px]" />
+      <img src="/images/logomark/logo-cd-symbol.svg" alt="Code Dimension Logo" class="w-[50px]" />
 
       <a id="close-mobile-menu-modal" class="cursor-pointer ml-auto ">
         <img
@@ -79,7 +73,7 @@ const links = [
       {
         links.map((link) => {
           return (
-            <a class="link" href={link.url}>
+            <a class="link header-link" href={link.url}>
               {link.label}
             </a>
           );
@@ -111,23 +105,16 @@ const links = [
 </script>
 
 <style lang="scss">
-  .link {
-    font-family: "Inter";
+  .header-link {
     margin: 0 16px;
     text-align: center;
-    font-size: 18px;
+    font-size: 24px;
     width: 100%;
-    border-bottom: 1px solid rgb(255, 255, 255, 0.1);
     padding: 24px;
 
     @media screen and (min-width: 1280px) {
       font-size: 16px;
       padding: 8px;
-      border: none;
-      &:hover {
-        padding-bottom: 8px;
-        border-bottom: 1px solid;
-      }
     }
   }
 </style>
