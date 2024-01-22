@@ -21,6 +21,8 @@
   },
   "devDependencies": {
     "@types/aos": "^3.0.4",
+    "bootstrap": "^5.3.2",
+    "daisyui": "^4.6.0",
     "sass": "^1.63.6"
   }
 }

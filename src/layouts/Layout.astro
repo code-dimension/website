@@ -11,12 +11,10 @@ const { title } = Astro.props;
   <Head title={title} />
   <GlobalStyles />
 
-  <body class="bg-website">
+  <body class="">
     <Header />
 
-    <main
-      class="bg-gradient-to-b from-lightDarkRedAlpha03 from-20% via-lightDarkBlueAlpha03 via-30% to-darkBlue to-70%"
-    >
+    <main>
       <slot />
     </main>
 

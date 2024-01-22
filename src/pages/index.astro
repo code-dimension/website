@@ -3,42 +3,21 @@ import Layout from "../layouts/Layout.astro";
 import Banner from "../partials/home/Banner.astro";
 import Feedback from "../partials/home/Feedback.astro";
 import Newsletter from "../partials/home/Newsletter.astro";
-import ExplainingWhy from "../partials/home/ExplainingWhy.astro";
-import Why from "../partials/home/Why.astro";
 import Youtube from "../partials/home/Youtube.astro";
-import ContentContainer from "../shared/containers/ContentContainer.astro";
 ---
 
 <Layout title="Home">
   <Banner />
 
-  <section class="py-32" data-aos="fade-up">
-    <Why />
-  </section>
-
-  <ExplainingWhy />
-
-  <section class="pt-32 lg:pt-56" data-aos="fade-up">
+  <section class="py-32 lg:py-48 bg-[#f3f3f3]">
     <Youtube />
   </section>
 
-  <section class="lg:pt-48" data-aos="fade-up">
+  <section class="py-32 lg:py-48">
     <Feedback />
   </section>
 
-  <section class="pt-32 lg:pt-56 lg:pb-28">
+  <section class="py-32 lg:py-48 bg-[#f3f3f3]">
     <Newsletter />
   </section>
 </Layout>
-
-<style lang="scss">
-  @import "aos/dist/aos.css";
-</style>
-
-<script>
-  import AOS from "aos";
-
-  AOS.init({
-    delay: 500,
-  });
-</script>

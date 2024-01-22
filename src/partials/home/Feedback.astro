@@ -32,12 +32,12 @@ const feedbacks = [
 <ContentContainer>
   <div class="flex flex-col items-center">
     <div class="max-w-[780px] w-full">
-      <h1 class="text-[32px] text-light font-bold text-center">
-        E olha só os feedbacks que estamos recebendo
+      <h1 class="text-[32px]  font-bold text-center">
+        Está chovendo elogios por aqui :)
       </h1>
 
-      <p class="text-[18px] leading-relaxed text-center text-light mt-8">
-        A <strong class="underlined undelined-code">Code Dimension</strong> está empenhada em entregar conteúdo relevante e
+      <p class="text-[18px] leading-relaxed text-center  mt-8">
+        A <strong class="text-primary">Code Dimension</strong> está empenhada em entregar conteúdo relevante e
         atualizado para você que quer evoluir dia após dia!
       </p>
     </div>
@@ -60,10 +60,10 @@ const feedbacks = [
   >
     {
       feedbacks.map((feedback) => (
-        <swiper-slide class="min-h-[350px] p-8 sm:m-2 lg:p-8 border border-light rounded flex flex-col items-center">
-          <p class="text-light text-[18px]">{feedback.text}</p>
+        <swiper-slide class="min-h-[350px] p-8 sm:m-2 lg:p-8 border border-primary bg-primary text-base-100 rounded flex flex-col items-center">
+          <p class=" text-[18px]">{feedback.text}</p>
 
-          <em class="text-light mt-auto">{feedback.author}</em>
+          <em class=" mt-auto">{feedback.author}</em>
         </swiper-slide>
       ))
     }
