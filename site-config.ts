@@ -9,7 +9,7 @@ const ogImage = `${siteUrl}/images/og-code.png`;
 
 const themeColor = "#03020f";
 
-const socialImage = `${siteUrl}/images/social-media-image.svg`;
+const socialImage = `${siteUrl}/images/social-media-image.png`;
 
 export const siteConfig = {
   url: siteUrl,
