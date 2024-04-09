@@ -1,6 +1,6 @@
 ---
-import MailchimpForm from "../../shared/forms/mailchimp-form.astro";
 import ContentContainer from "./../../shared/containers/ContentContainer.astro";
+import rocket from "./banner-rocket.svg?raw";
 ---
 
 <ContentContainer>
@@ -17,18 +17,21 @@ import ContentContainer from "./../../shared/containers/ContentContainer.astro";
 
         <p class="text-xl py-16 xl:py-10">
           Na <strong class="text-primary">Code Dimension</strong> você encontra todos
-          os cursos necessários para se tornar uma pessoa desenvolvedora <span class="underlined underlined-red">Angular</span> de <strong
-            >alto nível</strong
-          >.
+          os cursos necessários para se tornar uma pessoa desenvolvedora <span
+            class="underlined underlined-red">Angular</span
+          > de <strong>alto nível</strong>.
         </p>
-        
-        <a class="btn btn-primary" href="#courses-section">Confira nossos cursos!</a>
 
+        <a class="btn btn-primary" href="#courses-section"
+          >Confira nossos cursos!</a
+        >
       </div>
     </div>
-    <img
-      src="/images/banner/1.svg"
+
+    <div
       class="max-w-[700px] absolute w-full opacity-20 xl:opacity-100 xl:right-0"
-    />
+    >
+      <Fragment set:html={rocket} />
+    </div>
   </div>
 </ContentContainer>
