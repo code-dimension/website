@@ -1,7 +1,52 @@
 ---
 import ContentContainer from "../../shared/containers/ContentContainer.astro";
 
-const feedbacks = [
+type Feedback = {
+  text: string,
+  author: string,
+}
+
+const feedbacks: Feedback[] = [
+  {
+    text: "Aula top! Parabéns mano 👏🏻🤘🏻",
+    author: "@cristianwilliamdev"
+  },
+  {
+    text: "Muito bom mano, seus vídeos são excelentes",
+    author: "@raulpires7488"
+  },
+  {
+    text: "Tem poucos conteúdos de angular 17 e você está ajudando bastante! obrigada!!",
+    author: "@AmandaLeticia-wk8rp"
+  },
+  {
+    text: "Atualmente não manjo nada de Angular e conheço bem pouco de JS, mas só assistindo aqui já consegui ter uma boa noção apenas com sua explicação. Ansioso pelos próximos capítulos.",
+    author: "@msandev"
+  },
+  {
+    text: "Conteúdo muito bom, parabéns! Aguardando os próximos vídeos.",
+    author: "@fanaticojpa"
+  },
+  {
+    text: "Faz um curso de Angular, seu conteúdos são excelentes!",
+    author: "@matheusroberto8158"
+  },
+  {
+    text: "Conteúdo top!",
+    author: "@pablodepine"
+  },
+  {
+    text: "Conteúdo muito top!",
+    author: "@esnaydergarcia2891"
+  },
+  {
+    text: "Muito bom o conteúdo. Aguardandoas próximas aulas.",
+    author: "@felipemoura7227"
+  },
+  {
+    text: "Muito bom, esse tipo de conteúdo raramente é abordado",
+    author: "@RafaelGomes01"
+  },
   {
     text: "Muito interessante e simples de entender da forma que você explicou!! Obrigada por compartilhar.",
     author: "@danielaferreira4682",
