@@ -4,20 +4,25 @@ import Banner from "../partials/home/Banner.astro";
 import Feedback from "../partials/home/Feedback.astro";
 import Newsletter from "../partials/home/Newsletter.astro";
 import Youtube from "../partials/home/Youtube.astro";
+import Courses from "../partials/home/Courses.astro";
 ---
 
 <Layout title="Home">
   <Banner />
 
-  <section class="py-32 lg:py-48 bg-[#f3f3f3]">
+  <section id="courses-section" class="py-32 lg:py-48 bg-[#f3f3f3]">
+    <Courses />
+  </section>
+
+  <section class="py-32 lg:py-48 ">
     <Youtube />
   </section>
 
-  <section class="py-32 lg:py-48">
+  <section class="py-32 lg:py-48 bg-[#f3f3f3]">
     <Feedback />
   </section>
 
-  <section class="py-32 lg:py-48 bg-[#f3f3f3]">
+  <section class="py-32 lg:py-48">
     <Newsletter />
   </section>
 </Layout>
