@@ -1,6 +1,5 @@
 ---
 import ContentContainer from "./../../shared/containers/ContentContainer.astro";
-import rocket from "./banner-rocket.svg?raw";
 ---
 
 <ContentContainer>
@@ -28,10 +27,9 @@ import rocket from "./banner-rocket.svg?raw";
       </div>
     </div>
 
-    <div
+    <img
+      src="/images/banner/banner-rocket.webp"
       class="max-w-[700px] absolute w-full opacity-20 xl:opacity-100 xl:right-0"
-    >
-      <Fragment set:html={rocket} />
-    </div>
+    />
   </div>
 </ContentContainer>
