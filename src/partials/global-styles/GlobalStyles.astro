@@ -1,8 +1,14 @@
 <style is:global lang="scss">
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
   * {
     font-family: "Inter";
   }
 
+  
   .border-bottom {
     border-bottom: 1px solid rgb(255, 255, 255, 0.1);
   }
@@ -33,7 +39,7 @@
       );
     }
 
-    &.undelined-red::after {
+    &.underlined-red::after {
       border-color: rgba(178, 0, 18, 0.8);
     }
 
@@ -41,7 +47,7 @@
       border-color: #6657ec;
     }
 
-    &.undelined-green::after {
+    &.underlined-green::after {
       border-color: #1a5d1a;
     }
   }
