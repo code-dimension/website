@@ -1,0 +1,95 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import ContentContainer from "@shared/containers/ContentContainer.astro";
+import MailchimpForm from "@shared/forms/mailchimp-form.astro";
+---
+
+<Layout title="Home">
+  <ContentContainer>
+    <div
+      class="h-[calc(100vh_-_105px)] xl:h-[calc(100vh_-_90px)] flex flex-col justify-center relative -mt-6"
+    >
+      <div class="flex justify-center xl:justify-start z-20">
+        <div
+          class="w-full max-w-[630px] flex flex-col justify-center text-center xl:text-start"
+        >
+          <h1 class="text-5xl font-bold">Domine Testes Automatizados</h1>
+
+          <p class="text-xl py-16 xl:py-10">
+            Aprenda a criar testes eficientes de verdade e torne-se um
+            profissional altamente requisitado no mercado!
+          </p>
+
+          <MailchimpForm submitBtnLabel="Entrar na lista de espera" />
+        </div>
+      </div>
+      <img
+        src="/images/courses/testes-automatizados/banner-robot.png"
+        class="max-w-[650px] absolute w-full opacity-20 xl:opacity-100 xl:right-0"
+      />
+    </div>
+  </ContentContainer>
+
+  <section class="py-24 lg:py-24">
+    <ContentContainer>
+      <div class="flex flex-col items-center">
+        <div class="flex justify-center">
+          <span class="text-4xl font-bold text-center"
+            >Você aprenderá no curso</span
+          >
+        </div>
+
+        <div class="w-full max-w-[900px] py-32 lg:py-32">
+          <div class="hero">
+            <div class="hero-content flex-col lg:flex-row">
+              <img
+                src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg"
+                class="max-w-sm rounded-lg shadow-2xl"
+              />
+              <div class="ml-4">
+                <h1 class="text-3xl font-bold">Criar testes resilientes</h1>
+                <p class="py-6">
+                  Crie testes resilientes e evite ter que refazer os testes da
+                  sua aplicação sempre que detalhes mínimos mudarem!
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero">
+            <div class="hero-content flex-col lg:flex-row-reverse">
+              <img
+                src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg"
+                class="max-w-sm rounded-lg shadow-2xl"
+              />
+              <div class="ml-4">
+                <h1 class="text-3xl font-bold">
+                  Evitar detalhes de implementação
+                </h1>
+                <p class="py-6">
+                  Testes que focam no que importa para o usuário, evitando
+                  detalhes de implementação que não são relevantes para ele.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero">
+            <div class="hero-content flex-col lg:flex-row">
+              <img
+                src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg"
+                class="max-w-sm rounded-lg shadow-2xl"
+              />
+              <div class="ml-4">
+                <h1 class="text-3xl font-bold">Criar abstrações que melhoram a produtividade</h1>
+                <p class="py-6">
+                  Você aprenderá a criar abstrações que irão otimizar a forma com que você escreve os testes e também melhorar exponencialmente o reuso de código.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ContentContainer>
+  </section>
+</Layout>
