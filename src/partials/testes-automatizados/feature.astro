@@ -1,0 +1,23 @@
+---
+const { orientation = "left", title, description } = Astro.props;
+
+const orientationClass =
+  orientation === "left" ? "lg:flex-row" : "lg:flex-row-reverse";
+---
+
+<div class="hero">
+  <div class="hero-content flex-col" class:list={orientationClass}>
+    <img
+      src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg"
+      class="max-w-sm rounded-lg shadow-2xl"
+    />
+    <div class="ml-4">
+      <h3 class="text-3xl font-bold">
+        <slot name="title" />
+      </h3>
+      <p class="py-6">
+        <slot name="description" />
+      </p>
+    </div>
+  </div>
+</div>

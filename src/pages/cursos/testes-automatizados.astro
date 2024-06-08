@@ -2,6 +2,8 @@
 import Layout from "../../layouts/Layout.astro";
 import ContentContainer from "@shared/containers/ContentContainer.astro";
 import MailchimpForm from "@shared/forms/mailchimp-form.astro";
+import Feature from "@partials/testes-automatizados/feature.astro";
+import WaitingList from "@partials/testes-automatizados/waiting-list.astro";
 ---
 
 <Layout title="Home">
@@ -30,66 +32,186 @@ import MailchimpForm from "@shared/forms/mailchimp-form.astro";
     </div>
   </ContentContainer>
 
-  <section class="py-24 lg:py-24">
+  <section class="py-24 bg-gray">
     <ContentContainer>
       <div class="flex flex-col items-center">
         <div class="flex justify-center">
-          <span class="text-4xl font-bold text-center"
-            >Você aprenderá no curso</span
-          >
+          <h2 class="text-4xl font-bold text-center">
+            Você aprenderá no curso
+          </h2>
         </div>
 
-        <div class="w-full max-w-[900px] py-32 lg:py-32">
-          <div class="hero">
-            <div class="hero-content flex-col lg:flex-row">
-              <img
-                src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg"
-                class="max-w-sm rounded-lg shadow-2xl"
-              />
-              <div class="ml-4">
-                <h1 class="text-3xl font-bold">Criar testes resilientes</h1>
-                <p class="py-6">
-                  Crie testes resilientes e evite ter que refazer os testes da
-                  sua aplicação sempre que detalhes mínimos mudarem!
-                </p>
-              </div>
-            </div>
-          </div>
+        <div class="w-full max-w-[900px] pt-32">
+          <Feature>
+            <Fragment slot="title">Criar testes resilientes</Fragment>
+            <Fragment slot="description">
+              Crie testes resilientes e evite ter que refazer os testes da sua
+              aplicação sempre que detalhes mínimos mudarem!
+            </Fragment>
+          </Feature>
 
-          <div class="hero">
-            <div class="hero-content flex-col lg:flex-row-reverse">
-              <img
-                src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg"
-                class="max-w-sm rounded-lg shadow-2xl"
-              />
-              <div class="ml-4">
-                <h1 class="text-3xl font-bold">
-                  Evitar detalhes de implementação
-                </h1>
-                <p class="py-6">
-                  Testes que focam no que importa para o usuário, evitando
-                  detalhes de implementação que não são relevantes para ele.
-                </p>
-              </div>
-            </div>
-          </div>
+          <Feature orientation="right">
+            <Fragment slot="title">Evitar detalhes de implementação</Fragment>
+            <Fragment slot="description">
+              Testes que focam no que importa para o usuário, evitando detalhes
+              de implementação que não são relevantes para ele.
+            </Fragment>
+          </Feature>
 
-          <div class="hero">
-            <div class="hero-content flex-col lg:flex-row">
-              <img
-                src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg"
-                class="max-w-sm rounded-lg shadow-2xl"
-              />
-              <div class="ml-4">
-                <h1 class="text-3xl font-bold">Criar abstrações que melhoram a produtividade</h1>
-                <p class="py-6">
-                  Você aprenderá a criar abstrações que irão otimizar a forma com que você escreve os testes e também melhorar exponencialmente o reuso de código.
-                </p>
-              </div>
+          <Feature>
+            <Fragment slot="title">
+              Criar abstrações que melhoram a produtividade
+            </Fragment>
+            <Fragment slot="description">
+              Você aprenderá a criar abstrações que irão otimizar a forma com
+              que você escreve os testes e também melhorar exponencialmente o
+              reuso de código.
+            </Fragment>
+          </Feature>
+
+          <Feature orientation="right">
+            <Fragment slot="title">Test-Driven Development (TDD)</Fragment>
+            <Fragment slot="description">
+              Test Driven Development (TDD) é uma abordagem que permite que você
+              escreva testes antes de implementar o código, trazendo benefícios
+              significativos para a testabilidade e manutenibilidade do projeto
+              ao longo do tempo.
+            </Fragment>
+          </Feature>
+
+          <Feature>
+            <Fragment slot="title">Pirâmide de testes</Fragment>
+            <Fragment slot="description">
+              A Pirâmide de testes é uma abordagem que organiza testes em
+              níveis, começando com testes unitários e indo até End-to-End. Isso
+              ensina a criar testes que são rápidos, confiáveis e evitam
+              duplicação de código.
+            </Fragment>
+          </Feature>
+
+          <Feature orientation="right">
+            <Fragment slot="title">
+              Testar todos os recursos do Angular
+            </Fragment>
+            <Fragment slot="description">
+              Você aprenderá a testar todos os recursos do Angular, desde os
+              serviços até os pipes, garantindo que todos estão funcionando
+              perfeitamente em diferentes cenários.
+            </Fragment>
+          </Feature>
+
+          <Feature>
+            <Fragment slot="title">
+              Utilizar ferramentas famosas do mercado
+            </Fragment>
+            <Fragment slot="description">
+              Durante este curso, você aprenderá a utilizar ferramentas
+              amplamente utilizadas no mercado, como ng-mocks, Angular Testing
+              Library e Cypress. Essas ferramentas ajudam a simplificar a
+              escrita de testes e garantem que você esteja utilizando as
+              melhores práticas do mercado.
+            </Fragment>
+          </Feature>
+
+          <Feature orientation="right">
+            <Fragment slot="title">Tornar-se especialista em testes</Fragment>
+            <Fragment slot="description">
+              Todo o conteúdo do curso mergulha profundamente em vários aspectos
+              da implementação de testes em projetos. Você aprenderá como criar
+              testes de unidade, integração e End-to-End em detalhes, seguindo
+              as melhores práticas.
+            </Fragment>
+          </Feature>
+
+          <div class="flex justify-center pt-24">
+            <h2 class="text-4xl font-bold text-center">E muito mais!</h2>
+          </div>
+        </div>
+      </div>
+    </ContentContainer>
+  </section>
+
+  <section class="py-24">
+    <WaitingList />
+  </section>
+
+  <section class="py-24 bg-gray">
+    <ContentContainer>
+      <div class="flex justify-center">
+        <div class="w-full">
+          <h2 class="text-4xl font-bold text-center mb-16">
+            Tecnologias que serão utilizadas
+          </h2>
+
+          <div class="flex justify-center flex-wrap gap-8">
+            <img
+              src="/images/courses/testes-automatizados/angular_gradient.png"
+              class="tech-image"
+              alt="Cypress"
+            />
+            <div class="flex flex-col justify-center">
+              <h3 class="text-3xl font-bold text-red-600 text-center">
+                ng-mocks
+              </h3>
+            </div>
+            <img
+              src="/images/courses/testes-automatizados/atl-logo.png"
+              alt="Cypress"
+              class="tech-image"
+            />
+            <img
+              src="/images/courses/testes-automatizados/Cypress_Logomark_Dark-Color.png"
+              alt="Cypress"
+              class="tech-image"
+            />
+            <img
+              src="/images/courses/testes-automatizados/tailwindcss-mark.svg"
+              alt="Tailwindcss"
+              class="tech-image"
+            />
+          </div>
+        </div>
+      </div>
+    </ContentContainer>
+  </section>
+
+  <section class="py-24">
+    <ContentContainer>
+      <div class="flex justify-center">
+        <div class="w-full">
+          <h2 class="text-4xl font-bold text-center mb-16">
+            Sobre o instrutor
+          </h2>
+
+          <div class="flex justify-center flex-wrap gap-16">
+            <img
+              src="/images/courses/testes-automatizados/instructor.jpg"
+              class="w-[200px] h-[200px] rounded-full"
+              alt="Instructor"
+            />
+
+            <div class="flex flex-col justify-center">
+              <h3 class="text-3xl font-bold text-center md:text-start">
+                Henrique Custódia
+              </h3>
+              <p class="text-lg max-w-sm pt-4 text-center md:text-start">
+                Arquiteto Frontend especializado em Angular com mais de 10 anos
+                de experiência.
+              </p>
             </div>
           </div>
         </div>
       </div>
     </ContentContainer>
   </section>
+
+  <section class="py-24 bg-gray">
+    <WaitingList />
+  </section>
+
+  <style lang="scss">
+    .tech-image {
+      @apply w-[100px] h-[100px] lg:w-[150px] lg:h-[150px];
+    }
+  </style>
 </Layout>

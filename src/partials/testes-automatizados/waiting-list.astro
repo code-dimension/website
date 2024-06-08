@@ -1,0 +1,20 @@
+---
+import ContentContainer from "@shared/containers/ContentContainer.astro";
+import MailchimpForm from "@shared/forms/mailchimp-form.astro";
+---
+
+<ContentContainer>
+  <div class="flex justify-center">
+    <div class="w-full max-w-[600px]">
+      <h2 class="text-4xl font-bold text-center mb-8">
+        Entre agora na lista de espera
+      </h2>
+      <p class="mb-16 text-center text-lg">
+        Ingressando na lista de espera, você receberá antecipadamente notícias e
+        ofertas do curso!
+      </p>
+
+      <MailchimpForm submitBtnLabel="Entrar na lista de espera" />
+    </div>
+  </div>
+</ContentContainer>

@@ -4,7 +4,8 @@
     "importsNotUsedAsValues": "remove",
     "baseUrl": ".",
     "paths": {
-      "@shared/*": ["./src/shared/*"]
+      "@shared/*": ["./src/shared/*"],
+      "@partials/*": ["./src/partials/*"]
     }
   },
 }
