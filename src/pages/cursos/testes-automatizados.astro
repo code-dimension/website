@@ -5,7 +5,6 @@ import MailchimpForm from "@shared/forms/mailchimp-form.astro";
 import Feature from "@partials/testes-automatizados/feature.astro";
 import WaitingList from "@partials/testes-automatizados/waiting-list.astro";
 ---
-
 <Layout title="Home">
   <ContentContainer>
     <div
@@ -15,7 +14,11 @@ import WaitingList from "@partials/testes-automatizados/waiting-list.astro";
         <div
           class="w-full max-w-[630px] flex flex-col justify-center text-center xl:text-start"
         >
-          <h1 class="text-5xl font-bold">Domine Testes Automatizados</h1>
+          <h1 class="text-5xl font-bold">
+            Domine Testes Automatizados com <span
+              class="angular-font-color">Angular</span
+            >
+          </h1>
 
           <p class="text-xl py-16 xl:py-10">
             Aprenda a criar testes eficientes de verdade e torne-se um
@@ -91,7 +94,7 @@ import WaitingList from "@partials/testes-automatizados/waiting-list.astro";
 
           <Feature orientation="right">
             <Fragment slot="title">
-              Testar todos os recursos do Angular
+              Testar todos os recursos do <span class="angular-font-color">Angular</span>
             </Fragment>
             <Fragment slot="description">
               Você aprenderá a testar todos os recursos do Angular, desde os

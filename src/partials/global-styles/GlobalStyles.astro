@@ -23,38 +23,10 @@
     @apply bg-[#f3f3f3];
   }
 
-  .underlined {
-    /*   background: red; */
-    position: relative;
-    &:after {
-      content: "";
-      position: absolute;
-      top: 105%;
-      width: 100%;
-      aspect-ratio: 3 / 1;
-      left: 50%;
-      transform: translate(-50%, 0);
-      border-width: 2px;
-      border-style: solid;
-      --spread: 140deg;
-      --start: 290deg;
-      mask: conic-gradient(
-        from var(--start),
-        white 0 var(--spread),
-        transparent var(--spread)
-      );
-    }
-
-    &.underlined-red::after {
-      border-color: rgba(178, 0, 18, 0.8);
-    }
-
-    &.underlined-code::after {
-      border-color: #6657ec;
-    }
-
-    &.underlined-green::after {
-      border-color: #1a5d1a;
-    }
+  .angular-font-color {
+    background: #e30a7b;
+    background: linear-gradient(to right, #e30a7b 0%, #584bcd 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 </style>
