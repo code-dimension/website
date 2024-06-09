@@ -2,50 +2,50 @@
 import ContentContainer from "../../shared/containers/ContentContainer.astro";
 
 type Feedback = {
-  text: string,
-  author: string,
-}
+  text: string;
+  author: string;
+};
 
 const feedbacks: Feedback[] = [
   {
     text: "Aula top! Parabéns mano 👏🏻🤘🏻",
-    author: "@cristianwilliamdev"
+    author: "@cristianwilliamdev",
   },
   {
     text: "Muito bom mano, seus vídeos são excelentes",
-    author: "@raulpires7488"
+    author: "@raulpires7488",
   },
   {
     text: "Tem poucos conteúdos de angular 17 e você está ajudando bastante! obrigada!!",
-    author: "@AmandaLeticia-wk8rp"
+    author: "@AmandaLeticia-wk8rp",
   },
   {
     text: "Atualmente não manjo nada de Angular e conheço bem pouco de JS, mas só assistindo aqui já consegui ter uma boa noção apenas com sua explicação. Ansioso pelos próximos capítulos.",
-    author: "@msandev"
+    author: "@msandev",
   },
   {
     text: "Conteúdo muito bom, parabéns! Aguardando os próximos vídeos.",
-    author: "@fanaticojpa"
+    author: "@fanaticojpa",
   },
   {
     text: "Faz um curso de Angular, seu conteúdos são excelentes!",
-    author: "@matheusroberto8158"
+    author: "@matheusroberto8158",
   },
   {
     text: "Conteúdo top!",
-    author: "@pablodepine"
+    author: "@pablodepine",
   },
   {
     text: "Conteúdo muito top!",
-    author: "@esnaydergarcia2891"
+    author: "@esnaydergarcia2891",
   },
   {
     text: "Muito bom o conteúdo. Aguardandoas próximas aulas.",
-    author: "@felipemoura7227"
+    author: "@felipemoura7227",
   },
   {
     text: "Muito bom, esse tipo de conteúdo raramente é abordado",
-    author: "@RafaelGomes01"
+    author: "@RafaelGomes01",
   },
   {
     text: "Muito interessante e simples de entender da forma que você explicou!! Obrigada por compartilhar.",
@@ -77,13 +77,14 @@ const feedbacks: Feedback[] = [
 <ContentContainer>
   <div class="flex flex-col items-center">
     <div class="max-w-[780px] w-full">
-      <h1 class="text-[32px]  font-bold text-center">
+      <h1 class="text-[32px] font-bold text-center">
         Muitos feedbacks positivos estão chegando :)
       </h1>
 
-      <p class="text-[18px] leading-relaxed text-center  mt-8">
-        A <strong class="text-primary">Code Dimension</strong> está empenhada em entregar conteúdo relevante e
-        atualizado para você que quer evoluir dia após dia!
+      <p class="text-[18px] leading-relaxed text-center mt-8">
+        A <strong class="text-primary">Code Dimension</strong> está empenhada em
+        entregar conteúdo relevante e atualizado para você que quer evoluir dia após
+        dia!
       </p>
     </div>
   </div>
@@ -116,31 +117,34 @@ const feedbacks: Feedback[] = [
 </ContentContainer>
 
 <script>
-  // import function to register Swiper custom elements
   import { register } from "swiper/element/bundle";
-  // register Swiper custom elements
-  register();
-
-  const isDesktop = window.matchMedia("(min-width: 980px)").matches;
-  const isTablet = window.matchMedia("(min-width: 650px)").matches;
-
-  function getSlidesPerView() {
-    if (isDesktop) {
-      return 3;
-    }
-
-    if (isTablet) {
-      return 2;
-    }
-
-    return 1;
-  }
-
+  // import function to register Swiper custom elements
   const swiperEl: any = document.querySelector("swiper-container");
 
-  Object.assign(swiperEl, {
-    slidesPerView: getSlidesPerView(),
-  });
+  // evita com que o código rode em outras paginas que o swiper não esteja carregado
+  if (swiperEl) {
+    // register Swiper custom elements
+    register();
 
-  swiperEl.initialize();
+    const isDesktop = window.matchMedia("(min-width: 980px)").matches;
+    const isTablet = window.matchMedia("(min-width: 650px)").matches;
+
+    function getSlidesPerView() {
+      if (isDesktop) {
+        return 3;
+      }
+
+      if (isTablet) {
+        return 2;
+      }
+
+      return 1;
+    }
+
+    Object.assign(swiperEl, {
+      slidesPerView: getSlidesPerView(),
+    });
+
+    swiperEl.initialize();
+  }
 </script>
