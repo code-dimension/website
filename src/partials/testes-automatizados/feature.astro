@@ -1,21 +1,26 @@
 ---
-const { orientation = "left", title, description } = Astro.props;
+const {
+  orientation = "left",
+  title,
+  description,
+  imageUrl,
+  imageAlt,
+} = Astro.props;
 
-const orientationClass =
-  orientation === "left" ? "lg:flex-row" : "lg:flex-row-reverse";
+const isLeftOrientation = orientation === "left";
+
+const flexRowClass = isLeftOrientation ? "lg:flex-row" : "lg:flex-row-reverse";
+const contentHorizontalMarginClass = isLeftOrientation ? "lg:ml-16" : "lg:mr-16";
 ---
 
-<div class="hero">
-  <div class="hero-content flex-col" class:list={orientationClass}>
-    <img
-      src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg"
-      class="max-w-sm rounded-lg shadow-2xl"
-    />
-    <div class="ml-4">
-      <h3 class="text-3xl font-bold">
+<div class="hero border rounded-lg">
+  <div class="hero-content flex-col" class:list={flexRowClass}>
+    <img src={imageUrl} class="max-w-[300px] rounded-lg" alt={imageAlt} />
+    <div class:list={contentHorizontalMarginClass}>
+      <h3 class="text-3xl font-bold text-center lg:text-start">
         <slot name="title" />
       </h3>
-      <p class="py-6">
+      <p class="py-6 text-center lg:text-start">
         <slot name="description" />
       </p>
     </div>

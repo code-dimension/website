@@ -4,7 +4,9 @@ import ContentContainer from "@shared/containers/ContentContainer.astro";
 import MailchimpForm from "@shared/forms/mailchimp-form.astro";
 import Feature from "@partials/testes-automatizados/feature.astro";
 import WaitingList from "@partials/testes-automatizados/waiting-list.astro";
+import { features } from "@partials/testes-automatizados/features-data";
 ---
+
 <Layout title="Home">
   <ContentContainer>
     <div
@@ -15,8 +17,8 @@ import WaitingList from "@partials/testes-automatizados/waiting-list.astro";
           class="w-full max-w-[630px] flex flex-col justify-center text-center xl:text-start"
         >
           <h1 class="text-5xl font-bold">
-            Domine Testes Automatizados com <span
-              class="angular-font-color">Angular</span
+            Domine Testes Automatizados com <span class="angular-font-color"
+              >Angular</span
             >
           </h1>
 
@@ -40,94 +42,38 @@ import WaitingList from "@partials/testes-automatizados/waiting-list.astro";
       <div class="flex flex-col items-center">
         <div class="flex justify-center">
           <h2 class="text-4xl font-bold text-center">
-            Você aprenderá no curso
+            Confira o que você aprenderá no curso! 👇🏽
           </h2>
         </div>
 
         <div class="w-full max-w-[900px] pt-32">
-          <Feature>
-            <Fragment slot="title">Criar testes resilientes</Fragment>
-            <Fragment slot="description">
-              Crie testes resilientes e evite ter que refazer os testes da sua
-              aplicação sempre que detalhes mínimos mudarem!
-            </Fragment>
-          </Feature>
-
-          <Feature orientation="right">
-            <Fragment slot="title">Evitar detalhes de implementação</Fragment>
-            <Fragment slot="description">
-              Testes que focam no que importa para o usuário, evitando detalhes
-              de implementação que não são relevantes para ele.
-            </Fragment>
-          </Feature>
-
-          <Feature>
-            <Fragment slot="title">
-              Criar abstrações que melhoram a produtividade
-            </Fragment>
-            <Fragment slot="description">
-              Você aprenderá a criar abstrações que irão otimizar a forma com
-              que você escreve os testes e também melhorar exponencialmente o
-              reuso de código.
-            </Fragment>
-          </Feature>
-
-          <Feature orientation="right">
-            <Fragment slot="title">Test-Driven Development (TDD)</Fragment>
-            <Fragment slot="description">
-              Test Driven Development (TDD) é uma abordagem que permite que você
-              escreva testes antes de implementar o código, trazendo benefícios
-              significativos para a testabilidade e manutenibilidade do projeto
-              ao longo do tempo.
-            </Fragment>
-          </Feature>
-
-          <Feature>
-            <Fragment slot="title">Pirâmide de testes</Fragment>
-            <Fragment slot="description">
-              A Pirâmide de testes é uma abordagem que organiza testes em
-              níveis, começando com testes unitários e indo até End-to-End. Isso
-              ensina a criar testes que são rápidos, confiáveis e evitam
-              duplicação de código.
-            </Fragment>
-          </Feature>
-
-          <Feature orientation="right">
-            <Fragment slot="title">
-              Testar todos os recursos do <span class="angular-font-color">Angular</span>
-            </Fragment>
-            <Fragment slot="description">
-              Você aprenderá a testar todos os recursos do Angular, desde os
-              serviços até os pipes, garantindo que todos estão funcionando
-              perfeitamente em diferentes cenários.
-            </Fragment>
-          </Feature>
-
-          <Feature>
-            <Fragment slot="title">
-              Utilizar ferramentas famosas do mercado
-            </Fragment>
-            <Fragment slot="description">
-              Durante este curso, você aprenderá a utilizar ferramentas
-              amplamente utilizadas no mercado, como ng-mocks, Angular Testing
-              Library e Cypress. Essas ferramentas ajudam a simplificar a
-              escrita de testes e garantem que você esteja utilizando as
-              melhores práticas do mercado.
-            </Fragment>
-          </Feature>
-
-          <Feature orientation="right">
-            <Fragment slot="title">Tornar-se especialista em testes</Fragment>
-            <Fragment slot="description">
-              Todo o conteúdo do curso mergulha profundamente em vários aspectos
-              da implementação de testes em projetos. Você aprenderá como criar
-              testes de unidade, integração e End-to-End em detalhes, seguindo
-              as melhores práticas.
-            </Fragment>
-          </Feature>
+          <div class="w-full max-w-[900px]">
+            {
+              features.map(
+                ({
+                  imageUrl,
+                  imageAlt,
+                  title,
+                  description,
+                  orientation = "left",
+                }) => (
+                  <div class="my-16">
+                    <Feature
+                      orientation={orientation}
+                      imageUrl={imageUrl}
+                      imageAlt={imageAlt}
+                    >
+                      <Fragment slot="title">{title}</Fragment>
+                      <Fragment slot="description">{description}</Fragment>
+                    </Feature>
+                  </div>
+                )
+              )
+            }
+          </div>
 
           <div class="flex justify-center pt-24">
-            <h2 class="text-4xl font-bold text-center">E muito mais!</h2>
+            <h2 class="text-4xl font-bold text-center">E muito mais! 🤩</h2>
           </div>
         </div>
       </div>
