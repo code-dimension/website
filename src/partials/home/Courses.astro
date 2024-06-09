@@ -1,5 +1,38 @@
 ---
 import ContentContainer from "../../shared/containers/ContentContainer.astro";
+
+interface Course {
+  imageUrl: string;
+  imageAlt: string;
+  badgeClass: "badge-accent" | "badge-warning";
+  badgeText: string;
+  title: string;
+  description: string;
+  url: string;
+}
+
+const courses: Course[] = [
+  {
+    imageUrl: "/images/courses/ng17.png",
+    imageAlt: "Curso de Angular 17",
+    badgeClass: "badge-accent",
+    badgeText: "Gratuito",
+    title: "Curso de Angular 17",
+    description:
+      "Construa uma aplicação para gerenciar produtos e aprenda conceitos fundamentais amplamente usados pelo mercado.",
+    url: "https://www.youtube.com/playlist?list=PLXEUJjGpEX7zwdFSAzIPiSf9p0tOeI1Yu",
+  },
+  {
+    imageUrl: "images/courses/testes-automatizados/banner-robot.png",
+    imageAlt: "Curso Testes Automatizados com Angular",
+    badgeClass: "badge-warning",
+    badgeText: "Lançamento",
+    title: "Curso Testes Automatizados com Angular",
+    description:
+      "Aprenda a criar testes eficientes de verdade e torne-se um profissional altamente requisitado no mercado!",
+    url: "/cursos/testes-automatizados",
+  },
+];
 ---
 
 <section>
@@ -17,25 +50,36 @@ import ContentContainer from "../../shared/containers/ContentContainer.astro";
           de altíssimo nível através de cursos que são realmente relevantes!
         </p>
       </div>
-      <div class="mt-28 flex justify-center">
-        <div class="card max-w-[350px] w-full bg-base-100 shadow-xl">
-          <figure><img src="/images/courses/ng17.png" alt="Shoes" /></figure>
-          <div class="card-body">
-            <div class="badge badge-accent">Gratuito</div>
+      <div class="mt-28 flex justify-center flex-wrap gap-8">
+        {
+          courses.map((course) => (
+            <div class="card max-w-[350px] w-full bg-base-100 shadow-xl">
+              <figure>
+                <img class="card-image" src={course.imageUrl} alt={course.imageAlt} />
+              </figure>
+              <div class="card-body">
+                <div class="badge" class:list={course.badgeClass} >{course.badgeText}</div>
 
-            <h2 class="card-title">Curso de Angular 17</h2>
+                <h2 class="card-title">{course.title}</h2>
 
-            <p class="mt-3">
-              Construa uma aplicação para gerenciar produtos e aprenda conceitos
-              fundamentais amplamente usados pelo mercado.
-            </p>
+                <p class="mt-3">{course.description}</p>
 
-            <div class="card-actions mt-3">
-              <a class="btn btn-primary w-full" href="https://www.youtube.com/playlist?list=PLXEUJjGpEX7zwdFSAzIPiSf9p0tOeI1Yu">Assistir curso!</a>
+                <div class="card-actions mt-3">
+                  <a class="btn btn-primary w-full" href={course.url}>
+                    Acessar curso
+                  </a>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
+          ))
+        }
       </div>
     </div>
   </ContentContainer>
 </section>
+
+<style>
+  .card-image {
+    @apply h-full max-h-[200px];
+  }
+</style>
