@@ -6,13 +6,13 @@ import TwitterMetaTag from "./metatags/twitter.astro";
 import FaviconMetaTag from "./metatags/favicon.astro";
 import GA from "./metatags/ga.astro";
 
-const { title } = Astro.props;
+const props = Astro.props;
 ---
 
 <head>
-  <BasicMetaTag title={title} />
-  <OpenGraphMetaTag />
-  <TwitterMetaTag />
+  <BasicMetaTag {...props} />
+  <OpenGraphMetaTag {...props}/>
+  <TwitterMetaTag {...props}/>
   <FaviconMetaTag />
   <GA />
 

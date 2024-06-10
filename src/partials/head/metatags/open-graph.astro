@@ -1,9 +1,11 @@
 ---
-import { siteConfig } from "../../../../site-config";
+import { siteConfig } from "@site-config";
+
+const { url, title, description, image } = Astro.props;
 ---
 
 <meta property="og:type" content="website" />
-<meta property="og:url" content={siteConfig.url} />
-<meta property="og:title" content={siteConfig.title} />
-<meta property="og:description" content={siteConfig.description} />
-<meta property="og:image" content={siteConfig.socialImage} />
+<meta property="og:url" content={url || siteConfig.url} />
+<meta property="og:title" content={title || siteConfig.title} />
+<meta property="og:description" content={description || siteConfig.description} />
+<meta property="og:image" content={image || siteConfig.socialImage} />

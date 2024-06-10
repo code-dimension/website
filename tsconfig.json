@@ -5,7 +5,8 @@
     "baseUrl": ".",
     "paths": {
       "@shared/*": ["./src/shared/*"],
-      "@partials/*": ["./src/partials/*"]
+      "@partials/*": ["./src/partials/*"],
+      "@site-config": ["./site-config.ts"]
     }
   },
 }

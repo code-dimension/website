@@ -1,9 +1,10 @@
 ---
-import { siteConfig } from "../../../../site-config";
+import { siteConfig } from "@site-config";
 
-const { title } = Astro.props;
+const { title, description } = Astro.props;
 
 const pageTitle = `${siteConfig.title} | ${title}`
+const pageDescription = description || siteConfig.description;
 ---
 
 <meta charset="UTF-8" />
@@ -12,4 +13,4 @@ const pageTitle = `${siteConfig.title} | ${title}`
 
 <title>{pageTitle}</title>
 <meta name="title" content={pageTitle} />
-<meta name="description" content={siteConfig.description} />
+<meta name="description" content={pageDescription} />

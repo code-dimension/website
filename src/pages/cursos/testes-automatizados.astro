@@ -5,9 +5,17 @@ import MailchimpForm from "@shared/forms/mailchimp-form.astro";
 import Feature from "@partials/testes-automatizados/feature.astro";
 import WaitingList from "@partials/testes-automatizados/waiting-list.astro";
 import { features } from "@partials/testes-automatizados/features-data";
+
+const layoutProps = {
+  title: "Curso Testes Automatizados com Angular", 
+  description:"Aprenda a criar testes eficientes de verdade com Angular e torne-se um profissional altamente requisitado no mercado!",
+  url: Astro.url.href,
+  image: Astro.url.origin + "/images/courses/testes-automatizados/og-curso-testes-auto.png",
+}
+
 ---
 
-<Layout title="Home">
+<Layout {...layoutProps}>
   <ContentContainer>
     <div
       class="h-[calc(100vh_-_105px)] xl:h-[calc(100vh_-_90px)] flex flex-col justify-center relative -mt-6"
