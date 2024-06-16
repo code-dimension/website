@@ -7,12 +7,14 @@ import WaitingList from "@partials/testes-automatizados/waiting-list.astro";
 import { features } from "@partials/testes-automatizados/features-data";
 
 const layoutProps = {
-  title: "Curso Testes Automatizados com Angular", 
-  description:"Aprenda a criar testes eficientes de verdade com Angular e torne-se um profissional altamente requisitado no mercado!",
+  title: "Curso Testes Automatizados com Angular",
+  description:
+    "Aprenda a criar testes eficientes de verdade com Angular e torne-se um profissional altamente requisitado no mercado!",
   url: Astro.url.href,
-  image: Astro.url.origin + "/images/courses/testes-automatizados/og-curso-testes-automatizados.png",
-}
-
+  image:
+    Astro.url.origin +
+    "/images/courses/testes-automatizados/og-curso-testes-automatizados.png",
+};
 ---
 
 <Layout {...layoutProps}>
@@ -101,36 +103,56 @@ const layoutProps = {
           </h2>
 
           <div class="flex justify-center flex-wrap gap-8">
-            <img
-              src="/images/courses/testes-automatizados/angular_gradient.png"
-              class="tech-image"
-              alt="Angular"
-            />
-            <img
-              src="/images/courses/testes-automatizados/nx.svg"
-              class="tech-image"
-              alt="Nx"
-            />
+            <a href="https://angular.dev" target="_blank">
+              <img
+                src="/images/courses/testes-automatizados/angular_gradient.png"
+                class="tech-image"
+                alt="Angular"
+              />
+            </a>
+            <a href="https://nx.dev" target="_blank">
+              <img
+                src="/images/courses/testes-automatizados/nx.svg"
+                class="tech-image"
+                alt="Nx"
+              />
+            </a>
+            <a href="https://jestjs.io/pt-BR/" target="_blank">
+              <img
+                src="/images/courses/testes-automatizados/jest.svg"
+                alt="Jest"
+                class="tech-image p-4"
+              />  
+            </a>
             <div class="flex flex-col justify-center">
-              <h3 class="text-3xl font-bold text-red-600 text-center">
-                ng-mocks
-              </h3>
+              <a href="https://ng-mocks.sudo.eu" target="_blank">
+                <h3 class="text-3xl font-bold text-red-600 text-center">
+                  ng-mocks
+                </h3>
+              </a>
             </div>
-            <img
-              src="/images/courses/testes-automatizados/atl-logo.png"
-              alt="Angular Testing Library"
-              class="tech-image"
-            />
-            <img
-              src="/images/courses/testes-automatizados/Cypress_Logomark_Dark-Color.png"
-              alt="Cypress"
-              class="tech-image"
-            />
-            <img
-              src="/images/courses/testes-automatizados/tailwindcss-mark.svg"
-              alt="Tailwindcss"
-              class="tech-image"
-            />
+            <a href="https://testing-library.com/docs/angular-testing-library/intro/" target="_blank">
+              <img
+                src="/images/courses/testes-automatizados/atl-logo.png"
+                alt="Angular Testing Library"
+                class="tech-image"
+              />
+            </a>
+            <a href="https://cypress.io" target="_blank">
+              <img
+                <img
+                src="/images/courses/testes-automatizados/Cypress_Logomark_Dark-Color.png"
+                alt="Cypress"
+                class="tech-image"
+              />
+            </a>
+            <a href="https://tailwindcss.com" target="_blank">
+              <img
+                src="/images/courses/testes-automatizados/tailwindcss-mark.svg"
+                alt="Tailwindcss"
+                class="tech-image"
+              />
+            </a>
           </div>
         </div>
       </div>
