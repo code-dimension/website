@@ -1,0 +1,46 @@
+---
+import ContentContainer from "@shared/containers/ContentContainer.astro";
+import { features } from "./features-data";
+import Feature from "./feature.astro";
+---
+
+<ContentContainer>
+  <div class="flex flex-col items-center">
+    <div class="flex justify-center">
+      <h2 class="text-4xl font-bold text-center">
+        Confira o que você aprenderá no curso! 👇🏽
+      </h2>
+    </div>
+
+    <div class="w-full max-w-[900px] pt-32">
+      <div class="w-full max-w-[900px]">
+        {
+          features.map(
+            ({
+              imageUrl,
+              imageAlt,
+              title,
+              description,
+              orientation = "left",
+            }) => (
+              <div class="my-16">
+                <Feature
+                  orientation={orientation}
+                  imageUrl={imageUrl}
+                  imageAlt={imageAlt}
+                >
+                  <Fragment slot="title">{title}</Fragment>
+                  <Fragment slot="description">{description}</Fragment>
+                </Feature>
+              </div>
+            )
+          )
+        }
+      </div>
+
+      <div class="flex justify-center pt-24">
+        <h2 class="text-4xl font-bold text-center">E muito mais! 🤩</h2>
+      </div>
+    </div>
+  </div>
+</ContentContainer>
