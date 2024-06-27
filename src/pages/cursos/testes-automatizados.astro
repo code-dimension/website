@@ -6,6 +6,7 @@ import Feature from "@partials/testes-automatizados/feature.astro";
 import WaitingList from "@partials/testes-automatizados/waiting-list.astro";
 import { features } from "@partials/testes-automatizados/features-data";
 import TechList from "@partials/testes-automatizados/tech-list.astro";
+import Instructor from "@partials/testes-automatizados/instructor.astro";
 
 const layoutProps = {
   title: "Curso Testes Automatizados com Angular",
@@ -100,33 +101,7 @@ const layoutProps = {
   </section>
 
   <section class="py-24">
-    <ContentContainer>
-      <div class="flex justify-center">
-        <div class="w-full">
-          <h2 class="text-4xl font-bold text-center mb-16">
-            Sobre o instrutor
-          </h2>
-
-          <div class="flex justify-center flex-wrap gap-16">
-            <img
-              src="/images/courses/testes-automatizados/instructor.jpg"
-              class="w-[200px] h-[200px] rounded-full"
-              alt="Instructor"
-            />
-
-            <div class="flex flex-col justify-center">
-              <h3 class="text-3xl font-bold text-center md:text-start">
-                Henrique Custódia
-              </h3>
-              <p class="text-lg max-w-sm pt-4 text-center md:text-start">
-                Arquiteto Frontend especializado em Angular com mais de 10 anos
-                de experiência.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </ContentContainer>
+    <Instructor />
   </section>
 
   <section class="py-24 bg-gray">
