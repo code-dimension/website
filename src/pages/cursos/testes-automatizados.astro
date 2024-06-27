@@ -5,6 +5,7 @@ import MailchimpForm from "@shared/forms/mailchimp-form.astro";
 import Feature from "@partials/testes-automatizados/feature.astro";
 import WaitingList from "@partials/testes-automatizados/waiting-list.astro";
 import { features } from "@partials/testes-automatizados/features-data";
+import TechList from "@partials/testes-automatizados/tech-list.astro";
 
 const layoutProps = {
   title: "Curso Testes Automatizados com Angular",
@@ -95,68 +96,7 @@ const layoutProps = {
   </section>
 
   <section class="py-24 bg-gray">
-    <ContentContainer>
-      <div class="flex justify-center">
-        <div class="w-full">
-          <h2 class="text-4xl font-bold text-center mb-16">
-            Tecnologias que serão utilizadas
-          </h2>
-
-          <div class="flex justify-center flex-wrap gap-8">
-            <a href="https://angular.dev" target="_blank">
-              <img
-                src="/images/courses/testes-automatizados/angular_gradient.png"
-                class="tech-image"
-                alt="Angular"
-              />
-            </a>
-            <a href="https://nx.dev" target="_blank">
-              <img
-                src="/images/courses/testes-automatizados/nx.svg"
-                class="tech-image"
-                alt="Nx"
-              />
-            </a>
-            <a href="https://jestjs.io/pt-BR/" target="_blank">
-              <img
-                src="/images/courses/testes-automatizados/jest.svg"
-                alt="Jest"
-                class="tech-image p-4"
-              />  
-            </a>
-            <div class="flex flex-col justify-center">
-              <a href="https://ng-mocks.sudo.eu" target="_blank">
-                <h3 class="text-3xl font-bold text-red-600 text-center">
-                  ng-mocks
-                </h3>
-              </a>
-            </div>
-            <a href="https://testing-library.com/docs/angular-testing-library/intro/" target="_blank">
-              <img
-                src="/images/courses/testes-automatizados/atl-logo.png"
-                alt="Angular Testing Library"
-                class="tech-image"
-              />
-            </a>
-            <a href="https://cypress.io" target="_blank">
-              <img
-                <img
-                src="/images/courses/testes-automatizados/Cypress_Logomark_Dark-Color.png"
-                alt="Cypress"
-                class="tech-image"
-              />
-            </a>
-            <a href="https://tailwindcss.com" target="_blank">
-              <img
-                src="/images/courses/testes-automatizados/tailwindcss-mark.svg"
-                alt="Tailwindcss"
-                class="tech-image"
-              />
-            </a>
-          </div>
-        </div>
-      </div>
-    </ContentContainer>
+    <TechList />
   </section>
 
   <section class="py-24">
@@ -193,9 +133,4 @@ const layoutProps = {
     <WaitingList />
   </section>
 
-  <style lang="scss">
-    .tech-image {
-      @apply w-[100px] h-[100px];
-    }
-  </style>
 </Layout>
