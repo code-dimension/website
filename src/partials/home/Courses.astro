@@ -4,8 +4,8 @@ import ContentContainer from "../../shared/containers/ContentContainer.astro";
 interface Course {
   imageUrl: string;
   imageAlt: string;
-  badgeClass: "badge-accent" | "badge-warning";
-  badgeText: string;
+  badgeClass: "badge-accent" | "badge-info";
+  badgeText: "Gratuito" | "Em breve";
   title: string;
   description: string;
   url: string;
@@ -25,8 +25,8 @@ const courses: Course[] = [
   {
     imageUrl: "images/courses/testes-automatizados/banner-robot.png",
     imageAlt: "Curso Testes Automatizados com Angular",
-    badgeClass: "badge-warning",
-    badgeText: "Lançamento",
+    badgeClass: "badge-info",
+    badgeText: "Em breve",
     title: "Curso Testes Automatizados com Angular",
     description:
       "Aprenda a criar testes eficientes de verdade e torne-se um profissional altamente requisitado no mercado!",
