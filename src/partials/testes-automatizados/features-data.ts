@@ -72,7 +72,7 @@ export const features: Feature[] = [
     imageAlt: "Estrelas",
     title: "Utilizar ferramentas famosas do mercado",
     description:
-      "Durante este curso, você aprenderá a utilizar ferramentas amplamente utilizadas no mercado, como ng-mocks, Angular Testing Library e Cypress. Essas ferramentas ajudam a simplificar a escrita de testes e garantem que você esteja utilizando as melhores práticas do mercado.",
+      "Durante este curso, você aprenderá a utilizar ferramentas amplamente utilizadas no mercado, como ng-mocks e Cypress. Essas ferramentas ajudam a simplificar a escrita de testes e garantem que você esteja utilizando as melhores práticas do mercado.",
   },
   {
     imageUrl: "/images/courses/testes-automatizados/reference.png",
