@@ -21,9 +21,10 @@ import Feature from "./feature.astro";
               imageAlt,
               title,
               description,
-              orientation = "left",
-            }) => (
-              <div class="my-16">
+            }, index) => { 
+              const orientation = index % 2 === 0 ? "left" : "right";
+              
+              return (<div class="my-16">
                 <Feature
                   orientation={orientation}
                   imageUrl={imageUrl}
@@ -32,8 +33,9 @@ import Feature from "./feature.astro";
                   <Fragment slot="title">{title}</Fragment>
                   <Fragment slot="description">{description}</Fragment>
                 </Feature>
-              </div>
-            )
+              </div>)
+            
+            }
           )
         }
       </div>
