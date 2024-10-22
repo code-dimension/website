@@ -1,0 +1,138 @@
+---
+import ContentContainer from "@shared/containers/ContentContainer.astro";
+import { modules, getTestTypeLabel } from "./modules-list";
+---
+
+<ContentContainer>
+  <div class="flex justify-center">
+    <div class="w-full max-w-[1000px]">
+      <h2 class="text-4xl font-bold text-center mb-16 lg:mb-8">
+        Confira em detalhes todos os módulos do curso!
+      </h2>
+      <p class="mb-8 lg:mb-0 text-center text-lg">
+        Cada módulo foca em evoluir uma aplicação única utilizando cada conceito
+        ensinado durante as aulas.
+      </p>
+      <p class="mb-8 lg:mb-0 text-center text-lg">
+        Você entenderá como testar componentes, serviços, diretivas, pipes e
+        muito mais.
+      </p>
+      <p class="text-center text-lg">
+        Sempre utilizando <strong>Test Driven Development (TDD) </strong> como base
+        para o desenvolvimento.
+      </p>
+    </div>
+  </div>
+
+  <div class="flex flex-col items-center mt-16">
+    <div
+      class="w-full max-w-[800px] flex flex-col items-center border rounded-lg modules"
+    >
+      {
+        modules.map((module, index, array) => (
+          <div
+            class="w-full flex flex-col"
+            class:list={`module-` + (index + 1)}
+          >
+            <div class="p-4 w-full flex flex-col items-center text-center lg:flex-row">
+              <p>{module.name}</p>
+              <div class="flex justify-center mt-2 lg:ml-auto">
+                <div class="badge badge-primary mr-2">
+                  {getTestTypeLabel(module.testType)}
+                </div>
+                {module.isAvailable && (
+                  <div class="badge badge-success">Publicado</div>
+                )}
+                {!module.isAvailable && (
+                  <div class="badge badge-warning">Em edição</div>
+                )}
+              </div>
+            </div>
+            {index < array.length - 1 && (
+              <div class="w-full h-px bg-gray-200" />
+            )}
+          </div>
+        ))
+      }
+    </div>
+    <button
+      id="show-more-modules"
+      class="btn btn-primary btn-outline mt-6"
+      >Mostrar mais módulos <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        fill="currentColor"
+        class="bi bi-arrow-down-short"
+        viewBox="0 0 16 16"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M8 4a.5.5 0 0 1 .5.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 10.293V4.5A.5.5 0 0 1 8 4"
+        ></path>
+      </svg></button
+    >
+  </div>
+</ContentContainer>
+
+<script>
+  (() => {
+    let visibleModules = 5;
+
+    const moduleElements = document.querySelectorAll(
+      ".modules [class*='module-']"
+    );
+
+    const showMoreButton = document.getElementById("show-more-modules");
+
+    function addShowMoreButtonListener() {
+        showMoreButton?.addEventListener("click", () => {
+      getMoreModules();
+    });
+    }
+
+    function hideShowMoreButton() {
+        showMoreButton?.classList.add("hidden");
+    }
+
+    function hideModules() {
+      moduleElements.forEach((element) => {
+        const moduleClass = element.className.split(" ").find((className) => {
+          return className.startsWith("module-");
+        });
+
+        const moduleId = Number(moduleClass?.split("-")[1]);
+
+        if (moduleId > visibleModules) {
+          element.classList.add("hidden");
+        }
+      });
+    }
+
+    function getMoreModules() {
+      visibleModules = visibleModules + 5;
+    
+      console.log(visibleModules, moduleElements.length);
+      
+      if (visibleModules >= moduleElements.length ) {
+        hideShowMoreButton();
+      }
+
+      moduleElements.forEach((element) => {
+        const moduleClass = element.className.split(" ").find((className) => {
+          return className.startsWith("module-");
+        });
+
+        const moduleId = Number(moduleClass?.split("-")[1]);
+
+        if (moduleId <= visibleModules) {
+          element.classList.remove("hidden");
+        }
+      });
+    }
+
+    hideModules();
+
+    addShowMoreButtonListener();
+  })();
+</script>

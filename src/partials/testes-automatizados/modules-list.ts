@@ -1,0 +1,139 @@
+interface Module {
+  name: string;
+  isAvailable: boolean;
+  testType: "unit" | "integration" | "e2e";
+}
+
+export const modules: Module[] = [
+  {
+    name: "Configurando e criando projeto",
+    isAvailable: true,
+    testType: "unit",
+  },
+  { name: "Criando testes unitários", isAvailable: false, testType: "unit" },
+  { name: "Mocking de componentes", isAvailable: false, testType: "unit" },
+  {
+    name: "Utilizando TDD para criar a listagem",
+    isAvailable: false,
+    testType: "unit",
+  },
+  { name: "Teste de serviços", isAvailable: false, testType: "unit" },
+  { name: "Teste de requisições HTTP", isAvailable: false, testType: "unit" },
+  { name: "Componentizando a listagem", isAvailable: false, testType: "unit" },
+  {
+    name: "Testes com a técnica Shallow Rendering",
+    isAvailable: false,
+    testType: "unit",
+  },
+  {
+    name: "Testes com a Host Component e setup function",
+    isAvailable: false,
+    testType: "unit",
+  },
+  {
+    name: "Criando ação para completar tarefa",
+    isAvailable: false,
+    testType: "unit",
+  },
+  {
+    name: "Criando ação para marcar tarefa como pendente",
+    isAvailable: false,
+    testType: "unit",
+  },
+  {
+    name: "Criando ação para remover tarefa",
+    isAvailable: false,
+    testType: "unit",
+  },
+  {
+    name: "Criando página para cadastrar tarefa",
+    isAvailable: false,
+    testType: "unit",
+  },
+  {
+    name: "Utilizando ng-mocks no testes",
+    isAvailable: false,
+    testType: "unit",
+  },
+  {
+    name: "Redirecionado para página de cadastrar tarefa",
+    isAvailable: false,
+    testType: "unit",
+  },
+  {
+    name: "Criando página para editar tarefa",
+    isAvailable: false,
+    testType: "unit",
+  },
+  { name: "Teste de Resolvers", isAvailable: false, testType: "unit" },
+  {
+    name: "Criando ações para acessar página de edição de tarefa",
+    isAvailable: false,
+    testType: "unit",
+  },
+  { name: "Teste de Diretivas", isAvailable: false, testType: "unit" },
+  { name: "Teste de Pipes", isAvailable: false, testType: "unit" },
+  {
+    name: "Criando autenticação de usuário",
+    isAvailable: false,
+    testType: "unit",
+  },
+  { name: "Teste de Guardas de rota", isAvailable: false, testType: "unit" },
+  {
+    name: "Teste serviços do tipo Facade",
+    isAvailable: false,
+    testType: "unit",
+  },
+  {
+    name: "Testando recursos do navegador",
+    isAvailable: false,
+    testType: "unit",
+  },
+  { name: "Teste de HTTP Interceptors", isAvailable: false, testType: "unit" },
+  { name: "Teste de Initializers", isAvailable: false, testType: "unit" },
+  {
+    name: "Criando ação para fazer o logout do usuário",
+    isAvailable: false,
+    testType: "unit",
+  },
+  { name: "Teste de Defer Blocks", isAvailable: false, testType: "unit" },
+  { name: "Cobertura de testes", isAvailable: false, testType: "unit" },
+  {
+    name: "Testando fluxo de login",
+    isAvailable: false,
+    testType: "integration",
+  },
+  {
+    name: "Testando fluxo de listagem",
+    isAvailable: false,
+    testType: "integration",
+  },
+  {
+    name: "Introdução aos testes e2e com Cypress",
+    isAvailable: false,
+    testType: "e2e",
+  },
+  {
+    name: "Testando fluxo de autenticação",
+    isAvailable: false,
+    testType: "e2e",
+  },
+  { name: "Ferramentas do Cypress", isAvailable: false, testType: "e2e" },
+  {
+    name: "Testando recursos da listagem",
+    isAvailable: false,
+    testType: "e2e",
+  },
+  { name: "Testando formulários", isAvailable: false, testType: "e2e" },
+  { name: "Utilizando Cypress Cloud", isAvailable: false, testType: "e2e" },
+];
+
+export const testTypeLabels = {
+  unit: "Teste unitário",
+  integration: "Teste de integração",
+  e2e: "E2E",
+};
+
+export function getTestTypeLabel(testType: "unit" | "integration" | "e2e") {
+  return testTypeLabels[testType];
+}
