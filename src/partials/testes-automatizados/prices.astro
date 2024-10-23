@@ -1,0 +1,90 @@
+---
+import ContentContainer from "@shared/containers/ContentContainer.astro";
+
+const features = [
+  "Todo Contéudo sobre Testes Unitários",
+  "Todo contéudo sobre Testes de Integração",
+  "Todo Contéudo sobre Testes End-to-End (E2E)",
+  "Acesso a comunidade no Discord e WhatsApp para resolução de dúvidas",
+  "Todas aulas com legendas em português, espanhol e inglês",
+  "Mais de 30 horas de conteúdo gravado",
+  "Certificado de conclusão",
+];
+
+const precoAVista = 'https://pay.hotmart.com/V95801413V?off=cxca8nxz&bid=1729686428410&offDiscount=PREVENDA';
+const precoParcelado12x = 'https://pay.hotmart.com/V95801413V?bid=1729685763026&offDiscount=PREVENDA&split=12';
+
+---
+
+<ContentContainer>
+  <div class="flex justify-center">
+    <div class="w-full max-w-[1000px]">
+      <h2 class="text-4xl font-bold text-center mb-16 lg:mb-8">
+        Domine testes automatizados agora!
+      </h2>
+      <p class="mb-8 lg:mb-0 text-center text-lg">
+        Confira logo abaixo os valores para adquirir esse super curso!
+      </p>
+      <p class="mb-8 lg:mb-0 text-center text-lg">
+        Você pode parcelar os valores no cartão de crédito <strong
+          >em até 12x SEM JUROS</strong
+        >
+      </p>
+    </div>
+  </div>
+
+  <div class="flex flex-col items-center mt-16">
+    <div class="w-full max-w-[800px] flex justify-center">
+      <div class="card bg-base-100 w-full max-w-[450px] shadow-xl">
+        <div class="card-body border border-primary rounded-lg">
+          <h2 class="card-title">
+            <div class="badge badge-primary badge-lg">Edição Completa</div>
+          </h2>
+
+          <p class="mt-8">
+            <strong>de</strong>
+            <strong class="line-through text-6xl ml-4">R$ 79</strong>
+            <strong class="ml-2">x 12</strong>
+          </p>
+          <p>
+            <strong>por</strong>
+            <strong class="text-6xl text-primary ml-2">R$ 59</strong>
+            <strong class="ml-2">x 12</strong>
+          </p>
+
+          <div class="mt-8 space-y-2">
+            {
+              features.map((feature) => (
+                <div class="flex">
+                  <i class="bi-check-lg text-xl text-primary" />
+                  <div class="ml-2">{feature}</div>
+                </div>
+              ))
+            }
+          </div>
+
+          <div class="card-actions justify-center mt-8">
+            <a href={precoParcelado12x} class="btn btn-primary w-full bounceIn"
+              >Comprar parcelado em 12x sem juros!</a
+            >
+          </div>
+
+          <div class="divider mt-8">Ou</div>
+
+          <strong class="text-2xl">À vista</strong>
+
+          <p class="mt-4">
+            <strong>por</strong>
+            <strong class="text-6xl text-primary ml-3">R$ 599</strong>
+          </p>
+
+          <div class="card-actions justify-center mt-8">
+            <a href={precoAVista} class="btn btn-primary w-full bounceIn"
+              >Comprar à vista!</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ContentContainer>

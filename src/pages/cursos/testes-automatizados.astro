@@ -8,6 +8,7 @@ import Instructor from "@partials/testes-automatizados/instructor.astro";
 import FeatureList from "@partials/testes-automatizados/feature-list.astro";
 import Details from "@partials/testes-automatizados/details.astro";
 import Modules from "@partials/testes-automatizados/modules.astro";
+import Prices from "@partials/testes-automatizados/prices.astro";
 
 const layoutProps = {
   title: "Curso Testes Automatizados com Angular",
@@ -63,19 +64,15 @@ const layoutProps = {
   </section>
 
   <section class="py-16">
-    <WaitingList />
-  </section>
-
-  <section class="py-16 bg-gray">
     <TechList />
   </section>
 
-  <section class="py-16">
+  <section class="py-16 bg-gray">
     <Instructor />
   </section>
 
-  <section class="py-16 bg-gray">
-    <WaitingList />
+  <section class="py-16">
+    <Prices />
   </section>
 
 </Layout>
