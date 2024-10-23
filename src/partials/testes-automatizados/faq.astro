@@ -1,0 +1,80 @@
+---
+import ContentContainer from "@shared/containers/ContentContainer.astro";
+
+interface Faq {
+    question: string;
+    answer: string;
+}
+
+const faqList: Faq[] = [
+{
+    question: "Quando todos o módulos serão publicados?",
+    answer:
+      "A publicação de todos os módulos acontecerá até janeiro de 2025. Essa é uma previsão para evitarmos atrasos devido à grande quantidade de aulas do curso. No entanto, acreditamos que a publicação total do curso ocorrerá por volta de dezembro!",
+  },  
+{
+    question: "Por quanto tempo posso acessar o curso?",
+    answer:
+      "O acesso ao curso é vitalício.",
+  },
+  {
+    question: "Quanto tempo vou ter de suporte?",
+    answer:
+      "Você terá um ano de suporte ativo por parte do instrutor para resolver dúvidas. Lembrando que ao postar sua dúvida em nossa comunidade, qualquer pessoa pode te ajudar.",
+  },
+  {
+    question: "Como será feito o suporte?",
+    answer:
+      "Você terá acesso a nossa comunidade no WhatsApp e no nosso servidor Discord, onde o instrutor poderá auxiliar você em caso de dúvidas. Por participar da comunidade da Code Dimension, você poderá ser ajudado ou ajudar outras pessoas que também adquiriram o curso.",
+  },
+  {
+    question: "Por quanto tempo o curso receberá atualização?",
+    answer: "Está planejado atualizar o conteúdo do curso por até um ano, conforme o Angular lançar novas versões. Lembrando que esse prazo apenas começa a contar a partir da data de lançamento oficial.",
+  },
+  {
+    question: "Receberei um certificado de conclusão? ",
+    answer: "Sim! Ao finalizar o curso, você receberá um certificado de conclusão."
+  },
+  {
+    question: "Qual nível de conhecimento em Angular preciso ter?",
+    answer: "Um conhecimento básico em Angular é mais que suficiente. O curso vai te ensinar desde os conceitos mais básicos sobre testes até chegar em tópicos mais complexos. Sempre de forma bem didática.",
+  },
+  {
+    question: "Qual é o período de reembolso?",
+    answer: "O período de reembolso é 7 dias."
+  },
+  {
+    question: "Como assistir as aulas?",
+    answer: "As aulas podem ser assistidas pela nossa plataforma em formato de vídeos gravados, onde você pode controlar totalmente qual aula assistir e quando assistir." 
+  },
+ 
+];
+---
+
+<ContentContainer>
+  <div class="flex justify-center">
+    <div class="flex flex-col">
+      <h2 class="text-4xl font-bold text-center mb-16 lg:mb-8">Dúvidas?</h2>
+      <p class="mb-8 lg:mb-0 text-center text-lg">
+        Não tem problema! Aqui estão algumas respostas para questões que você
+        pode ter.
+      </p>
+
+      <div class="w-full flex max-w-[800px] justify-center mt-8">
+        <div class="join join-vertical w-full">
+          {
+            faqList.map(({ question, answer }) => (
+              <div class="collapse collapse-arrow join-item border-base-300 border rounded-lg">
+                <input type="radio" name="my-accordion-4" />
+                <div class="collapse-title text-xl font-medium">{question}</div>
+                <div class="collapse-content">
+                  <p>{answer}</p>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</ContentContainer>
