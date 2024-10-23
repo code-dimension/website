@@ -9,6 +9,7 @@ import FeatureList from "@partials/testes-automatizados/feature-list.astro";
 import Details from "@partials/testes-automatizados/details.astro";
 import Modules from "@partials/testes-automatizados/modules.astro";
 import Prices from "@partials/testes-automatizados/prices.astro";
+import ScrollToPricesBtn from "@partials/testes-automatizados/shared/scroll-to-prices-button.astro";
 
 const layoutProps = {
   title: "Curso Testes Automatizados com Angular",
@@ -40,8 +41,10 @@ const layoutProps = {
             Aprenda a criar testes eficientes de verdade e torne-se um
             profissional altamente requisitado no mercado!
           </p>
-
-          <MailchimpForm submitBtnLabel="Entrar na lista de espera" />
+          
+          <div class="flex justify-center xl:justify-start">
+            <ScrollToPricesBtn />
+          </div>
         </div>
       </div>
       <img
@@ -49,7 +52,7 @@ const layoutProps = {
         class="max-w-[650px] absolute w-full opacity-10 xl:opacity-100 xl:right-0"
       />
       
-      <div class="flex justify-center bottom-2 absolute w-full">
+      <div class="flex justify-center bottom-0 absolute w-full">
         <i class="bi bi-arrow-down-circle text-2xl text-primary animate-bounce"></i>
       </div>
     </div>
@@ -61,6 +64,10 @@ const layoutProps = {
 
   <section class="py-24">
     <Details />
+  
+    <div class="flex justify-center mt-24">
+      <ScrollToPricesBtn />
+    </div>
   </section>
 
   <section class="py-24 bg-gray">
@@ -69,14 +76,37 @@ const layoutProps = {
 
   <section class="py-24">
     <TechList />
+
+    <div class="flex justify-center mt-16">
+      <ScrollToPricesBtn />
+    </div>
   </section>
 
   <section class="py-24 bg-gray">
     <Instructor />
   </section>
 
-  <section class="py-24">
+  <section class="py-24" scroll-target="prices">
     <Prices />
   </section>
 
 </Layout>
+
+<script>
+  (() => {
+    const elements = document.querySelectorAll('[scroll-to]');
+
+    elements.forEach((element) => {
+      element.addEventListener('click', (event) => {
+        event.preventDefault();
+        
+        const scrollToValue = element.getAttribute('scroll-to');
+
+        const target = document.querySelector(`[scroll-target="${scrollToValue}"]`);
+
+        target?.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+
+  })();
+</script>
