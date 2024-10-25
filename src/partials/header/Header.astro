@@ -1,11 +1,18 @@
 ---
 import ContentContainer from "../../shared/containers/ContentContainer.astro";
 
-const links = [
+const courses = [
   {
+    label: "Testes Automatizados com Angular 🔥",
     url: "/cursos/testes-automatizados",
-    label: "Curso Testes Automatizados",
   },
+  {
+    label: "Curso de Angular 17",
+    url: "https://www.youtube.com/playlist?list=PLXEUJjGpEX7zwdFSAzIPiSf9p0tOeI1Yu",
+  },
+]
+
+const links = [
   {
     url: "/contato",
     label: "Contato",
@@ -29,10 +36,20 @@ const links = [
       </a>
 
       <nav class="px-8 hidden xl:inline-block ml-auto">
+
+        <details class="dropdown">
+          <summary class="btn btn-ghost m-1 font-normal text-base hover:bg-primary hover:text-white">Cursos</summary>
+          <ul class="menu dropdown-content bg-base-100 rounded-box z-[1] w-[350px] p-2 shadow-2xl">
+            {courses.map((course) => (
+              <li><a class="font-normal text-base hover:bg-primary hover:text-white" href={course.url}>{course.label}</a></li>
+            ))}
+          </ul>
+        </details>
+
         {
           links.map((link) => {
             return (
-              <a class="link header-link" href={link.url}>
+              <a class="btn btn-ghost m-1 font-normal text-base hover:bg-primary hover:text-white" href={link.url}>
                 {link.label}
               </a>
             );
@@ -74,10 +91,23 @@ const links = [
     <nav
       class="flex flex-col items-center justify-center h-[calc(100%_-_44px)]"
     >
+
+      <div class="divider">Cursos</div>
+      {
+        courses.map((link) => {
+          return (
+            <a class="header-link" href={link.url}>
+              {link.label}
+            </a>
+          );
+        })
+      }
+
+      <div class="divider">Outras páginas</div>
       {
         links.map((link) => {
           return (
-            <a class="link header-link" href={link.url}>
+            <a class="header-link" href={link.url}>
               {link.label}
             </a>
           );
