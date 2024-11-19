@@ -17,9 +17,9 @@ export const modules: Module[] = [
     isAvailable: true,
     testType: "unit",
   },
-  { name: "Teste de serviços", isAvailable: false, testType: "unit" },
-  { name: "Teste de requisições HTTP", isAvailable: false, testType: "unit" },
-  { name: "Componentizando a listagem", isAvailable: false, testType: "unit" },
+  { name: "Teste de serviços", isAvailable: true, testType: "unit" },
+  { name: "Teste de requisições HTTP", isAvailable: true, testType: "unit" },
+  { name: "Componentizando a listagem", isAvailable: true, testType: "unit" },
   {
     name: "Testes com a técnica Shallow Rendering",
     isAvailable: false,
