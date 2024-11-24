@@ -22,22 +22,22 @@ export const modules: Module[] = [
   { name: "Componentizando a listagem", isAvailable: true, testType: "unit" },
   {
     name: "Testes com a técnica Shallow Rendering",
-    isAvailable: false,
+    isAvailable: true,
     testType: "unit",
   },
   {
     name: "Testes com a Host Component e setup function",
-    isAvailable: false,
+    isAvailable: true,
     testType: "unit",
   },
   {
     name: "Criando ação para completar tarefa",
-    isAvailable: false,
+    isAvailable: true,
     testType: "unit",
   },
   {
     name: "Criando ação para marcar tarefa como pendente",
-    isAvailable: false,
+    isAvailable: true,
     testType: "unit",
   },
   {
