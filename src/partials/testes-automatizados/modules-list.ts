@@ -42,22 +42,22 @@ export const modules: Module[] = [
   },
   {
     name: "Criando ação para remover tarefa",
-    isAvailable: false,
+    isAvailable: true,
     testType: "unit",
   },
   {
     name: "Criando página para cadastrar tarefa",
-    isAvailable: false,
+    isAvailable: true,
     testType: "unit",
   },
   {
     name: "Utilizando ng-mocks no testes",
-    isAvailable: false,
+    isAvailable: true,
     testType: "unit",
   },
   {
     name: "Redirecionado para página de cadastrar tarefa",
-    isAvailable: false,
+    isAvailable: true,
     testType: "unit",
   },
   {
