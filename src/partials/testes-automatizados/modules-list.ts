@@ -62,13 +62,13 @@ export const modules: Module[] = [
   },
   {
     name: "Criando página para editar tarefa",
-    isAvailable: false,
+    isAvailable: true,
     testType: "unit",
   },
-  { name: "Teste de Resolvers", isAvailable: false, testType: "unit" },
+  { name: "Teste de Resolvers", isAvailable: true, testType: "unit" },
   {
     name: "Criando ações para acessar página de edição de tarefa",
-    isAvailable: false,
+    isAvailable: true,
     testType: "unit",
   },
   { name: "Teste de Diretivas", isAvailable: false, testType: "unit" },
