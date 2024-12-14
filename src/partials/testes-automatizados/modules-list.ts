@@ -71,8 +71,8 @@ export const modules: Module[] = [
     isAvailable: true,
     testType: "unit",
   },
-  { name: "Teste de Diretivas", isAvailable: false, testType: "unit" },
-  { name: "Teste de Pipes", isAvailable: false, testType: "unit" },
+  { name: "Teste de Diretivas", isAvailable: true, testType: "unit" },
+  { name: "Teste de Pipes", isAvailable: true, testType: "unit" },
   {
     name: "Criando autenticação de usuário",
     isAvailable: false,
