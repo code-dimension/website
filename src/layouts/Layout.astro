@@ -3,6 +3,8 @@ import Head from "../partials/head/Head.astro";
 import Header from "../partials/header/Header.astro";
 import Footer from "../partials/footer/Footer.astro";
 import GlobalStyles from "../partials/global-styles/GlobalStyles.astro";
+import WhatsappButton from "@shared/buttons/WhatsappButton.astro";
+
 const params = Astro.props;
 ---
 
@@ -16,7 +18,9 @@ const params = Astro.props;
 
     <main>
       <slot />
-    </main>
+    </main> 
+
+    <WhatsappButton />
 
     <Footer />
   </body>
