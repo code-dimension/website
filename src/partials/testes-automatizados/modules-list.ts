@@ -78,18 +78,18 @@ export const modules: Module[] = [
     isAvailable: true,
     testType: "unit",
   },
-  { name: "Teste de Guardas de rota", isAvailable: false, testType: "unit" },
+  { name: "Teste de Guardas de rota", isAvailable: true, testType: "unit" },
   {
     name: "Teste serviços do tipo Facade",
-    isAvailable: false,
+    isAvailable: true,
     testType: "unit",
   },
   {
     name: "Testando recursos do navegador",
-    isAvailable: false,
+    isAvailable: true,
     testType: "unit",
   },
-  { name: "Teste de HTTP Interceptors", isAvailable: false, testType: "unit" },
+  { name: "Teste de HTTP Interceptors", isAvailable: true, testType: "unit" },
   { name: "Teste de Initializers", isAvailable: false, testType: "unit" },
   {
     name: "Criando ação para fazer o logout do usuário",
