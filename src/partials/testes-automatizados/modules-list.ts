@@ -90,13 +90,13 @@ export const modules: Module[] = [
     testType: "unit",
   },
   { name: "Teste de HTTP Interceptors", isAvailable: true, testType: "unit" },
-  { name: "Teste de Initializers", isAvailable: false, testType: "unit" },
+  { name: "Teste de Initializers", isAvailable: true, testType: "unit" },
   {
     name: "Criando ação para fazer o logout do usuário",
-    isAvailable: false,
+    isAvailable: true,
     testType: "unit",
   },
-  { name: "Teste de Defer Blocks", isAvailable: false, testType: "unit" },
+  { name: "Teste de Defer Blocks", isAvailable: true, testType: "unit" },
   { name: "Cobertura de testes", isAvailable: false, testType: "unit" },
   {
     name: "Testando fluxo de login",
