@@ -97,15 +97,15 @@ export const modules: Module[] = [
     testType: "unit",
   },
   { name: "Teste de Defer Blocks", isAvailable: true, testType: "unit" },
-  { name: "Cobertura de testes", isAvailable: false, testType: "unit" },
+  { name: "Cobertura de testes", isAvailable: true, testType: "unit" },
   {
     name: "Testando fluxo de login",
-    isAvailable: false,
+    isAvailable: true,
     testType: "integration",
   },
   {
     name: "Testando fluxo de listagem",
-    isAvailable: false,
+    isAvailable: true,
     testType: "integration",
   },
   {
