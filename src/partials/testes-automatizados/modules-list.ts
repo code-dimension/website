@@ -110,12 +110,12 @@ export const modules: Module[] = [
   },
   {
     name: "Introdução aos testes e2e com Cypress",
-    isAvailable: false,
+    isAvailable: true,
     testType: "e2e",
   },
   {
     name: "Testando fluxo de autenticação",
-    isAvailable: false,
+    isAvailable: true,
     testType: "e2e",
   },
   { name: "Ferramentas do Cypress", isAvailable: false, testType: "e2e" },
