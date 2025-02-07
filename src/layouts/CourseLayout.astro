@@ -1,0 +1,18 @@
+---
+import Head from "../partials/head/Head.astro";
+import GlobalStyles from "../partials/global-styles/GlobalStyles.astro";
+
+const params = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <Head {...params} />
+  <GlobalStyles />
+
+  <body class="">
+    <main>
+      <slot />
+    </main> 
+  </body>
+</html>

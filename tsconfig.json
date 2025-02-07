@@ -6,7 +6,8 @@
     "paths": {
       "@shared/*": ["./src/shared/*"],
       "@partials/*": ["./src/partials/*"],
-      "@site-config": ["./site-config.ts"]
+      "@site-config": ["./site-config.ts"],
+      "@layouts/*": ["./src/layouts/*"]
     }
   },
 }
