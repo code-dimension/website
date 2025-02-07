@@ -1,8 +1,6 @@
 ---
-import Layout from "../../layouts/Layout.astro";
+import CourseLayout from "@layouts/CourseLayout.astro";
 import ContentContainer from "@shared/containers/ContentContainer.astro";
-import MailchimpForm from "@shared/forms/mailchimp-form.astro";
-import WaitingList from "@partials/testes-automatizados/waiting-list.astro";
 import TechList from "@partials/testes-automatizados/tech-list.astro";
 import Instructor from "@partials/testes-automatizados/instructor.astro";
 import FeatureList from "@partials/testes-automatizados/feature-list.astro";
@@ -23,7 +21,7 @@ const layoutProps = {
 };
 ---
 
-<Layout {...layoutProps}>
+<CourseLayout {...layoutProps}>
   <ContentContainer>
     <div
       class="h-[calc(100vh_-_105px)] xl:h-[calc(100vh_-_90px)] flex flex-col justify-center relative -mt-6"
@@ -95,7 +93,7 @@ const layoutProps = {
     <Prices />
   </section>
 
-</Layout>
+</CourseLayout>
 
 <script>
   (() => {
