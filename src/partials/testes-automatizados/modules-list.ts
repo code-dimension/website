@@ -124,8 +124,8 @@ export const modules: Module[] = [
     isAvailable: true,
     testType: "e2e",
   },
-  { name: "Testando formulários", isAvailable: false, testType: "e2e" },
-  { name: "Utilizando Cypress Cloud", isAvailable: false, testType: "e2e" },
+  { name: "Testando formulários", isAvailable: true, testType: "e2e" },
+  { name: "Utilizando Cypress Cloud", isAvailable: true, testType: "e2e" },
 ];
 
 export const testTypeLabels = {
