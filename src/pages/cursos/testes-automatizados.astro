@@ -9,6 +9,7 @@ import Modules from "@partials/testes-automatizados/modules.astro";
 import Prices from "@partials/testes-automatizados/prices.astro";
 import ScrollToPricesBtn from "@partials/testes-automatizados/shared/scroll-to-prices-button.astro";
 import Faq from "@partials/testes-automatizados/faq.astro";
+import LastChanceAlert from "@partials/testes-automatizados/shared/last-chance-alert.astro";
 
 const layoutProps = {
   title: "Curso Testes Automatizados com Angular",
@@ -23,6 +24,8 @@ const layoutProps = {
 
 <CourseLayout {...layoutProps}>
   <ContentContainer>
+    <LastChanceAlert />
+
     <div
       class="h-[calc(100vh_-_105px)] xl:h-[calc(100vh_-_90px)] flex flex-col justify-center relative -mt-6"
     >
