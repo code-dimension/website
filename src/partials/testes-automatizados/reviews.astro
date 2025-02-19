@@ -1,0 +1,75 @@
+---
+import ContentContainer from "@shared/containers/ContentContainer.astro";
+
+interface Review {
+  text: string;
+  author: string;
+  role: string;
+  avatar: string;
+}
+
+const reviews: Review[] = [
+  {
+    text: "Muito bom aprender conteúdo avançado com profissionais de uma maneira muito didática. O conteúdo do curso já está sendo aplicado no meu trabalho, muito útil.",
+    author: "Bruno Anjos",
+    role: "Senior FullStack Engineer",
+    avatar: "/images/courses/testes-automatizados/students/Bruno-Anjos.jpg",
+  },
+  {
+    text: "Se você quer saber todos os segredos dos testes, do TDD e do end-to-end com uma metodologia tranquila e bem minuciosa façam esse curso. Estou gostando muito!",
+    author: "Luciana Moura Rodrigues",
+    role: "Front-end Developer",
+    avatar:
+      "/images/courses/testes-automatizados/students/Luciana-Moura-Rodrigues.jpg",
+  },
+  {
+    text: "Acho que o curso de testes automatizados com Angular está fantástico pois é difícil encontrar cursos sobre testes com Angular junto com TDD.",
+    author: "Flavio Milani",
+    role: "IT Engineering Analyst",
+    avatar: "/images/courses/testes-automatizados/students/Flavio-Milani.jpg",
+  },
+];
+---
+
+<ContentContainer>
+  <div class="flex justify-center">
+    <div class="w-full">
+      <h2 class="text-4xl font-bold text-center mb-8">
+        Avaliações dos nossos alunos
+      </h2>
+
+      <div class="flex justify-center w-full">
+        <p class="text-center text-lg w-full max-w-[850px]">
+          Nossa meta é te ensinar de forma super didática como criar testes automatizados com <span class="angular-font-color">Angular</span> utilizando técnicas avançadas que realmente são relevantes no dia a dia!
+        </p>
+      </div>
+
+      <div class="flex flex-wrap justify-center mt-16">
+        {
+          reviews.map((review) => {
+            return (
+              <div class="card bg-base-100 w-[400px] m-2 shadow-xl">
+                <div class="card-body border rounded-lg">
+                  <p class="mb-8">
+                    {review.text}
+                  </p>
+                  <div class="flex items-center space-x-4 mt-auto">
+                    <img
+                      class="rounded w-14"
+                      src={review.avatar}
+                      alt={'Aluno(a) ' + review.author}
+                    />
+                    <div class="flex flex-col">
+                      <strong class="text-base">{review.author}</strong>
+                      <div class="text-xs">{review.role}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
+          })
+        }
+      </div>
+    </div>
+  </div>
+</ContentContainer>
