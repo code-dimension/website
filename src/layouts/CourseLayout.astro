@@ -1,6 +1,7 @@
 ---
 import Head from "../partials/head/Head.astro";
 import GlobalStyles from "../partials/global-styles/GlobalStyles.astro";
+import GtmNoScript from "@partials/body/gtm-no-script.astro";
 
 const params = Astro.props;
 ---
@@ -14,5 +15,7 @@ const params = Astro.props;
     <main>
       <slot />
     </main> 
+
+    <GtmNoScript />
   </body>
 </html>

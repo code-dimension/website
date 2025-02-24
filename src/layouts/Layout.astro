@@ -4,6 +4,8 @@ import Header from "../partials/header/Header.astro";
 import Footer from "../partials/footer/Footer.astro";
 import GlobalStyles from "../partials/global-styles/GlobalStyles.astro";
 import WhatsappButton from "@shared/buttons/WhatsappButton.astro";
+import GtmNoScript from "@partials/body/gtm-no-script.astro";
+
 
 const params = Astro.props;
 ---
@@ -25,11 +27,7 @@ const params = Astro.props;
     <Footer />
 
     <!-- Google Tag Manager (noscript) -->
-    <noscript>
-      <iframe 
-        src="https://www.googletagmanager.com/ns.html?id=GTM-K5BV5XXF"
-        height="0" width="0" style="display:none;visibility:hidden">
-      </iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
+
+    <GtmNoScript />
   </body>
 </html>
