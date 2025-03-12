@@ -40,12 +40,6 @@ import { modules, getTestTypeLabel } from "./modules-list";
                 <div class="badge badge-primary mr-2">
                   {getTestTypeLabel(module.testType)}
                 </div>
-                {module.isAvailable && (
-                  <div class="badge badge-success">Publicado</div>
-                )}
-                {!module.isAvailable && (
-                  <div class="badge badge-warning">Em edição</div>
-                )}
               </div>
             </div>
             {index < array.length - 1 && (
