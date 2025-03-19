@@ -89,3 +89,85 @@ const precoParcelado12x = 'https://pay.hotmart.com/V95801413V?bid=1729685763026&
     </div>
   </div>
 </ContentContainer>
+
+
+<!-- Open the modal using ID.showModal() method -->
+<button class="btn" onclick="my_modal_2.showModal()">open modal</button>
+
+<!-- Modal -->
+<dialog id="my_modal_2" class="modal">
+  <div class="modal-box">
+    <script src="//web.webformscr.com/apps/fc3/build/loader.js" async sp-form-id="fec03065a5dd5fb39658d5ff03f76e7d1ddb0cf8cc8e78aa03bbf351f8d94103"></script>
+  </div>
+  <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
+</dialog>
+
+<!-- <script>
+  (document.getElementById('my_modal_2') as HTMLDialogElement).showModal()
+
+  const formScript = createSPFormScript();
+
+  formScript.addEventListener('load', () => {
+    Promise.all([
+      getNameElement(),
+      getEmailElement(),
+      getPhoneCodeElement(),
+      getPhoneNumberElement(),
+      getBtnElement()
+    ]).then(([nameElement, emailElement, phoneCodeElement, phoneNumberElement, btnElement]) => {
+      console.log(nameElement, emailElement, phoneCodeElement, phoneNumberElement, btnElement);
+      
+      
+
+    })
+  });
+
+  document.querySelector('.modal-box')?.appendChild(formScript);
+
+  function createSPFormScript() {
+    const script = document.createElement('script');
+
+    script.src = '//web.webformscr.com/apps/fc3/build/loader.js';
+    script.async = true;
+    script.setAttribute('sp-form-id', 'fec03065a5dd5fb39658d5ff03f76e7d1ddb0cf8cc8e78aa03bbf351f8d94103');
+
+    return script;
+  }
+
+  function getElementAsync(selector: string): Promise<any> {
+    return new Promise((resolve) => {
+      const interval = setInterval(() => {
+        const element = document.querySelector(selector);
+        if (element) {
+          clearInterval(interval);
+          resolve(element);
+        }
+      }, 100);
+    });
+  }
+
+  function getNameElement() {
+    return getElementAsync('[name="sform[Tm9tZQ==]"]');
+  }
+
+  function getEmailElement() {
+    return getElementAsync('[name="sform[email]"]');
+  }
+
+  function getPhoneCodeElement() {
+    return getElementAsync('.iti__selected-flag .iti__selected-dial-code')
+  }
+  
+  function getPhoneNumberElement() {
+    return getElementAsync('[name="sform[phone]"]')
+  }
+
+  function getBtnElement() {
+    return getElementAsync('.sp-form-fields-wrapper .sp-button-container .sp-button')
+  }
+
+</script> -->
+
+
