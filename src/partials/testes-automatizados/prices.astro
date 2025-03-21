@@ -11,9 +11,10 @@ const features = [
   "Certificado de conclusão",
 ];
 
-const precoAVista = 'https://pay.hotmart.com/V95801413V?off=cxca8nxz&bid=1729686428410&offDiscount=LANÇAMENTO';
-const precoParcelado12x = 'https://pay.hotmart.com/V95801413V?bid=1729685763026&offDiscount=LANÇAMENTO&split=12';
-
+const precoAVista =
+  "https://pay.hotmart.com/V95801413V?off=cxca8nxz&bid=1729686428410&offDiscount=LANÇAMENTO";
+const precoParcelado12x =
+  "https://pay.hotmart.com/V95801413V?bid=1729685763026&offDiscount=LANÇAMENTO&split=12";
 ---
 
 <ContentContainer>
@@ -65,7 +66,10 @@ const precoParcelado12x = 'https://pay.hotmart.com/V95801413V?bid=1729685763026&
           </div>
 
           <div class="card-actions justify-center mt-8">
-            <a href={precoParcelado12x} class="btn btn-primary w-full bounceIn"
+            <a
+              id="comprar-parcelado"
+              href={precoParcelado12x}
+              class="btn btn-primary w-full bounceIn"
               >Comprar parcelado em 12x sem juros!</a
             >
           </div>
@@ -80,8 +84,10 @@ const precoParcelado12x = 'https://pay.hotmart.com/V95801413V?bid=1729685763026&
           </p>
 
           <div class="card-actions justify-center mt-8">
-            <a href={precoAVista} class="btn btn-primary w-full bounceIn"
-              >Comprar à vista!</a
+            <a
+              id="comprar-a-vista"
+              href={precoAVista}
+              class="btn btn-primary w-full bounceIn">Comprar à vista!</a
             >
           </div>
         </div>
@@ -89,3 +95,43 @@ const precoParcelado12x = 'https://pay.hotmart.com/V95801413V?bid=1729685763026&
     </div>
   </div>
 </ContentContainer>
+
+<script>
+  function getUtmParamsFromUrl(): string[][] {
+    const url = new URL(window.location.href);
+    const params = url.searchParams;
+    return params
+      .entries()
+      .filter(([key, value]) => key.startsWith("utm_"))
+      .toArray();
+  }
+
+  function setUtmParamsToBuyButtons() {
+    const utmParams = getUtmParamsFromUrl();
+
+    const anchors = ["comprar-a-vista", "comprar-parcelado"];
+
+    anchors.forEach((anchor) => {
+      const button = document.getElementById(anchor);
+
+      if (!button) {
+        console.error(`Button ${anchor} not found`);
+        return;
+      }
+
+      const href = button.getAttribute("href");
+
+      if (href) {
+        const urlSearchParams = new URL(href);
+
+        utmParams.forEach(([key, value]) => {
+          urlSearchParams.searchParams.set(key, value);
+        });
+
+        button.setAttribute("href", urlSearchParams.toString());
+      }
+    });
+  }
+
+  setUtmParamsToBuyButtons();
+</script>
