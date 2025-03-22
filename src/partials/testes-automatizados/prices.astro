@@ -10,11 +10,6 @@ const features = [
   "Mais de 30 horas de conteúdo gravado",
   "Certificado de conclusão",
 ];
-
-const precoAVista =
-  "https://pay.hotmart.com/V95801413V?off=cxca8nxz&bid=1729686428410&offDiscount=LANÇAMENTO";
-const precoParcelado12x =
-  "https://pay.hotmart.com/V95801413V?bid=1729685763026&offDiscount=LANÇAMENTO&split=12";
 ---
 
 <ContentContainer>
@@ -66,10 +61,7 @@ const precoParcelado12x =
           </div>
 
           <div class="card-actions justify-center mt-8">
-            <a
-              id="comprar-parcelado"
-              href={precoParcelado12x}
-              class="btn btn-primary w-full bounceIn"
+            <a id="comprar-parcelado" class="btn btn-primary w-full bounceIn"
               >Comprar parcelado em 12x sem juros!</a
             >
           </div>
@@ -84,10 +76,8 @@ const precoParcelado12x =
           </p>
 
           <div class="card-actions justify-center mt-8">
-            <a
-              id="comprar-a-vista"
-              href={precoAVista}
-              class="btn btn-primary w-full bounceIn">Comprar à vista!</a
+            <a id="comprar-a-vista" class="btn btn-primary w-full bounceIn"
+              >Comprar à vista!</a
             >
           </div>
         </div>
@@ -96,42 +86,163 @@ const precoParcelado12x =
   </div>
 </ContentContainer>
 
+<div id="catch-contact-modal" class="modal">
+  <div class="modal-box">
+    <p class="text-center mb-4 text-neutral-500 text-base">
+      Falta pouco para você se tornar referência em testes automatizados com
+      Angular!
+    </p>
+    <h1 class="font-bold text-2xl text-center mb-4">
+      Preencha os dados abaixo para começar sua jornada!
+    </h1>
+
+    <form>
+      <label data-field="name" class="form-control w-full">
+        <div class="label">
+          <span
+            class="label-text after:content-['*'] after:text-error after:ml-1"
+            >Qual seu nome?</span
+          >
+        </div>
+        <input
+          type="text"
+          placeholder="Digite seu nome"
+          class="input input-bordered w-full"
+          required
+        />
+        <div class="label">
+          <span class="label-text-alt hidden"></span>
+        </div>
+      </label>
+
+      <label data-field="email" class="form-control w-full">
+        <div class="label">
+          <span
+            class="label-text after:content-['*'] after:text-error after:ml-1"
+            >Qual seu email?</span
+          >
+        </div>
+        <input
+          type="email"
+          placeholder="meusuper@email.com"
+          pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"
+          title="Invalid email address"
+          class="input input-bordered w-full"
+          required
+        />
+        <div class="label">
+          <span class="label-text-alt hidden">Bottom Left label</span>
+        </div>
+      </label>
+
+      <label data-field="phone" class="form-control w-full">
+        <div class="label">
+          <span
+            class="label-text after:content-['*'] after:text-error after:ml-1"
+            >Qual seu telefone?</span
+          >
+        </div>
+        <input
+          type="tel"
+          placeholder="(99) 99999-9999"
+          class="input input-bordered w-full"
+          required
+        />
+        <div class="label">
+          <span class="label-text-alt hidden">Bottom Left label</span>
+        </div>
+      </label>
+
+      <div class="modal-action">
+        <button type="submit" class="btn btn-primary w-full"
+          >Começar jornada!</button
+        >
+      </div>
+    </form>
+  </div>
+  <label class="modal-backdrop" for="my_modal_7">Close</label>
+</div>
+
 <script>
-  function getUtmParamsFromUrl(): string[][] {
-    const url = new URL(window.location.href);
-    const params = url.searchParams;
-    return params
-      .entries()
-      .filter(([key, value]) => key.startsWith("utm_"))
-      .toArray();
-  }
+  import { setUtmParamsToUrl } from "@shared/functions/set-utm-to-url";
+  import { precoAVista, precoParcelado12x } from "./shared/prices";
 
-  function setUtmParamsToBuyButtons() {
-    const utmParams = getUtmParamsFromUrl();
+  let submitHandler = (event: Event) => {};
 
-    const anchors = ["comprar-a-vista", "comprar-parcelado"];
+  registerClickOnComprarParcelado();
 
-    anchors.forEach((anchor) => {
-      const button = document.getElementById(anchor);
+  registerClickOnComprarAVista();
 
-      if (!button) {
-        console.error(`Button ${anchor} not found`);
-        return;
-      }
+  registerClickOutsideModal();
 
-      const href = button.getAttribute("href");
-
-      if (href) {
-        const urlSearchParams = new URL(href);
-
-        utmParams.forEach(([key, value]) => {
-          urlSearchParams.searchParams.set(key, value);
-        });
-
-        button.setAttribute("href", urlSearchParams.toString());
-      }
+  function registerClickOutsideModal() {
+    document.querySelector(".modal-backdrop")?.addEventListener("click", () => {
+      document.querySelector(".modal")?.classList.remove("modal-open");
     });
   }
 
-  setUtmParamsToBuyButtons();
+  function registerClickOnComprarAVista() {
+    document
+      .querySelector("#comprar-parcelado")
+      ?.addEventListener("click", () => {
+        openModal();
+        registerFormSubmit(setUtmParamsToUrl(precoParcelado12x));
+      });
+  }
+
+  function registerClickOnComprarParcelado() {
+    document
+      .querySelector("#comprar-a-vista")
+      ?.addEventListener("click", () => {
+        openModal();
+        registerFormSubmit(setUtmParamsToUrl(precoAVista));
+      });
+  }
+
+  function openModal() {
+    document.querySelector(".modal")?.classList.add("modal-open");
+  }
+
+  function registerFormSubmit(url: string) {
+    removeSubmitHandler();
+
+    submitHandler = (event: Event) => {
+      event.preventDefault();
+
+      const name = document.querySelector<HTMLInputElement>(
+        '#catch-contact-modal [data-field="name"] input'
+      )?.value as string;
+
+      const email = document.querySelector<HTMLInputElement>(
+        '#catch-contact-modal [data-field="email"] input'
+      )?.value as string;
+
+      const phonenumber = document.querySelector<HTMLInputElement>(
+        '#catch-contact-modal [data-field="phone"] input'
+      )?.value as string;
+
+      const urlInstance = new URL(url);
+      urlInstance.searchParams.append("name", name);
+      urlInstance.searchParams.append("email", email);
+      urlInstance.searchParams.append("phonenumber", phonenumber);
+
+      const anchor = document.createElement("a");
+      anchor.href = urlInstance.toString();
+      anchor.click();
+
+      document.querySelector("#catch-contact-modal button")!.textContent =
+        "Enviando...";
+    };
+
+    document
+      .querySelector("#catch-contact-modal form")!
+      .addEventListener("submit", submitHandler);
+  }
+
+  function removeSubmitHandler() {
+    document
+      .querySelector("#catch-contact-modal form")!
+      .removeEventListener("submit", submitHandler);
+  }
+
 </script>
