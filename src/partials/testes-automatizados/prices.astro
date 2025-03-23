@@ -125,7 +125,6 @@ const features = [
         <input
           type="email"
           placeholder="meusuper@email.com"
-          pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"
           title="Invalid email address"
           class="input input-bordered w-full"
           required
@@ -166,6 +165,7 @@ const features = [
 <script>
   import { setUtmParamsToUrl } from "@shared/functions/set-utm-to-url";
   import { precoAVista, precoParcelado12x } from "./shared/prices";
+  import axios from "axios";
 
   let submitHandler = (event: Event) => {};
 
@@ -221,17 +221,12 @@ const features = [
         '#catch-contact-modal [data-field="phone"] input'
       )?.value as string;
 
-      const urlInstance = new URL(url);
-      urlInstance.searchParams.append("name", name);
-      urlInstance.searchParams.append("email", email);
-      urlInstance.searchParams.append("phonenumber", phonenumber);
-
-      const anchor = document.createElement("a");
-      anchor.href = urlInstance.toString();
-      anchor.click();
-
       document.querySelector("#catch-contact-modal button")!.textContent =
         "Enviando...";
+
+      addEmailToMailingList({ name, email, phonenumber }).then(() => {
+        // redirectToCheckout({ name, email, phonenumber, url });
+      });
     };
 
     document
@@ -245,4 +240,50 @@ const features = [
       .removeEventListener("submit", submitHandler);
   }
 
+  function addEmailToMailingList({
+    name,
+    email,
+    phonenumber,
+  }: {
+    name: string;
+    email: string;
+    phonenumber: string;
+  }) {
+    return new Promise((resolve) => {
+      axios
+        .post("https://email-server.codedimension.com.br/add-email", {
+          mailingListID: "1040123",
+          email: email,
+          name: name,
+          phone: phonenumber,
+        })
+        .then((res) => {
+          resolve(res);
+        })
+        .catch((error) => {
+          resolve(error);
+        });
+    });
+  }
+
+  function redirectToCheckout({
+    name,
+    email,
+    phonenumber,
+    url,
+  }: {
+    name: string;
+    email: string;
+    phonenumber: string;
+    url: string;
+  }) {
+    const urlInstance = new URL(url);
+    urlInstance.searchParams.append("name", name);
+    urlInstance.searchParams.append("email", email);
+    urlInstance.searchParams.append("phonenumber", phonenumber);
+
+    const anchor = document.createElement("a");
+    anchor.href = urlInstance.toString();
+    anchor.click();
+  }
 </script>
