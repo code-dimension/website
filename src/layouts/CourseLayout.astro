@@ -6,7 +6,7 @@ import GtmNoScript from "@partials/body/gtm-no-script.astro";
 const params = Astro.props;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
   <Head {...params} />
   <GlobalStyles />
@@ -14,8 +14,12 @@ const params = Astro.props;
   <body class="">
     <main>
       <slot />
-    </main> 
+    </main>
 
     <GtmNoScript />
+
+    <script>
+      import "promise-polyfill/src/polyfill";
+    </script>
   </body>
 </html>
