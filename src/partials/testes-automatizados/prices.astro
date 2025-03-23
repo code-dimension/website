@@ -12,6 +12,15 @@ const features = [
 ];
 ---
 
+<button id="error-button">Throw test error</button>
+<script>
+  function handleClick () {
+    throw new Error('This is a test error');
+  }
+
+  document.querySelector("#error-button")!.addEventListener("click", handleClick);
+</script>
+
 <ContentContainer>
   <div class="flex justify-center">
     <div class="w-full max-w-[1000px]">

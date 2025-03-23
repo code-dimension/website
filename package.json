@@ -12,6 +12,7 @@
   "dependencies": {
     "@astrojs/sitemap": "^3.2.1",
     "@astrojs/tailwind": "^5.0.0",
+    "@sentry/astro": "^9.8.0",
     "astro": "^3.6.5",
     "axios": "^1.8.4",
     "swiper": "^10.2.0",
