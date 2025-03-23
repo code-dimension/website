@@ -225,7 +225,7 @@ const features = [
         "Enviando...";
 
       addEmailToMailingList({ name, email, phonenumber }).then(() => {
-        // redirectToCheckout({ name, email, phonenumber, url });
+        redirectToCheckout({ name, email, phonenumber, url });
       });
     };
 
