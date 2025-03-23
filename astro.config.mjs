@@ -13,7 +13,16 @@ export default defineConfig({
       applyBaseStyles: false,
     }),
     sitemap(),
-    sentry(),
+    sentry({
+      dsn: "https://ce95855eb081b6a3f6711a15374a279a@o4509015588864000.ingest.us.sentry.io/4509024436158464",
+      tracesSampleRate: 0,
+      replaysSessionSampleRate: 0,
+      replaysOnErrorSampleRate: 0,
+      sourceMapsUploadOptions: {
+        project: "website",
+        authToken: process.env.SENTRY_AUTH_TOKEN,
+      },
+    }),
   ],
   site: siteConfig.url,
 });
