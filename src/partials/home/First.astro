@@ -1,0 +1,35 @@
+---
+import ContentContainer from "../../shared/containers/ContentContainer.astro";
+---
+
+<section>
+  <ContentContainer>
+    <div class="flex flex-col items-center xl:flex-row xl:justify-center mt-24">
+      <div>
+        <img
+          class="w-full max-w-[500px]"
+          src="/images/home/angular first.webp"
+          alt="Logo do framework Angular com alguns troféus e uma coroa"
+        />
+      </div>
+
+      <div class="flex flex-col items-center max-w-[600px]">
+        <h3 class="w-full section-title text-center">
+          Somos a <span class="font-bold">primeira</span> plataforma do
+          Brasil focada em <span class="angular-font-color">Angular</span>!
+        </h3>
+
+        <p class="section-description text-center mt-8">
+          A <span class="cd-font-color">Code Dimension</span> tem a objetivo enriquecer o mercado de
+          desenvolvimento <span class="angular-font-color">Angular</span> brasileiro, proporcionando cursos e
+          treinamentos de qualidade para todos os nossos alunos.
+        </p>
+
+        <a
+          class="btn btn-primary w-full max-w-[300px] mt-8"
+          href="#courses-section">Confira nossos cursos!</a
+        >
+      </div>
+    </div>
+  </ContentContainer>
+</section>
