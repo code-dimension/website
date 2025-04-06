@@ -76,13 +76,13 @@ const feedbacks: Feedback[] = [
 
 <ContentContainer>
   <div class="flex flex-col items-center">
-    <div class="max-w-[780px] w-full">
-      <h1 class="text-[32px] font-bold text-center">
-        Muitos feedbacks positivos estão chegando :)
+    <div class="max-w-[700px] w-full">
+      <h1 class="section-title font-bold text-center">
+        Feedbacks dos nossos alunos
       </h1>
 
-      <p class="text-[18px] leading-relaxed text-center mt-8">
-        A <strong class="text-primary">Code Dimension</strong> está empenhada em
+      <p class="section-description text-center mt-8">
+        A <strong class="cd-font-color">Code Dimension</strong> está empenhada em
         entregar conteúdo relevante e atualizado para você que quer evoluir dia após
         dia!
       </p>
@@ -92,24 +92,19 @@ const feedbacks: Feedback[] = [
   <swiper-container
     class="mt-20"
     pagination="false"
-    effect="coverflow"
+    effect="slide"
     grab-cursor="true"
     centered-slides="true"
     autoplay="true"
     loop="true"
-    coverflow-effect-rotate="50"
-    coverflow-effect-stretch="0"
-    coverflow-effect-depth="100"
-    coverflow-effect-modifier="1"
-    coverflow-effect-slide-shadows="true"
     init="false"
   >
     {
       feedbacks.map((feedback) => (
-        <swiper-slide class="min-h-[350px] p-8 sm:m-2 lg:p-8 border border-primary bg-primary text-base-100 rounded flex flex-col items-center">
-          <p class=" text-[18px]">{feedback.text}</p>
+        <swiper-slide class="min-h-[300px] p-8 sm:m-2 lg:p-8 border shadow text-base-100 rounded flex flex-col items-center">
+          <p class="text-[18px] text-black">{feedback.text}</p>
 
-          <em class=" mt-auto">{feedback.author}</em>
+          <em class="mt-auto text-black">{feedback.author}</em>
         </swiper-slide>
       ))
     }
