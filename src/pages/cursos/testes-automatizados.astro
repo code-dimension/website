@@ -102,22 +102,3 @@ const layoutProps = {
   </section>
 
 </CourseLayout>
-
-<script>
-  (() => {
-    const elements = document.querySelectorAll('[scroll-to]');
-
-    elements.forEach((element) => {
-      element.addEventListener('click', (event) => {
-        event.preventDefault();
-        
-        const scrollToValue = element.getAttribute('scroll-to');
-
-        const target = document.querySelector(`[scroll-target="${scrollToValue}"]`);
-
-        target?.scrollIntoView({ behavior: 'smooth' });
-      });
-    });
-
-  })();
-</script>

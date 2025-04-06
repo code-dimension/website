@@ -12,15 +12,15 @@ import First from "@partials/home/First.astro";
 <Layout title="Home">
   <Banner />
   
-  <section id="courses-section" class="py-32 lg:py-48 bg-gray">
+  <section class="py-32 lg:py-48 bg-gray">
     <Numbers />
   </section>
 
-  <section id="courses-section" class="py-32 lg:py-48">
+  <section class="py-32 lg:py-48">
     <First />
   </section>
 
-  <section id="courses-section" class="py-32 lg:py-48 bg-gray">
+  <section scroll-target="courses-section" class="py-32 lg:py-48 bg-gray">
     <Courses />
   </section>
 

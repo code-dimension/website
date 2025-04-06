@@ -5,7 +5,7 @@ import Footer from "../partials/footer/Footer.astro";
 import GlobalStyles from "../partials/global-styles/GlobalStyles.astro";
 import WhatsappButton from "@shared/buttons/WhatsappButton.astro";
 import GtmNoScript from "@partials/body/gtm-no-script.astro";
-
+import ScrollToScript from "@partials/body/scroll-to-script.astro";
 
 const params = Astro.props;
 ---
@@ -29,5 +29,6 @@ const params = Astro.props;
     <!-- Google Tag Manager (noscript) -->
 
     <GtmNoScript />
+    <ScrollToScript />
   </body>
 </html>
