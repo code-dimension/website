@@ -13,16 +13,6 @@ interface Course {
 
 const courses: Course[] = [
   {
-    imageUrl: "/images/courses/ng17.png",
-    imageAlt: "Curso de Angular 17",
-    badgeClass: "badge-accent",
-    badgeText: "gratuito",
-    title: "Curso de Angular 17",
-    description:
-      "Construa uma aplicação para gerenciar produtos e aprenda conceitos fundamentais amplamente usados pelo mercado.",
-    url: "https://www.youtube.com/playlist?list=PLXEUJjGpEX7zwdFSAzIPiSf9p0tOeI1Yu",
-  },
-  {
     imageUrl: "images/courses/testes-automatizados/banner-robot.png",
     imageAlt: "Curso Testes Automatizados com Angular",
     badgeClass: "badge-warning",
@@ -31,6 +21,16 @@ const courses: Course[] = [
     description:
       "Aprenda a criar testes eficientes de verdade e torne-se um profissional altamente requisitado no mercado!",
     url: "/cursos/testes-automatizados",
+  },
+  {
+    imageUrl: "/images/courses/ng17.png",
+    imageAlt: "Curso de Angular 17",
+    badgeClass: "badge-accent",
+    badgeText: "gratuito",
+    title: "Curso de Angular 17",
+    description:
+      "Construa uma aplicação para gerenciar produtos e aprenda conceitos fundamentais amplamente usados pelo mercado.",
+    url: "https://www.youtube.com/playlist?list=PLXEUJjGpEX7zwdFSAzIPiSf9p0tOeI1Yu",
   },
 ];
 ---
@@ -55,10 +55,16 @@ const courses: Course[] = [
           courses.map((course) => (
             <div class="card max-w-[350px] w-full bg-base-100 shadow-xl">
               <figure>
-                <img class="card-image" src={course.imageUrl} alt={course.imageAlt} />
+                <img
+                  class="card-image"
+                  src={course.imageUrl}
+                  alt={course.imageAlt}
+                />
               </figure>
               <div class="card-body">
-                <div class="badge" class:list={course.badgeClass} >{course.badgeText}</div>
+                <div class="badge" class:list={course.badgeClass}>
+                  {course.badgeText}
+                </div>
 
                 <h2 class="card-title">{course.title}</h2>
 
