@@ -10,12 +10,19 @@ const {
 const isLeftOrientation = orientation === "left";
 
 const flexRowClass = isLeftOrientation ? "lg:flex-row" : "lg:flex-row-reverse";
-const contentHorizontalMarginClass = isLeftOrientation ? "lg:ml-16" : "lg:mr-16";
+const contentHorizontalMarginClass = isLeftOrientation
+  ? "lg:ml-16"
+  : "lg:mr-16";
 ---
 
 <div class="hero border rounded-lg">
   <div class="hero-content flex-col" class:list={flexRowClass}>
-    <img src={imageUrl} class="max-w-[300px] rounded-lg" alt={imageAlt} />
+    <img
+      loading="lazy"
+      src={imageUrl}
+      class="max-w-[300px] rounded-lg"
+      alt={imageAlt}
+    />
     <div class:list={contentHorizontalMarginClass}>
       <h3 class="text-3xl font-bold text-center lg:text-start">
         <slot name="title" />
