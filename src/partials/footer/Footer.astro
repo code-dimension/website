@@ -13,10 +13,10 @@ const socialMediaLinks = [
     label: "Discord",
   },
   {
-		link: 'https://chat.whatsapp.com/Eo6YWjWyAgA5gdBUkXoi13',
-		icon: '/images/social/whatsapp.svg',
-		label: 'WhatsApp'
-	},
+    link: "https://chat.whatsapp.com/Eo6YWjWyAgA5gdBUkXoi13",
+    icon: "/images/social/whatsapp.svg",
+    label: "WhatsApp",
+  },
   {
     link: "https://www.linkedin.com/company/code-dimension/",
     icon: "/images/social/linkedin.svg",
@@ -28,10 +28,10 @@ const socialMediaLinks = [
     label: "Instagram",
   },
   {
-		link: 'https://www.tiktok.com/@codedimension',
-		icon: '/images/social/tiktok.svg',
-		label: 'Tiktok'
-	}
+    link: "https://www.tiktok.com/@codedimension",
+    icon: "/images/social/tiktok.svg",
+    label: "Tiktok",
+  },
 ];
 
 const podimensionLinks = [
@@ -61,7 +61,6 @@ const aboutLinks = [
       <div class="flex flex-col max-w-[700px] w-full">
         <div class="flex justify-center">
           <img
-            loading="lazy"
             class="w-[200px] lg:w-[300px]"
             src="/images/logomark/logo-cd-full.svg"
             alt="Youtube"
@@ -114,7 +113,7 @@ const aboutLinks = [
               {
                 socialMediaLinks.map(({ link, icon, label }) => (
                   <a class="flex mt-6" href={link}>
-                    <img loading="lazy" class="w-[25px]" src={icon} alt={label} />
+                    <img class="w-[25px]" src={icon} alt={label} />
                     <span class=" hover:decoration-[#6657ec] hover:decoration-solid hover:underline hover:underline-offset-2 ml-1">
                       {label}
                     </span>
