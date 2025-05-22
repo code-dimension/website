@@ -12,6 +12,7 @@ import Faq from "@partials/testes-automatizados/faq.astro";
 import LastChanceAlert from "@partials/testes-automatizados/shared/last-chance-alert.astro";
 import Reviews from "@partials/testes-automatizados/reviews.astro";
 import Banner from "@partials/testes-automatizados/banner.astro";
+import Pain from "@partials/testes-automatizados/pain.astro";
 
 const layoutProps = {
   title: "Curso Testes Automatizados com Angular",
@@ -36,16 +37,24 @@ const layoutProps = {
   </section>
 
   <section class="py-24">
-    <FeatureList />
+    <Pain />
+
+    <div class="flex justify-center mt-16">
+      <ScrollToPricesBtn />
+    </div>
   </section>
 
-  <section class="py-24 bg-gray">
+  <!-- <section class="py-24">
+    <FeatureList />
+  </section> -->
+
+  <!-- <section class="py-24 bg-gray">
     <Details />
 
     <div class="flex justify-center mt-24">
       <ScrollToPricesBtn />
     </div>
-  </section>
+  </section> -->
 
   <section class="py-24">
     <Modules />
@@ -58,12 +67,12 @@ const layoutProps = {
   <section class="py-24">
     <Reviews />
   </section>
+  
+  <section class="py-24" scroll-target="prices">
+    <Prices />
+  </section>
 
   <section class="py-24 bg-gray">
     <Faq />
-  </section>
-
-  <section class="py-24" scroll-target="prices">
-    <Prices />
   </section>
 </CourseLayout>

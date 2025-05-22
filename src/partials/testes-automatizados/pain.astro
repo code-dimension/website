@@ -1,0 +1,63 @@
+---
+import ContentContainer from "@shared/containers/ContentContainer.astro";
+---
+
+<ContentContainer>
+  <div class="flex flex-col items-center">
+    <div class="flex justify-center flex-wrap">
+      <div class="xl:basis-2/4">
+        <img
+          class="xl:-mt-[50px] w-full min-w-[300px] max-w-[550px]"
+          src="/images/courses/testes-automatizados/error-vs-tests.webp"
+          alt=""
+        />
+      </div>
+
+      <div class="flex xl:basis-2/4 flex-col">
+        <h2 class="section-title text-center mb-8">
+          Você já usa Angular. Mas ainda não sabe testar de verdade!
+        </h2>
+
+        <div class="text-center xl:text-start">
+          <p class="my-4">
+            Você cria componentes, serviços, diretivas. Entende RxJS, trabalha
+            com rotas usando guards e resolvers.
+          </p>
+
+          <p class="my-4">
+            Mas quando o assunto é <strong>testes automatizados</strong>, você
+            ainda testa tudo de forma manual, usando o navegador, <strong
+              class="text-error">escrevendo muitos console.log()</strong
+            >
+            e <strong class="text-error">dependendo ainda mais da fé</strong>.
+          </p>
+
+          <ul class="xl:list-disc mt-8 ml-5 space-y-4">
+            <li>
+              <strong>Não sabe como criar testes automatizados</strong> para cada
+              recurso do Angular.
+            </li>
+            <li>
+              Passa mais tempo <strong
+                >corrindo testes do que de fato evoluindo o projeto</strong
+              >.
+            </li>
+            <li>
+              <strong>Não sabe</strong> o que de fato precisa <strong
+                >testar no projeto</strong
+              >.
+            </li>
+            <li>
+              <strong>Não entende</strong> quando usar <strong
+                >teste unitário, integração ou E2E</strong
+              >.
+            </li>
+            <li>
+              <strong>Nunca conseguiu utilizar TDD </strong>em um projeto real.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</ContentContainer>
