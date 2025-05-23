@@ -1,20 +1,39 @@
 export function setUtmParamsToUrl(url: string) {
-  const utmParams = getUtmParamsFromUrl();
+  const utmParams = getUtmQueryParamsFromUrl();
 
   const urlInstance = new URL(url);
 
-  utmParams.forEach(([key, value]) => {
-    urlInstance.searchParams.set(key, value);
-  });
+  for (const key in utmParams) {
+    urlInstance.searchParams.set(key, utmParams[key]);
+  }
 
   return urlInstance.toString();
 }
 
-function getUtmParamsFromUrl(): string[][] {
+function getUtmQueryParamsFromUrl(): Record<string, string> {
   const url = new URL(window.location.href);
-  const params = url.searchParams;
-  return params
-    .entries()
-    .filter(([key, value]) => key.startsWith("utm_"))
-    .toArray();
+
+  const [_, queryParams] = url.search.split("?");
+
+  if (!queryParams) {
+    return {} as Record<string, string>;
+  }
+
+  const keyValueArray = queryParams.split("&");
+
+  const queryParamsObject = keyValueArray.reduce((acc, keyValue) => {
+    const [key, value] = keyValue.split("=");
+
+    if (!key || !value) {
+      return acc;
+    }
+
+    if (key.startsWith("utm_")) {
+      acc[key] = value; 
+    }
+
+    return acc;
+  }, {} as Record<string, string>);
+
+  return queryParamsObject;
 }
