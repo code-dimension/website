@@ -1,0 +1,19 @@
+---
+const { icon } = Astro.props;
+---
+
+<div class="border rounded-lg p-8 min-h-[186px] h-full">
+  <div class="flex flex-wrap sm:flex-nowrap h-full">
+    <div class="flex justify-center items-center w-full sm:w-auto mb-8 sm:mb-0 sm:mr-8">
+      <i class={`bi ${icon} text-5xl text-primary`}></i>
+    </div>
+    <div>
+      <h3 class="text-xl font-bold text-center lg:text-start pb-4">
+        <slot name="title" />
+      </h3>
+      <p class="text-center lg:text-start">
+        <slot name="description" />
+      </p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,48 @@
+---
+import ContentContainer from "@shared/containers/ContentContainer.astro";
+import { data } from "./section-data";
+import SectionItem from "./section-item.astro";
+---
+
+<ContentContainer>
+  <div class="flex flex-col items-center">
+    <div class="flex flex-col justify-center">
+      <h2 class="section-title text-center mb-8">
+        Teste como um profissional em <span class="angular-font-color"
+          >Angular</span
+        >
+      </h2>
+
+      <p class="mb-4 text-center text-lg">
+        Você não vai aprender só a escrever testes.
+      </p>
+
+      <p class="mb-4 text-center text-lg w-full max-w-[575px]">
+        Vai aprender a <strong>confiar no seu código</strong>, entregar com
+        segurança e se posicionar como um <strong>desenvolvedor completo</strong
+        >.
+      </p>
+
+      <p class="mb-4 text-center text-lg">
+        Tudo isso usando ferramentas reais, no contexto de um projeto real.
+      </p>
+    </div>
+
+    <div class="mt-8">
+      <div class="flex justify-center flex-wrap">
+        {
+          data.map(({ title, description, icon }) => {
+            return (
+              <div class="m-8 w-full sm:max-w-[550px]">
+                <SectionItem icon={icon}>
+                  <Fragment slot="title">{title}</Fragment>
+                  <Fragment slot="description">{description}</Fragment>
+                </SectionItem>
+              </div>
+            );
+          })
+        }
+      </div>
+    </div>
+  </div>
+</ContentContainer>

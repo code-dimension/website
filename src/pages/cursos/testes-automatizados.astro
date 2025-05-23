@@ -2,7 +2,7 @@
 import CourseLayout from "@layouts/CourseLayout.astro";
 import ContentContainer from "@shared/containers/ContentContainer.astro";
 import Instructor from "@partials/testes-automatizados/instructor.astro";
-import FeatureList from "@partials/testes-automatizados/feature-list.astro";
+import WhatYouWillLearn from "@partials/testes-automatizados/partials/what-you-will-learn/section.astro";
 import Details from "@partials/testes-automatizados/details.astro";
 import Modules from "@partials/testes-automatizados/modules.astro";
 import Prices from "@partials/testes-automatizados/prices.astro";
@@ -27,14 +27,6 @@ const layoutProps = {
 <CourseLayout {...layoutProps}>
   <Banner />
 
-  <!-- <section class="py-24 bg-gray">
-    <TechList />
-
-    <div class="flex justify-center mt-16">
-      <ScrollToPricesBtn />
-    </div>
-  </section> -->
-
   <section class="py-24">
     <Pain />
 
@@ -43,9 +35,13 @@ const layoutProps = {
     </div>
   </section>
 
-  <!-- <section class="py-24">
-    <FeatureList />
-  </section> -->
+  <section class="py-24">
+    <WhatYouWillLearn />
+
+    <div class="flex justify-center mt-16">
+      <ScrollToPricesBtn />
+    </div>
+  </section>
 
   <!-- <section class="py-24 bg-gray">
     <Details />
