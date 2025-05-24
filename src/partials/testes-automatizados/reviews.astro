@@ -1,5 +1,6 @@
 ---
 import ContentContainer from "@shared/containers/ContentContainer.astro";
+import ScrollToPricesButton from "./shared/scroll-to-prices-button.astro";
 
 interface Review {
   text: string;
@@ -9,6 +10,12 @@ interface Review {
 }
 
 const reviews: Review[] = [
+  {
+    text: "O professor Henrique demonstra excelente domínio do conteúdo e conduz as aulas com clareza e segurança. Sua experiência prática enriquece significativamente o curso, proporcionando aos alunos uma visão mais aplicada da teoria. Recomendo fortemente a aquisição do curso — certamente será uma experiência enriquecedora.",
+    author: "Farley Souza",
+    role: "Desenvolvedor Full Stack .NET",
+    avatar: "/images/courses/testes-automatizados/students/Farley-Souza.jpeg",
+  },
   {
     text: "Muito bom aprender conteúdo avançado com profissionais de uma maneira muito didática. O conteúdo do curso já está sendo aplicado no meu trabalho, muito útil.",
     author: "Bruno Anjos",
@@ -33,18 +40,10 @@ const reviews: Review[] = [
 
 <ContentContainer>
   <div class="flex justify-center">
-    <div class="w-full">
-      <h2 class="text-4xl font-bold text-center mb-8">
-        Avaliações dos nossos alunos
+    <div class="w-full max-w-[1000px]">
+      <h2 class="section-title text-center mb-8">
+        Veja o que os nossos alunos têm a dizer
       </h2>
-
-      <div class="flex justify-center w-full">
-        <p class="text-center text-lg w-full max-w-[850px]">
-          Nossa meta é te ensinar de forma super didática como criar testes
-          automatizados com <span class="angular-font-color">Angular</span> utilizando
-          técnicas avançadas que realmente são relevantes no dia a dia!
-        </p>
-      </div>
 
       <div class="flex flex-wrap justify-center mt-16">
         {
@@ -71,5 +70,9 @@ const reviews: Review[] = [
         }
       </div>
     </div>
+  </div>
+  
+  <div class="flex justify-center mt-16">
+    <ScrollToPricesButton />
   </div>
 </ContentContainer>
