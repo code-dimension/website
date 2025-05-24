@@ -1,0 +1,72 @@
+---
+import ContentContainer from "@shared/containers/ContentContainer.astro";
+import Checklist from "./../../shared/checklist.astro";
+---
+
+<ContentContainer>
+  <div class="flex justify-center flex-wrap">
+    <div class="order-2 xl:order-1 flex xl:basis-2/4 flex-col">
+      <h2 class="section-title text-center mb-8">
+        Aprenda a testar. Aplique no trabalho.
+        <div>Seja o dev que toda empresa quer.</div>
+      </h2>
+
+      <div class="text-center xl:text-start">
+        <p class="my-4">
+          Esse curso foi pensado para você que já trabalha com <span
+            class="angular-font-color">Angular</span
+          > e quer parar de escrever código no escuro.
+        </p>
+
+        <p class="mt-8 mb-4">
+          Você vai aprender <strong>testando uma aplicação real</strong>, com
+          tudo que um projeto profissional exige:
+        </p>
+
+        <div class="flex justify-center xl:justify-start">
+          <Checklist
+            cssClass="mt-4 md:ml-5"
+            items={[
+              "Fluxo de autenticação",
+              "Comunicação entre componentes",
+              "Organização em camadas",
+            ]}
+          />
+        </div>
+
+        <p class="mt-8 mb-4">
+          E o melhor: tudo que é ensinado aqui — <strong>Jest</strong>, <strong
+            >ng-mocks</strong
+          >, <strong>Cypress</strong>, <strong>TDD</strong>
+          — pode ser aplicado diretamente no seu trabalho atual.
+        </p>
+
+        <p class="my-4">
+          <strong>Sem adaptação. Sem chute. Sem enrolação.</strong>
+        </p>
+
+        <p class="mt-8 mb-4">Resultado:</p>
+
+        <div class="flex justify-center xl:justify-start">
+          <Checklist
+            cssClass="mt-4 md:ml-5"
+            items={[
+              "<strong>Menos retrabalho</strong>",
+              "<strong>Mais segurança</strong> para entregar",
+              "<strong>Mais visibilidade</strong> dentro do time",
+            ]}
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      class="flex flex-row sm:justify-end mb-16 xl:mb-0 order-1 xl:order-2 xl:basis-2/4"
+    >
+      <img
+        class="w-full max-w-[500px] max-h-[500px]"
+        src="https://placehold.co/1000"
+        alt=""
+      />
+    </div>
+  </div>
+</ContentContainer>

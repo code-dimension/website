@@ -1,0 +1,60 @@
+---
+import ContentContainer from "@shared/containers/ContentContainer.astro";
+import DetailCard from "./detail-card.astro";
+
+interface Detail {
+  icon: string;
+  title: string;
+  description: string[];
+}
+
+const items: Detail[] = [
+  {
+    icon: "bi-emoji-heart-eyes",
+    title: '<span class="text-primary font-bold">+30h</span> de conteúdo',
+    description: [
+      "Nossa trilha de aprendizado foi pensada para você evoluir do 0 ao mais avançado em testes automatizados.",
+      "São mais de 200 vídeo aulas gravadas, com teoria e prática para você dominar Testes Automatizados com Angular sem enrolação.",
+    ],
+  },
+  {
+    icon: "bi-person-raised-hand",
+    title: "Suporte profissional",
+    description: [
+      "Você não vai precisar travar os seus estudos se surgir alguma dificuldade, pois você terá acesso a comunidade no Discord e WhatsApp para resolução de dúvidas.",
+      "Basta comentar a sua dúvida que o nosso time de suporte te atenderá em até 48 horas.",
+    ],
+  },
+  {
+    icon: "bi-shield-check",
+    title: "Certificado de conclusão",
+    description: [
+      "Certificados são muito importantes para quem quer ser um desenvolvedor profissional.",
+      "Por isso, ao final do curso você receberá um certificado de conclusão reconhecido pelo mercado.",
+    ],
+  },
+];
+---
+
+<ContentContainer>
+  <div class="flex justify-center">
+    <div
+      class="w-full flex flex-wrap flex-col items-center justify-center sm:flex-row"
+    >
+      {
+        items.map(({ icon, title, description }, index) => (
+          <div class="my-4 md:m-4">
+            <DetailCard key={index} icon={icon}>
+              <fragment slot="title" set:html={title} />
+              <fragment slot="description">
+                {description.map((text) => (
+                  <p class="text-center mb-4">{text}</p>
+                ))}
+              </fragment>
+            </DetailCard>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</ContentContainer>

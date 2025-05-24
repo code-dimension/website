@@ -3,7 +3,7 @@ import CourseLayout from "@layouts/CourseLayout.astro";
 import ContentContainer from "@shared/containers/ContentContainer.astro";
 import Instructor from "@partials/testes-automatizados/instructor.astro";
 import WhatYouWillLearn from "@partials/testes-automatizados/partials/what-you-will-learn/section.astro";
-import Details from "@partials/testes-automatizados/details.astro";
+import Details from "@partials/testes-automatizados/partials/real-application/details.astro";
 import Modules from "@partials/testes-automatizados/modules.astro";
 import Prices from "@partials/testes-automatizados/prices.astro";
 import ScrollToPricesBtn from "@partials/testes-automatizados/shared/scroll-to-prices-button.astro";
@@ -12,6 +12,7 @@ import LastChanceAlert from "@partials/testes-automatizados/shared/last-chance-a
 import Reviews from "@partials/testes-automatizados/reviews.astro";
 import Banner from "@partials/testes-automatizados/banner.astro";
 import Pain from "@partials/testes-automatizados/pain.astro";
+import RealApplication from "@partials/testes-automatizados/partials/real-application/index.astro";
 
 const layoutProps = {
   title: "Curso Testes Automatizados com Angular",
@@ -43,6 +44,10 @@ const layoutProps = {
     </div>
   </section>
 
+  <section class="py-24">
+    <RealApplication />
+  </section>
+
   <!-- <section class="py-24 bg-gray">
     <Details />
 
@@ -62,7 +67,7 @@ const layoutProps = {
   <section class="py-24">
     <Reviews />
   </section>
-  
+
   <section class="py-24" scroll-target="prices">
     <Prices />
   </section>

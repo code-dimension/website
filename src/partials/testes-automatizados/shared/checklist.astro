@@ -1,0 +1,14 @@
+---
+const { items, cssClass } = Astro.props;
+---
+
+<div class={`space-y-4 ${cssClass}`}>
+  {
+    items.map((text: string) => (
+      <div class="flex">
+        <i class="bi-check-lg text-xl text-primary" />
+        <div class="ml-2" set:html={text} />
+      </div>
+    ))
+  }
+</div>
