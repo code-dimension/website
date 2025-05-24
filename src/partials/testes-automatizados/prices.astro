@@ -2,13 +2,16 @@
 import ContentContainer from "@shared/containers/ContentContainer.astro";
 
 const features = [
-  "Todo Contéudo sobre Testes Unitários",
-  "Todo contéudo sobre Testes de Integração",
-  "Todo Contéudo sobre Testes End-to-End (E2E)",
-  "Acesso a comunidade no Discord e WhatsApp para resolução de dúvidas",
-  "Todas as aulas com legendas em português, espanhol e inglês",
-  "Mais de 30 horas de conteúdo gravado",
-  "Certificado de conclusão",
+  "Domine testes unitários com Jest em componentes, serviços, pipes e diretivas",
+  "Aprenda na prática como usar ng-mocks e técnicas de mocking avançado",
+  "Aplique testes de integração para garantir a comunicação entre componentes",
+  "Implemente testes end-to-end (E2E) com Cypress simulando o uso real do usuário",
+  "Aprenda a criar testes utilizando a técnica de TDD na prática",
+  "Utilize tecnologias como Nx e Tailwind para criar um projeto real",
+  "Acesso à comunidade ativa no WhatsApp e Discord, com suporte direto",
+  "Todas as aulas com legendas em português, inglês e espanhol",
+  "Mais de 30 horas de conteúdo direto ao ponto, com projeto real",
+  "Certificado de conclusão com reconhecimento profissional",
 ];
 ---
 
@@ -54,7 +57,7 @@ const features = [
               features.map((feature) => (
                 <div class="flex">
                   <i class="bi-check-lg text-xl text-primary" />
-                  <div class="ml-2">{feature}</div>
+                  <div class="ml-2" set:html={feature}></div>
                 </div>
               ))
             }
