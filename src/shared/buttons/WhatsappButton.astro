@@ -1,4 +1,12 @@
-<a  class="bg-[#25d366] rounded-lg xl:rounded-full p-1 xl:p-3 fixed bottom-5 right-5 xl:bottom-10 xl:right-10 z-50" 
-    href="https://wa.me/5548996696057?text=Oi,%20Code!%20Pode%20me%20ajudar?">
-    <i class="bi bi-whatsapp text-3xl xl:text-5xl text-white"></i>
+---
+import { createWhatsappLink } from "@shared/functions/create-whatsapp-link";
+
+const wppLink = createWhatsappLink("Oi, Code! Pode me ajudar?");
+---
+
+<a
+  class="bg-[#25d366] rounded-lg xl:rounded-full p-1 xl:p-3 fixed bottom-5 right-5 xl:bottom-10 xl:right-10 z-50"
+  href={wppLink}
+>
+  <i class="bi bi-whatsapp text-3xl xl:text-5xl text-white"></i>
 </a>
