@@ -1,5 +1,6 @@
 ---
 import ContentContainer from "@shared/containers/ContentContainer.astro";
+import Checklist from "./shared/checklist.astro";
 ---
 
 <ContentContainer>
@@ -15,7 +16,8 @@ import ContentContainer from "@shared/containers/ContentContainer.astro";
 
       <div class="flex xl:basis-2/4 flex-col">
         <h2 class="section-title text-center mb-8">
-          Você já usa <span class="angular-font-color">Angular</span>. Mas ainda não sabe testar de verdade!
+          Você já usa <span class="angular-font-color">Angular</span>. Mas ainda
+          não sabe testar de verdade!
         </h2>
 
         <div class="text-center xl:text-start">
@@ -32,30 +34,18 @@ import ContentContainer from "@shared/containers/ContentContainer.astro";
             e <strong class="text-error">dependendo ainda mais da fé</strong>.
           </p>
 
-          <ul class="xl:list-disc mt-8 ml-5 space-y-4">
-            <li>
-              <strong>Não sabe como criar testes automatizados</strong> para cada
-              recurso do <span class="angular-font-color">Angular</span>.
-            </li>
-            <li>
-              Passa mais tempo <strong
-                >corrindo testes do que de fato evoluindo o projeto</strong
-              >.
-            </li>
-            <li>
-              <strong>Não sabe</strong> o que de fato precisa <strong
-                >testar no projeto</strong
-              >.
-            </li>
-            <li>
-              <strong>Não entende</strong> quando usar <strong
-                >teste unitário, integração ou E2E</strong
-              >.
-            </li>
-            <li>
-              <strong>Nunca conseguiu utilizar TDD </strong>em um projeto real.
-            </li>
-          </ul>
+          <div class="flex justify-center xl:justify-start">
+            <Checklist
+              cssClass="mt-4"
+              items={[
+                '<strong>Não sabe como criar testes automatizados</strong> para cada recurso do <span class="angular-font-color">Angular</span>.',
+                "Passa mais tempo <strong>corrindo testes do que de fato evoluindo o projeto</strong>.",
+                "<strong>Não sabe</strong> o que de fato precisa <strong>testar no projeto</strong>.",
+                "<strong>Não entende</strong> quando usar <strong>teste unitário, integração ou E2E</strong>.",
+                "<strong>Nunca conseguiu utilizar TDD </strong>em um projeto real.",
+              ]}
+            />
+          </div>
         </div>
       </div>
     </div>
