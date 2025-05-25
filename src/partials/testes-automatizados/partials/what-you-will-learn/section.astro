@@ -2,6 +2,7 @@
 import ContentContainer from "@shared/containers/ContentContainer.astro";
 import { data } from "./section-data";
 import SectionItem from "./section-item.astro";
+import ScrollToPricesButton from "@partials/testes-automatizados/shared/scroll-to-prices-button.astro";
 ---
 
 <ContentContainer>
@@ -44,5 +45,9 @@ import SectionItem from "./section-item.astro";
         }
       </div>
     </div>
+  </div>
+
+  <div class="flex justify-center mt-16">
+    <ScrollToPricesButton />
   </div>
 </ContentContainer>
