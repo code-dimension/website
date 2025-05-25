@@ -19,10 +19,6 @@
     @apply no-underline hover:decoration-primary hover:decoration-solid hover:underline hover:underline-offset-2;
   }
 
-  .bg-gray {
-    @apply bg-[#f3f3f3];
-  }
-
   .cd-font-color {
     @apply font-bold text-primary;
   }
@@ -35,20 +31,28 @@
     @apply font-bold;
   }
 
+  .page-section {
+    @apply py-24;
+
+    &:nth-child(2n) {
+      @apply bg-[#f3f3f3];
+    }
+  }
+
   .section-title {
     @apply font-bold text-3xl;
   }
 
   .section-description {
-    @apply text-lg leading-relaxed
+    @apply text-lg leading-relaxed;
   }
 
   .hero-title {
-    @apply text-4xl sm:text-5xl font-bold leading-tight
+    @apply text-4xl sm:text-5xl font-bold leading-tight;
   }
 
   .hero-description {
-    @apply text-base sm:text-xl
+    @apply text-base sm:text-xl;
   }
 
   .hint-text {

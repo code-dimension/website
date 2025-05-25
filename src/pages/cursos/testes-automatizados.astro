@@ -1,14 +1,10 @@
 ---
 import CourseLayout from "@layouts/CourseLayout.astro";
-import ContentContainer from "@shared/containers/ContentContainer.astro";
 import Instructor from "@partials/testes-automatizados/instructor.astro";
 import WhatYouWillLearn from "@partials/testes-automatizados/partials/what-you-will-learn/section.astro";
-import Details from "@partials/testes-automatizados/partials/real-application/details.astro";
 import Modules from "@partials/testes-automatizados/modules.astro";
 import Prices from "@partials/testes-automatizados/prices.astro";
-import ScrollToPricesBtn from "@partials/testes-automatizados/shared/scroll-to-prices-button.astro";
 import Faq from "@partials/testes-automatizados/faq.astro";
-import LastChanceAlert from "@partials/testes-automatizados/shared/last-chance-alert.astro";
 import Reviews from "@partials/testes-automatizados/reviews.astro";
 import Banner from "@partials/testes-automatizados/banner.astro";
 import Pain from "@partials/testes-automatizados/pain.astro";
@@ -28,52 +24,35 @@ const layoutProps = {
 <CourseLayout {...layoutProps}>
   <Banner />
 
-  <section class="py-24">
+  <section class="page-section">
     <Pain />
-
-    <div class="flex justify-center mt-16">
-      <ScrollToPricesBtn />
-    </div>
   </section>
 
-  <section class="py-24">
+  <section class="page-section">
     <WhatYouWillLearn />
-
-    <div class="flex justify-center mt-16">
-      <ScrollToPricesBtn />
-    </div>
   </section>
 
-  <section class="py-24">
+  <section class="page-section">
     <RealApplication />
   </section>
 
-  <section class="py-24 bg-gray">
+  <section class="page-section">
     <Instructor />
   </section>
-  
-  <section class="py-24">
+
+  <section class="page-section">
     <Reviews />
   </section>
-  
-  <!-- <section class="py-24 bg-gray">
-    <Details />
 
-    <div class="flex justify-center mt-24">
-      <ScrollToPricesBtn />
-    </div>
-  </section> -->
-
-  <section class="py-24">
+  <section class="page-section">
     <Modules />
   </section>
 
-
-  <section class="py-24" scroll-target="prices">
+  <section class="page-section" scroll-target="prices">
     <Prices />
   </section>
 
-  <section class="py-24 bg-gray">
+  <section class="page-section">
     <Faq />
   </section>
 </CourseLayout>
