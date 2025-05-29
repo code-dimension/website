@@ -55,12 +55,6 @@ const faqList: Faq[] = [
     answer:
       "Sim! Para garantir maior acessibilidade, oferecemos legendas em português, inglês e espanhol.",
   },
-  {
-    question: "Ainda está com dúvidas? Clique aqui e fale com nosso time!",
-    answer: `
-      <a href="${wppLink}" class="btn btn-primary w-full">Chamar nosso time de vendas</a>
-    `,
-  },
 ];
 ---
 
@@ -86,6 +80,13 @@ const faqList: Faq[] = [
             ))
           }
         </div>
+      </div>
+      <div class="w-full flex justify-center mt-8">
+        <a
+          href={wppLink}
+          class="text-lg link-primary underline underline-offset-2 text-center font-bold"
+          >Ainda está com dúvidas? Clique aqui e fale com nosso time!</a
+        >
       </div>
     </div>
   </div>
