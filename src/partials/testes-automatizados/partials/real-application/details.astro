@@ -14,14 +14,14 @@ const items: Detail[] = [
     title: '<span class="text-primary font-bold">+30h</span> de conteúdo',
     description: [
       "Nossa trilha de aprendizado foi pensada para você evoluir do 0 ao mais avançado em testes automatizados.",
-      "São mais de 200 vídeo aulas gravadas, com teoria e prática para você dominar Testes Automatizados com Angular sem enrolação.",
+      "São mais de 200 vídeo aulas gravadas, com teoria e prática para você dominar Testes Automatizados com <span class='angular-font-color'>Angular</span> <br> sem enrolação.",
     ],
   },
   {
     icon: "bi-person-raised-hand",
     title: "Suporte profissional",
     description: [
-      "Você não vai precisar travar os seus estudos se surgir alguma dificuldade, pois você terá acesso a comunidade no Discord e WhatsApp para resolução de dúvidas.",
+      "Você não vai precisar travar os seus estudos se surgir alguma dificuldade, pois você terá acesso a comunidade no Discord e WhatsApp para <br> resolução de dúvidas.",
       "Basta comentar a sua dúvida que o nosso time de suporte te atenderá em até 48 horas.",
     ],
   },
@@ -29,7 +29,7 @@ const items: Detail[] = [
     icon: "bi-shield-check",
     title: "Certificado de conclusão",
     description: [
-      "Ao concluir o curso, você recebe um certificado nominal que comprova seu domínio em testes automatizados com Angular.",
+      "Ao concluir o curso, você recebe um certificado nominal que comprova seu domínio em testes automatizados <br> com <span class='angular-font-color'>Angular</span>.",
       "Ideal para destacar seu perfil em entrevistas, promoções internas ou propostas de freelancer.",
     ],
   },
@@ -48,7 +48,7 @@ const items: Detail[] = [
               <fragment slot="title" set:html={title} />
               <fragment slot="description">
                 {description.map((text) => (
-                  <p class="text-center mb-4">{text}</p>
+                  <p class="text-center mb-4" set:html={text}></p>
                 ))}
               </fragment>
             </DetailCard>
