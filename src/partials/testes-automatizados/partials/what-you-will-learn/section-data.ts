@@ -13,7 +13,7 @@ export const data: Feature[] = [
   },
   {
     icon: "bi-shield-check",
-    title: "Testes de integração",
+    title: "Crie testes de integração",
     description:
       "Teste como diferentes partes de uma aplicação se integram, evitando bugs.",
   },
