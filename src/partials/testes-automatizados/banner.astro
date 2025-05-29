@@ -45,7 +45,7 @@ import ScrollToPricesButton from "./shared/scroll-to-prices-button.astro";
       />
     </div>
 
-    <div class="flex justify-center flex-wrap gap-8 mt-[100px] xl:mt-[250px]">
+    <div class="flex justify-center flex-wrap gap-8 mt-6 sm:mt-12 xl:mt-[170px]">
       <a href="https://angular.dev" target="_blank">
         <img
           src="/images/courses/testes-automatizados/angular_gradient.png"
@@ -64,12 +64,12 @@ import ScrollToPricesButton from "./shared/scroll-to-prices-button.astro";
         <img
           src="/images/courses/testes-automatizados/jest.svg"
           alt="Jest"
-          class="tech-image p-4"
+          class="tech-image p-2 sm:p-4"
         />
       </a>
       <div class="flex flex-col justify-center">
         <a href="https://ng-mocks.sudo.eu" target="_blank">
-          <h3 class="text-3xl font-bold text-red-600 text-center">ng-mocks</h3>
+          <h3 class="text-xl sm:text-2xl xl:text-3xl font-bold text-red-600 text-center">ng-mocks</h3>
         </a>
       </div>
       <a href="https://cypress.io" target="_blank">
@@ -92,6 +92,6 @@ import ScrollToPricesButton from "./shared/scroll-to-prices-button.astro";
 
 <style lang="scss">
   .tech-image {
-    @apply w-[70px] h-[70px] sm:w-[100px] sm:h-[100px];
+    @apply w-[50px] h-[50px] sm:w-[70px] sm:h-[70px] xl:w-[100px] xl:h-[100px];
   }
 </style>
