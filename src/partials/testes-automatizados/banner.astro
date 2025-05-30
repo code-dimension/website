@@ -6,46 +6,50 @@ import ScrollToPricesButton from "./shared/scroll-to-prices-button.astro";
 <ContentContainer>
   <!-- <LastChanceAlert /> -->
 
-  <div class="xl:h-screen flex flex-col justify-center relative my-[70px] xs:my-[100px] xl:my-0">
+  <div
+    class="3xl:h-screen flex flex-col justify-center relative my-[70px] xs:my-[100px] 3xl:my-0"
+  >
     <div class="flex justify-center xl:justify-start">
-      <div>
-        <div
-          class="w-full max-w-[600px] flex flex-col justify-center text-center xl:text-start"
+      <div
+        class="w-full flex flex-col items-center xl:items-start justify-center text-center xl:text-start xl:px-32 3xl:px-0"
+      >
+        <h1 class="hero-title max-w-[470px] 3xl:max-w-[600px]">
+          O Curso Mais Completo De Testes Automatizados Com <span
+            class="angular-font-color">Angular</span
+          >
+        </h1>
+
+        <p
+          class="hero-description my-8 3xl:my-12 text-black max-w-[560px] 3xl:max-w-[680px]"
         >
-          <h1 class="hero-title">
-            O Curso Mais Completo De Testes Automatizados Com <span
-              class="angular-font-color">Angular</span
-            >
-          </h1>
+          Teste seus componentes, serviços e integrações com confiança. Chega de
+          deploy no escuro!
+        </p>
 
-          <p class="hero-description my-12 text-black">
-            Teste seus componentes, serviços e integrações com confiança. Chega
-            de deploy no escuro!
-          </p>
+        <div class="flex justify-center xl:justify-start">
+          <ScrollToPricesButton />
+        </div>
 
-          <div class="flex justify-center xl:justify-start">
-            <ScrollToPricesButton />
+        <div class="py-4 hint-text">
+          <div class="font-bold">
+            <span class="text-green-600">Compra segura</span> com <span
+              class="text-green-600">garantia incondicional de 7 dias</span
+            >.
           </div>
-
-          <div class="py-4 hint-text">
-            <div class="font-bold">
-              <span class="text-green-600">Compra segura</span> com <span
-                class="text-green-600">garantia incondicional de 7 dias</span
-              >.
-            </div>
-            <div class="font-bold">
-              Receba o seu acesso imediatamente após a confirmação de pagamento.
-            </div>
+          <div class="font-bold">
+            Receba o seu acesso imediatamente após a confirmação de pagamento.
           </div>
         </div>
       </div>
       <img
         src="/images/courses/testes-automatizados/banner-image.webp"
-        class="hidden xl:block max-w-[650px] absolute w-full opacity-10 xl:opacity-100 xl:right-0 rounded-bl-[280px] rounded-br-[120px] -mt-[150px]"
+        class="hidden xl:block max-w-[500px] 3xl:max-w-[650px] absolute w-full opacity-10 xl:opacity-100 xl:right-24 right-0 3xl:right-0 rounded-bl-[280px] rounded-br-[150px] -mt-[120px] 3xl:-mt-[150px]"
       />
     </div>
 
-    <div class="flex justify-center flex-wrap gap-8 mt-6 sm:mt-12 xl:mt-[170px]">
+    <div
+      class="flex justify-center flex-wrap gap-8 mt-6 sm:mt-12 xl:mt-[70px] 3xl:mt-[170px]"
+    >
       <a href="https://angular.dev" target="_blank">
         <img
           src="/images/courses/testes-automatizados/angular_gradient.png"
@@ -69,7 +73,11 @@ import ScrollToPricesButton from "./shared/scroll-to-prices-button.astro";
       </a>
       <div class="flex flex-col justify-center">
         <a href="https://ng-mocks.sudo.eu" target="_blank">
-          <h3 class="text-xl sm:text-2xl xl:text-3xl font-bold text-red-600 text-center">ng-mocks</h3>
+          <h3
+            class="text-xl sm:text-2xl xl:text-3xl font-bold text-red-600 text-center"
+          >
+            ng-mocks
+          </h3>
         </a>
       </div>
       <a href="https://cypress.io" target="_blank">
@@ -92,6 +100,6 @@ import ScrollToPricesButton from "./shared/scroll-to-prices-button.astro";
 
 <style lang="scss">
   .tech-image {
-    @apply w-[50px] h-[50px] sm:w-[70px] sm:h-[70px] xl:w-[100px] xl:h-[100px];
+    @apply w-[50px] h-[50px] sm:w-[70px] sm:h-[70px] 3xl:w-[100px] 3xl:h-[100px];
   }
 </style>
