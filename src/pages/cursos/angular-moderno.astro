@@ -1,0 +1,18 @@
+---
+import CourseLayout from "@layouts/CourseLayout.astro";
+import Banner from "@partials/angular-moderno/banner/Banner.astro";
+
+const layoutProps = {
+  title: "Curso Angular Moderno",
+  description:
+    "Aprenda todas as novidades do Angular 20 e se torne um desenvolvedor mais produtivo e eficiente no seu dia a dia!",
+  url: Astro.url.href,
+  image:
+    Astro.url.origin +
+    "/images/courses/angular-moderno/og-banner-pre-venda.webp",
+};
+---
+
+<CourseLayout {...layoutProps}>
+  <Banner />
+</CourseLayout>
