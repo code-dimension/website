@@ -1,16 +1,6 @@
 ---
+import { courses } from "@shared/data/courses";
 import ContentContainer from "../../shared/containers/ContentContainer.astro";
-
-const courses = [
-  {
-    label: "Testes Automatizados com Angular 🔥",
-    url: "/cursos/testes-automatizados",
-  },
-  {
-    label: "Curso de Angular 17",
-    url: "https://www.youtube.com/playlist?list=PLXEUJjGpEX7zwdFSAzIPiSf9p0tOeI1Yu",
-  },
-]
 
 const links = [
   {
@@ -41,7 +31,7 @@ const links = [
           <summary class="btn btn-ghost mx-1 font-normal text-base hover:bg-primary hover:text-white">Cursos</summary>
           <ul class="menu dropdown-content bg-base-100 rounded-box z-[1] w-[350px] p-2 shadow-2xl">
             {courses.map((course) => (
-              <li><a class="font-normal text-base hover:bg-primary hover:text-white" href={course.url}>{course.label}</a></li>
+              <li><a class="font-normal text-base hover:bg-primary hover:text-white" href={course.url}>{course.title}</a></li>
             ))}
           </ul>
         </details>
@@ -97,7 +87,7 @@ const links = [
         courses.map((link) => {
           return (
             <a class="header-link" href={link.url}>
-              {link.label}
+              {link.title}
             </a>
           );
         })
