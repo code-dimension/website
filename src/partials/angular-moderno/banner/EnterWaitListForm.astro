@@ -1,2 +1,203 @@
+<button class="btn btn-primary w-full" id="open-waitlist-modal"
+  >Entrar na lista de espera</button
+>
 
-<script src="//web.webformscr.com/apps/fc3/build/loader.js" async sp-form-id="9115c8eded7f6775ab2d1c8d097d88e1a47f2539a752971f9fafe9c0851b925d"></script>
+<div role="alert" class="hidden alert alert-success" id="you-are-on-waitlist">
+  <i class="bi bi-check-circle text-xl"></i>
+  <span>Você está na nossa lista de espera!</span>
+</div>
+
+<div id="enter-waitlist-modal" class="modal">
+  <div class="modal-box">
+    <p class="text-center mb-4 text-neutral-500 text-base">
+      Falta pouco para você se tornar referência em Angular!
+    </p>
+    <h1 class="font-bold text-2xl text-center mb-4">
+      Preencha os dados abaixo para começar sua jornada!
+    </h1>
+
+    <form>
+      <label data-field="name" class="form-control w-full">
+        <div class="label">
+          <span
+            class="label-text after:content-['*'] after:text-error after:ml-1"
+            >Qual seu nome?</span
+          >
+        </div>
+        <input
+          type="text"
+          placeholder="Digite seu nome"
+          class="input input-bordered w-full"
+          required
+        />
+        <div class="label">
+          <span class="label-text-alt hidden"></span>
+        </div>
+      </label>
+
+      <label data-field="email" class="form-control w-full">
+        <div class="label">
+          <span
+            class="label-text after:content-['*'] after:text-error after:ml-1"
+            >Qual seu email?</span
+          >
+        </div>
+        <input
+          type="email"
+          placeholder="meusuper@email.com"
+          title="Invalid email address"
+          class="input input-bordered w-full"
+          required
+        />
+        <div class="label">
+          <span class="label-text-alt hidden">Bottom Left label</span>
+        </div>
+      </label>
+
+      <label data-field="phone" class="form-control w-full">
+        <div class="label">
+          <span
+            class="label-text after:content-['*'] after:text-error after:ml-1"
+            >Qual seu telefone?</span
+          >
+        </div>
+        <input
+          type="tel"
+          placeholder="(99) 99999-9999"
+          class="input input-bordered w-full"
+          required
+        />
+        <div class="label">
+          <span class="label-text-alt hidden">Bottom Left label</span>
+        </div>
+      </label>
+
+      <div class="modal-action">
+        <button type="submit" class="btn btn-primary w-full"
+          >Entrar na lista de espera!</button
+        >
+      </div>
+
+      <p id="waitlist-error" class="hidden text-error mt-4 text-center">
+        Estamos com problemas técnicos, tente mais tarde.
+      </p>
+    </form>
+  </div>
+  <label class="modal-backdrop" for="my_modal_7">Close</label>
+</div>
+
+<script>
+  import { addEmailToMailingList } from "@shared/functions/add-mail-to-mailing-list";
+
+  let submitHandler = (event: Event) => {};
+
+  registerClickOnModalHandler();
+
+  registerClickOutsideModal();
+
+  function registerClickOutsideModal() {
+    document.querySelector(".modal-backdrop")?.addEventListener("click", () => {
+      closeModal();
+    });
+  }
+
+  function registerClickOnModalHandler() {
+    document
+      .querySelector("#open-waitlist-modal")
+      ?.addEventListener("click", () => {
+        openModal();
+        registerFormSubmit();
+      });
+  }
+
+  function closeModal() {
+    document.querySelector(".modal")?.classList.remove("modal-open");
+  }
+
+  function openModal() {
+    document.querySelector(".modal")?.classList.add("modal-open");
+  }
+
+  function registerFormSubmit() {
+    removeSubmitHandler();
+
+    submitHandler = (event: Event) => {
+      event.preventDefault();
+
+      const name = document.querySelector<HTMLInputElement>(
+        '#enter-waitlist-modal [data-field="name"] input'
+      )?.value as string;
+
+      const email = document.querySelector<HTMLInputElement>(
+        '#enter-waitlist-modal [data-field="email"] input'
+      )?.value as string;
+
+      const phonenumber = document.querySelector<HTMLInputElement>(
+        '#enter-waitlist-modal [data-field="phone"] input'
+      )?.value as string;
+
+      setSubmitBtnText("Enviando...");
+      disableSubmitBtn();
+
+      addEmailToMailingList({
+        mailingListID: "1060301",
+        name,
+        email,
+        phonenumber,
+      })
+        .then(() => {
+          closeModal();
+          hideOpenWaitlistModalBtn();
+          showWailListSuccessMessage();
+        })
+        .catch(() => {
+          showWaitlistError();
+          enableSubmitBtn();
+          resetSubmitBtnText();
+        });
+    };
+
+    document
+      .querySelector("#enter-waitlist-modal form")!
+      .addEventListener("submit", submitHandler);
+  }
+
+  function removeSubmitHandler() {
+    document
+      .querySelector("#enter-waitlist-modal form")!
+      .removeEventListener("submit", submitHandler);
+  }
+
+  function setSubmitBtnText(text: string) {
+    document.querySelector("#enter-waitlist-modal button")!.textContent = text;
+  }
+
+  function resetSubmitBtnText() {
+    document.querySelector("#enter-waitlist-modal button")!.textContent =
+      "Entrar na lista de espera!";
+  }
+
+  function disableSubmitBtn() {
+    document.querySelector<HTMLButtonElement>(
+      "#enter-waitlist-modal button"
+    )!.disabled = true;
+  }
+
+  function enableSubmitBtn() {
+    document.querySelector<HTMLButtonElement>(
+      "#enter-waitlist-modal button"
+    )!.disabled = false;
+  }
+
+  function showWaitlistError() {
+    document.querySelector("#waitlist-error")!.classList.remove("hidden");
+  }
+
+  function showWailListSuccessMessage() {
+    document.querySelector("#you-are-on-waitlist")!.classList.remove("hidden");
+  }
+
+  function hideOpenWaitlistModalBtn() {
+    document.querySelector("#open-waitlist-modal")!.classList.add("hidden");
+  }
+</script>
