@@ -4,7 +4,10 @@
 
 <div role="alert" class="hidden alert alert-success" id="you-are-on-waitlist">
   <i class="bi bi-check-circle text-xl"></i>
-  <span>Você está na nossa lista de espera!</span>
+  <span
+    >Você está na nossa lista de espera! Em breve você receberá novidades sobre
+    o curso.</span
+  >
 </div>
 
 <div id="enter-waitlist-modal" class="modal">
@@ -79,7 +82,7 @@
       </div>
 
       <p id="waitlist-error" class="hidden text-error mt-4 text-center">
-        Estamos com problemas técnicos, tente mais tarde.
+        Estamos com problemas técnicos. Por favor, tente novamente mais tarde.
       </p>
     </form>
   </div>
@@ -88,6 +91,7 @@
 
 <script>
   import { addEmailToMailingList } from "@shared/functions/add-mail-to-mailing-list";
+  import * as Sentry from "@sentry/astro";
 
   let submitHandler = (event: Event) => {};
 
@@ -150,7 +154,9 @@
           hideOpenWaitlistModalBtn();
           showWailListSuccessMessage();
         })
-        .catch(() => {
+        .catch((err) => {
+          Sentry.captureException(err);
+
           showWaitlistError();
           enableSubmitBtn();
           resetSubmitBtnText();
