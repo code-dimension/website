@@ -8,6 +8,7 @@ import AngularLogo from "./assets/angular_gradient.png";
 import SassLogo from "./assets/sass-logo.png";
 import RxJSLogo from "./assets/rxjs-logo.svg";
 import ChartJSLogo from "./assets/chartjs-logo.svg";
+import TSLogo from "./assets/ts-logo-128.png";
 ---
 
 <ContentContainer>
@@ -47,11 +48,15 @@ import ChartJSLogo from "./assets/chartjs-logo.svg";
     </div>
 
     <div
-      class="flex justify-center flex-wrap gap-16 mt-6 sm:mt-12 xl:mt-[70px] 3xl:mt-[170px]"
+      class="flex justify-center flex-wrap gap-16 mt-6 sm:mt-12 xl:mt-[150px] 3xl:mt-[200px]"
     >
       <div class="tooltip tooltip-open tooltip-bottom" data-tip="Angular">
         <Image src={AngularLogo} class="tech-image" alt="Angular" />
       </div>
+      <div class="tooltip tooltip-open tooltip-bottom" data-tip="TypeScript">
+        <Image src={TSLogo} class="tech-image" alt="TypeScript" />
+      </div>
+      
       <div
         class="tooltip tooltip-open tooltip-bottom"
         data-tip="Angular Material"
