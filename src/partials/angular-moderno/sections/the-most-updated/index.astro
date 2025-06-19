@@ -1,0 +1,74 @@
+---
+import ContentContainer from "@shared/containers/ContentContainer.astro";
+import Checklist from "../../shared/checklist.astro";
+import ScrollToPricesButton from "@partials/angular-moderno/shared/scroll-to-prices-button.astro";
+---
+
+<ContentContainer>
+  <div class="flex flex-col items-center">
+    <div class="flex justify-center flex-wrap">
+      <div class="xl:basis-2/4">
+        <img
+          class="w-full min-w-[300px] max-w-[550px]"
+          src="https://placehold.co/550"
+          alt=""
+        />
+      </div>
+
+      <div class="flex xl:basis-2/4 flex-col">
+        <h2 class="section-title text-center mb-8">
+          O único curso no Brasil já 100% atualizado com <span
+            class="angular-font-color">Angular 20</span
+          >
+        </h2>
+
+        <div class="text-center xl:text-start">
+          <p class="my-4">
+            <strong>Angular mudou</strong>. O lançamento do <span
+            class="angular-font-color">Angular 20</span> trouxe
+            mudanças profundas:
+          </p>
+
+          <div class="flex justify-center xl:justify-start">
+            <Checklist
+              type="star"
+              cssClass="mt-4"
+              items={[
+                "Standalone API como o novo padrão para criar projetos.",
+                "Directive Composition API para composição de diretivas.",
+                "Signals API que traz novos horizontes para reatividade no framework.",
+                "Utilizar RxJS e Signals em conjunto para criar soluções extremamente robustas.",
+                "Defer Block para carregamento inteligente de componentes.",
+                "Remoção de Zone.js com Zoneless, deixando o Framework mais leve e performático.",
+                "Novas maneiras de trabalhar com operações assíncronas usando Resource API.",
+                "Injeção de dependência mais simples com Inject Function",
+              ]}
+            />
+          </div>
+
+          <p class="my-4">
+            Enquanto a maioria dos cursos no mercado ainda usam versões antigas
+            do framework como base, aqui <strong
+              >você aprende tudo usando Angular Moderno</strong
+            >!
+          </p>
+
+          <p class="my-4">
+            Você vai construir um projeto real, atualizado, performático e com
+            tudo o que há de mais moderno.
+          </p>
+
+          <p class="my-4">
+            <strong>Esse não é um curso genérico</strong>. É o curso de Angular
+            que vai te tornar um profissional mais atualizado, preparado para o
+            presente e o futuro do mercado.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flex justify-center mt-16">
+    <ScrollToPricesButton />
+  </div>
+</ContentContainer>
