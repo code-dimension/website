@@ -1,3 +1,14 @@
+---
+
+interface Props {
+  mailingListID: string;
+}
+
+const { mailingListID } = Astro.props;
+---
+
+<div id="enter-wait-list-form-data" mailing-list-id={mailingListID}></div>
+
 <button class="btn btn-primary w-full" id="open-waitlist-modal"
   >Entrar na lista de espera</button
 >
@@ -93,6 +104,8 @@
   import { addEmailToMailingList } from "@shared/functions/add-mail-to-mailing-list";
   import * as Sentry from "@sentry/astro";
 
+  const mailingListID = getMailingListID();
+
   let submitHandler = (event: Event) => {};
 
   registerClickOnModalHandler();
@@ -144,7 +157,7 @@
       disableSubmitBtn();
 
       addEmailToMailingList({
-        mailingListID: "1060301",
+        mailingListID,
         name,
         email,
         phonenumber,
@@ -205,5 +218,12 @@
 
   function hideOpenWaitlistModalBtn() {
     document.querySelector("#open-waitlist-modal")!.classList.add("hidden");
+  }
+
+  function getMailingListID() {
+    return document
+      .querySelector("#enter-wait-list-form-data")!
+      .getAttribute("mailing-list-id")!
+      .trim();
   }
 </script>
