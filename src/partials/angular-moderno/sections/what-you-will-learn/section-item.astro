@@ -1,0 +1,15 @@
+---
+const { icon } = Astro.props;
+---
+
+<div class="custom-card h-full">
+  <div class="flex justify-center items-center w-full mb-8">
+    <i class={`bi ${icon} text-5xl text-primary`}></i>
+  </div>
+  <h3 class="text-xl font-bold text-center pb-4">
+    <slot name="title" />
+  </h3>
+  <p class="text-center">
+    <slot name="description" />
+  </p>
+</div>

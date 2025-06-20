@@ -1,0 +1,52 @@
+---
+import ContentContainer from "@shared/containers/ContentContainer.astro";
+import { data } from "./section-data";
+import SectionItem from "./section-item.astro";
+import ScrollToPricesButton from "@partials/angular-moderno/shared/scroll-to-prices-button.astro";
+---
+
+<ContentContainer>
+  <div class="flex flex-col items-center">
+    <div class="flex flex-col items-center">
+      <h2 class="section-title text-center mb-8">
+        Domine <span class="angular-font-color">Angular Moderno</span> e construa
+        aplicações realmente performáticas
+      </h2>
+
+      <p class="mb-2 text-center text-lg">
+        Este não é um curso de introdução rápida.
+      </p>
+
+      <p class="mb-2 text-center text-lg w-full max-w-[800px]">
+        Você vai entender <span class="angular-font-color">Angular 20</span> na prática,
+        desde os conceitos mais básicos até recursos avançados que poucos dominam
+        no mercado.
+      </p>
+
+      <p class="mb-2 text-center text-lg w-full max-w-[900px]">
+        Tudo aplicado num projeto real, com as melhores práticas do momento.
+      </p>
+    </div>
+
+    <div class="mt-8">
+      <div class="flex justify-center flex-wrap">
+        {
+          data.map(({ title, description, icon }) => {
+            return (
+              <div class="m-4 w-full sm:max-w-[380px] sm:min-h-[320px]">
+                <SectionItem icon={icon}>
+                  <Fragment slot="title" set:html={title}></Fragment>
+                  <Fragment slot="description" set:html={description}></Fragment>
+                </SectionItem>
+              </div>
+            );
+          })
+        }
+      </div>
+    </div>
+  </div>
+
+  <div class="flex justify-center mt-16">
+    <ScrollToPricesButton />
+  </div>
+</ContentContainer>
