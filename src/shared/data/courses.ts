@@ -12,8 +12,8 @@ export const courses: Course[] = [
   {
     imageUrl: "/images/courses/angular-moderno/angular-moderno-banner-card-home.webp",
     imageAlt: "Angular Moderno",
-    badgeClass: "badge-info",
-    badgeText: "Lista de espera",
+    badgeClass: "badge-warning",
+    badgeText: "Pré-Venda",
     title: "Angular Moderno",
     description:
       "Aprenda todas as novidades do Angular 20 e se torne um desenvolvedor mais produtivo e eficiente no seu dia a dia!",
