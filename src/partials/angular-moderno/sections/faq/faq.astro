@@ -1,0 +1,97 @@
+---
+import ContentContainer from "@shared/containers/ContentContainer.astro";
+import { createWhatsappLink } from "@shared/functions/create-whatsapp-link";
+
+interface Faq {
+  question: string;
+  answer: string;
+}
+
+const wppLink = createWhatsappLink(
+  "Olá, gostaria de saber mais sobre o curso de Angular Moderno!"
+);
+
+const faqList: Faq[] = [
+  {
+    question: "Por quanto tempo posso acessar o curso?",
+    answer: "O acesso ao curso é vitalício.",
+  },
+  {
+    question: "Quanto tempo vou ter de suporte?",
+    answer:
+      "Você terá um ano de suporte ativo por parte do instrutor para resolver dúvidas. Lembrando que ao postar sua dúvida em nossa comunidade, qualquer pessoa pode te ajudar.",
+  },
+  {
+    question: "Como será feito o suporte?",
+    answer:
+      "Você terá acesso a nossa comunidade no WhatsApp e no nosso servidor Discord, onde o instrutor poderá auxiliar você em caso de dúvidas. Por participar da comunidade da Code Dimension, você poderá ser ajudado ou ajudar outras pessoas que também adquiriram o curso.",
+  },
+  {
+    question: "Por quanto tempo o curso receberá atualização?",
+    answer:
+      "Está planejado atualizar o conteúdo do curso por até um ano, conforme o Angular lançar novas versões. Lembrando que esse prazo apenas começa a contar a partir da data de lançamento oficial.",
+  },
+  {
+    question: "Receberei um certificado de conclusão? ",
+    answer:
+      "Sim! Ao finalizar o curso, você receberá um certificado de conclusão.",
+  },
+  {
+    question: "Qual nível de conhecimento em programação preciso ter?",
+    answer:
+      "Um conhecimento básico em HTML, CSS e JavaScript é mais que suficiente. O curso vai te ensinar desde os conceitos mais básicos sobre Angular até chegar em tópicos mais complexos. Sempre de forma bem didática.",
+  },
+  {
+    question: "O curso ensina práticas avançadas?",
+    answer: "Sim! O curso ensina a utilizar recursos mais avançados do Angular (como Defer Block e Resource API), também mostra como aplicar Design Patterns na prática, e muitos outros conceitos.",
+  },
+  {
+    question: "Qual é o período de reembolso?",
+    answer: "O período de reembolso é de 7 dias.",
+  },
+  {
+    question: "Como assistir as aulas?",
+    answer:
+      "As aulas podem ser assistidas pela nossa plataforma em formato de vídeos gravados, onde você pode controlar totalmente qual aula assistir e quando assistir.",
+  },
+  {
+    question: "As aulas contém legendas?",
+    answer:
+      "Sim! Para garantir maior acessibilidade, oferecemos legendas em português",
+  },
+];
+---
+
+<ContentContainer>
+  <div class="flex justify-center">
+    <div class="flex flex-col">
+      <h2 class="text-4xl font-bold text-center mb-16 lg:mb-8">Dúvidas?</h2>
+      <p class="mb-8 lg:mb-0 text-center text-lg">
+        Tire suas dúvidas agora e comece sua formação com total segurança.
+      </p>
+
+      <div class="w-full flex max-w-[800px] justify-center mt-8">
+        <div class="join join-vertical w-full">
+          {
+            faqList.map(({ question, answer }) => (
+              <div class="collapse collapse-arrow join-item border-base-300 border rounded-lg">
+                <input type="radio" name="my-accordion-4" />
+                <div class="collapse-title text-xl font-medium">{question}</div>
+                <div class="collapse-content">
+                  <p set:html={answer} />
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+      <div class="w-full flex justify-center mt-8">
+        <a
+          href={wppLink}
+          class="text-lg link-primary underline underline-offset-2 text-center font-bold"
+          >Ainda está com dúvidas? Clique aqui e fale com nosso time!</a
+        >
+      </div>
+    </div>
+  </div>
+</ContentContainer>

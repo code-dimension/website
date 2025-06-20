@@ -8,6 +8,7 @@ import Instructor from "@partials/angular-moderno/sections/instructor/instructor
 import Modules from "@partials/angular-moderno/sections/modules/modules.astro";
 import Prices from "@partials/angular-moderno/sections/prices/prices.astro";
 import Reviews from "@partials/angular-moderno/sections/reviews/reviews.astro";
+import Faq from "@partials/angular-moderno/sections/faq/faq.astro";
 
 const layoutProps = {
   title: "Curso Angular Moderno",
@@ -49,5 +50,9 @@ const layoutProps = {
 
   <section class="page-section" scroll-target="prices">
     <Prices />
+  </section>
+
+  <section class="page-section">
+    <Faq />
   </section>
 </CourseLayout>
