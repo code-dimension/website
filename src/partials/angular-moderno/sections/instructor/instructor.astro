@@ -1,0 +1,53 @@
+---
+import ContentContainer from "@shared/containers/ContentContainer.astro";
+import { Image } from "astro:assets";
+import InstructorImage from "./images/henrique-custodia-studio.webp";
+---
+
+<ContentContainer>
+  <div class="flex flex-col items-center flex-wrap xl:flex-row xl:justify-center">
+    <div class="w-full xl:w-1/2 flex justify-center xl:justify-start xl:items-center mb-16 xl:mb-0">
+      <Image 
+        src={InstructorImage}
+        loading={"eager"}
+        class="w-full max-w-[500px] max-h-[500px] shadow-2xl rounded-lg"
+        alt="Instrutor Henrique Custódia"
+      />
+    </div>
+
+    <div class="w-full xl:w-1/2 flex flex-col items-center">
+      <h2 class="section-title text-center">
+        Aprenda com quem domina <span class="angular-font-color">Angular</span> há
+        mais de uma década
+      </h2>
+
+      <p class="section-description mt-8 text-center xl:text-start">
+        <strong>Henrique Custódia</strong> é desenvolvedor front-end há <strong
+          >mais de 10 anos</strong
+        >, com experiência sólida em arquitetura, testes automatizados e
+        liderança técnica em grandes projetos.
+      </p>
+
+      <p class="section-description mt-4 text-center xl:text-start">
+        Hoje atua como <strong
+          >Senior Frontend Developer na arquitetura do Santander</strong
+        >
+        e é <strong>fundador da Code Dimension</strong>, plataforma referência
+        em ensino técnico focado em <span class="angular-font-color"
+          >Angular</span
+        >.
+      </p>
+
+      <p class="section-description mt-4 text-center xl:text-start">
+        Criador de conteúdo, Henrique já ensinou milhares de desenvolvedores a
+        escrever código limpo, testável e profissional — sempre com foco em
+        aplicações reais e práticas de mercado.
+      </p>
+
+      <p class="section-description mt-4 text-center xl:text-start">
+        O que ele ensina aqui é o que aplica todos os dias em times de verdade.
+        Nada de teoria genérica ou exemplos fictícios.
+      </p>
+    </div>
+  </div>
+</ContentContainer>

@@ -4,6 +4,7 @@ import Banner from "@partials/angular-moderno/sections/banner/Banner.astro";
 import RealApplication from "@partials/angular-moderno/sections/real-application/index.astro";
 import TheMostUpdated from "@partials/angular-moderno/sections/the-most-updated/index.astro";
 import WhatYouWillLearn from "@partials/angular-moderno/sections/what-you-will-learn/index.astro";
+import Instructor from "@partials/angular-moderno/sections/instructor/instructor.astro";
 
 const layoutProps = {
   title: "Curso Angular Moderno",
@@ -29,5 +30,9 @@ const layoutProps = {
 
   <section class="page-section">
     <RealApplication />
+  </section>
+
+  <section class="page-section">
+    <Instructor />
   </section>
 </CourseLayout>
