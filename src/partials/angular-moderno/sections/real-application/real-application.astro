@@ -1,0 +1,58 @@
+---
+import ContentContainer from "@shared/containers/ContentContainer.astro";
+import Checklist from "./../../shared/checklist.astro";
+---
+
+<ContentContainer>
+  <div class="flex justify-center flex-wrap">
+    <div class="order-2 xl:order-1 flex xl:basis-2/4 flex-col">
+      <h2 class="section-title text-center mb-8">
+        Aprenda criando um projeto completo
+      </h2>
+
+      <div class="text-center xl:text-start">
+        <p class="my-4">
+          Você não vai criar nesse curso mais uma aplicação de <span class="line-through">todo list</span>.
+        </p>
+
+        <p class="mt-8 mb-4">
+          Vai sair com um sistema completo de gestão financeira, desenvolvido
+          com as melhores práticas de arquitetura e recursos modernos do <span class="angular-font-color">Angular
+          20</span>:
+        </p>
+
+        <div class="flex justify-center xl:justify-start">
+          <Checklist
+            type="check"
+            cssClass="md:ml-5"
+            items={[
+              "Organização profissional e limpa de código",
+              "Utilização da Standalone API para componentização moderna",
+              "Implementação completa de autenticação com guards, interceptors e gerenciamento de estado",
+              "CRUD completo com componentização de formulários, Reactive Forms, validações, Route Resolvers e Signals",
+              "Utilização profunda de recursos como Signals, Resource API e RxJS",
+              "Criação de Dashboards interativos com Chart.js e carregamento otimizado com Defer Block",
+              "Aplicação de Directive Composition API para reutilização de diretivas",
+              "Utilização de Zoneless Change Detection para maximizar a performance",
+            ]}
+          />
+        </div>
+
+        <p class="mt-8 mb-4">
+          O projeto que você vai construir aqui é real, aplicável, e vai te dar
+          segurança para encarar qualquer entrevista ou desafio profissional com
+          <span class="angular-font-color">Angular moderno</span>.
+        </p>
+      </div>
+    </div>
+    <div
+      class="flex flex-row sm:justify-end mb-16 xl:mb-0 order-1 xl:order-2 xl:basis-2/4"
+    >
+      <img
+        class="w-full max-w-[500px] max-h-[500px] shadow-2xl rounded"
+        src="https://placehold.co/500"
+        alt=""
+      />
+    </div>
+  </div>
+</ContentContainer>

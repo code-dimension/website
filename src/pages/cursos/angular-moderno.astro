@@ -1,6 +1,7 @@
 ---
 import CourseLayout from "@layouts/CourseLayout.astro";
 import Banner from "@partials/angular-moderno/sections/banner/Banner.astro";
+import RealApplication from "@partials/angular-moderno/sections/real-application/index.astro";
 import TheMostUpdated from "@partials/angular-moderno/sections/the-most-updated/index.astro";
 import WhatYouWillLearn from "@partials/angular-moderno/sections/what-you-will-learn/index.astro";
 
@@ -17,12 +18,16 @@ const layoutProps = {
 
 <CourseLayout {...layoutProps}>
   <Banner />
-  
+
   <section class="page-section">
     <TheMostUpdated />
   </section>
 
-   <section class="page-section">
+  <section class="page-section">
     <WhatYouWillLearn />
+  </section>
+
+  <section class="page-section">
+    <RealApplication />
   </section>
 </CourseLayout>
