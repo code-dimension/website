@@ -3,26 +3,61 @@ import ContentContainer from "@shared/containers/ContentContainer.astro";
 
 interface Module {
   name: string;
+  description: string;
   opcional?: boolean;
 }
 
 export const modules: Module[] = [
   {
-    name: "Comece por aqui",
+    name: "Configuração inicial do ambiente e ferramentas",
+    description:
+      "Configure seu ambiente de desenvolvimento e instale as ferramentas necessárias",
   },
   {
     name: "Introdução ao Angular",
+    description: "Aprenda o básico para começar a dominar o framework",
     opcional: true,
   },
-  { name: "Estruturação do projeto" },
-  { name: "CRUD Inteligente" },
-  { name: "Fluxo de autenticação" },
-  { name: "Dominando diretivas" },
-  { name: "Dominando pipes" },
-  { name: "Turbinando Layout com Angular Material" },
-  { name: "Dominando Resource API" },
-  { name: "Defer Block na prática" },
-  { name: "Utilizando Zoneless" },
+  {
+    name: "Estruturação do projeto",
+    description: "Crie a base inicial do projeto",
+  },
+  {
+    name: "CRUD Inteligente",
+    description:
+      "Implemente formulários, listagem de dados e navegação com rotas",
+  },
+  {
+    name: "Fluxo de autenticação",
+    description:
+      "Implemente autenticação com guards, interceptors e gerenciamento de estado",
+  },
+  {
+    name: "Dominando diretivas",
+    description: "Aprenda a criar diretivas para facilitar seu trabalho",
+  },
+  {
+    name: "Dominando pipes",
+    description: "Use pipes para formatar e transformar dados",
+  },
+  {
+    name: "Turbinando Layout",
+    description: "Aprenda a criar layouts profissionais com Angular Material",
+  },
+  {
+    name: "Dominando Resource API",
+    description:
+      "Implemente opera es ass ncronas usando Signals e Resource API",
+  },
+  {
+    name: "Defer Block na prática",
+    description: "Aprenda a carregar componentes pesados de forma otimizada",
+  },
+  {
+    name: "Utilizando Zoneless",
+    description:
+      "Diga adeus ao Zone.js e deixe o Angular mais leve e performático",
+  },
 ];
 ---
 
@@ -61,10 +96,11 @@ export const modules: Module[] = [
               { "rounded-bl-lg rounded-br-lg": index === array.length - 1 },
             ]}
           >
-            <div class="p-4 w-full flex flex-col items-center text-center lg:flex-row">
-              <p>
+            <div class="p-4 w-full flex flex-col items-center lg:flex-row">
+              <div class="text-center lg:text-start">
                 <strong>{module.name}</strong>
-              </p>
+                <div>{module.description}</div>
+              </div>
               <div class="flex justify-center mt-2 lg:ml-auto">
                 {module.opcional === true && (
                   <div class="badge badge-primary mr-2">Opcional</div>
