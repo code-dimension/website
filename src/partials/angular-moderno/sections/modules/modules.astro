@@ -5,6 +5,7 @@ interface Module {
   name: string;
   description: string;
   opcional?: boolean;
+  published?: boolean;
 }
 
 export const modules: Module[] = [
@@ -12,51 +13,63 @@ export const modules: Module[] = [
     name: "Configuração inicial do ambiente e ferramentas",
     description:
       "Configure seu ambiente de desenvolvimento e instale as ferramentas necessárias",
+    published: true,
   },
   {
     name: "Introdução ao Angular",
     description: "Aprenda o básico para começar a dominar o framework",
     opcional: true,
+    published: false,
   },
   {
     name: "Estruturação do projeto",
     description: "Crie a base inicial do projeto",
+    published: false,
   },
   {
     name: "CRUD Inteligente",
     description:
       "Implemente formulários, listagem de dados e navegação com rotas",
+    published: false,
   },
   {
     name: "Fluxo de autenticação",
     description:
       "Implemente autenticação com guards, interceptors e gerenciamento de estado",
+    published: false,
   },
   {
     name: "Dominando diretivas",
     description: "Aprenda a criar diretivas para facilitar seu trabalho",
+    published: false,
   },
   {
     name: "Dominando pipes",
     description: "Use pipes para formatar e transformar dados",
+
+    published: false,
   },
   {
     name: "Turbinando Layout",
     description: "Aprenda a criar layouts profissionais com Angular Material",
+    published: false,
   },
   {
     name: "Dominando Resource API",
     description:
       "Implemente opera es ass ncronas usando Signals e Resource API",
+    published: false,
   },
   {
     name: "Defer Block na prática",
     description: "Aprenda a carregar componentes pesados de forma otimizada",
+    published: false,
   },
   {
     name: "Utilizando Zoneless",
     description:
       "Diga adeus ao Zone.js e deixe o Angular mais leve e performático",
+    published: false,
   },
 ];
 ---
@@ -104,6 +117,12 @@ export const modules: Module[] = [
               <div class="flex justify-center mt-2 lg:ml-auto">
                 {module.opcional === true && (
                   <div class="badge badge-primary mr-2">Opcional</div>
+                )}
+                {module.published === true && (
+                  <div class="badge badge-success mr-2">Publicado</div>
+                )}
+                {module.published === false && (
+                  <div class="badge badge-info mr-2">Em gravação</div>
                 )}
               </div>
             </div>
