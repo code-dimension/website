@@ -2,20 +2,23 @@
 import ContentContainer from "@shared/containers/ContentContainer.astro";
 import Checklist from "../../shared/checklist.astro";
 import ScrollToPricesButton from "@partials/angular-moderno/shared/scroll-to-prices-button.astro";
+import MostUpdatedImage from "./images/most-updated.png";
+import { Image } from "astro:assets";
 ---
 
 <ContentContainer>
   <div class="flex flex-col items-center">
-    <div class="flex justify-center flex-wrap">
-      <div class="xl:basis-2/4">
-        <img
-          class="w-full min-w-[300px] max-w-[550px] shadow-2xl rounded"
-          src="https://placehold.co/550"
-          alt=""
+    <div class="flex flex-col xl:flex-row xl:justify-center">
+      <div class="xl:basis-2/4 flex justify-center xl:block">
+        <Image
+          class="w-full min-w-[300px] max-w-[550px]"
+          src={MostUpdatedImage}
+          loading={"eager"}
+          alt="Logo do Angular com dois troféus"
         />
       </div>
 
-      <div class="flex xl:basis-2/4 flex-col">
+      <div class="flex xl:basis-2/4 flex-col mt-[70px] xl:mt-0">
         <h2 class="section-title text-center mb-8">
           O único curso no Brasil já 100% atualizado com <span
             class="angular-font-color">Angular 20</span
