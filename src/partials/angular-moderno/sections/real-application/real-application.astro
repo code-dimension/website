@@ -1,6 +1,8 @@
 ---
 import ContentContainer from "@shared/containers/ContentContainer.astro";
 import Checklist from "./../../shared/checklist.astro";
+import { Image } from "astro:assets";
+import GIF from "./assets/using-the-app.gif";
 ---
 
 <ContentContainer>
@@ -48,10 +50,10 @@ import Checklist from "./../../shared/checklist.astro";
     <div
       class="flex flex-row sm:justify-end mb-16 xl:mb-0 order-1 xl:order-2 xl:basis-2/4"
     >
-      <img
+      <Image
         class="w-full max-w-[500px] max-h-[500px] shadow-2xl rounded"
-        src="https://placehold.co/500"
-        alt=""
+        src={GIF}
+        alt="GIF de uma pessoa criando uma transação no aplicativo e depois navegando para outra página que mostra alguns gráficos"
       />
     </div>
   </div>
