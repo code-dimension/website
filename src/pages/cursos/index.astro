@@ -1,0 +1,17 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Courses from "@partials/home/Courses.astro";
+
+const layoutProps = {
+  title: "Cursos",
+  description:
+    "Confira nossos cursos e treinamentos para se tornar uma pessoa desenvolvedora de alto nível!",
+  url: Astro.url.href,
+};
+---
+
+<Layout {...layoutProps}>
+  <section class="pt-32">
+    <Courses />
+  </section>
+</Layout>

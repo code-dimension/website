@@ -1,8 +1,11 @@
 ---
-import { courses } from "@shared/data/courses";
 import ContentContainer from "../../shared/containers/ContentContainer.astro";
 
 const links = [
+  {
+    url: "/cursos",
+    label: "Cursos",
+  },
   {
     url: "https://blog.codedimension.com.br",
     label: "Blog",
@@ -22,24 +25,21 @@ const links = [
   <ContentContainer>
     <div class="py-3 flex items-center">
       <a href="/">
-        <img src="/images/logomark/logo-cd-symbol.svg" alt="Code Dimension Logo" class="w-[50px]" />
+        <img
+          src="/images/logomark/logo-cd-symbol.svg"
+          alt="Code Dimension Logo"
+          class="w-[50px]"
+        />
       </a>
 
       <nav class="hidden xl:inline-block ml-auto">
-
-        <details class="dropdown">
-          <summary class="btn btn-ghost mx-1 font-normal text-base hover:bg-primary hover:text-white">Cursos</summary>
-          <ul class="menu dropdown-content bg-base-100 rounded-box z-[1] w-[350px] p-2 shadow-2xl">
-            {courses.map((course) => (
-              <li><a class="font-normal text-base hover:bg-primary hover:text-white" href={course.url}>{course.title}</a></li>
-            ))}
-          </ul>
-        </details>
-
         {
           links.map((link) => {
             return (
-              <a class="btn btn-ghost mx-1 font-normal text-base hover:bg-primary hover:text-white" href={link.url}>
+              <a
+                class="btn btn-ghost mx-1 font-normal text-base hover:bg-primary hover:text-white"
+                href={link.url}
+              >
                 {link.label}
               </a>
             );
@@ -67,9 +67,13 @@ const links = [
 >
   <ContentContainer>
     <div class="flex">
-      <img src="/images/logomark/logo-cd-symbol.svg" alt="Code Dimension Logo" class="w-[50px]" />
+      <img
+        src="/images/logomark/logo-cd-symbol.svg"
+        alt="Code Dimension Logo"
+        class="w-[50px]"
+      />
 
-      <a id="close-mobile-menu-modal" class="cursor-pointer ml-auto ">
+      <a id="close-mobile-menu-modal" class="cursor-pointer ml-auto">
         <img
           src="/images/header/mobile/close-menu.svg"
           alt="Close Mobile Menu"
@@ -81,19 +85,6 @@ const links = [
     <nav
       class="flex flex-col items-center justify-center h-[calc(100%_-_44px)]"
     >
-
-      <div class="divider">Cursos</div>
-      {
-        courses.map((link) => {
-          return (
-            <a class="header-link" href={link.url}>
-              {link.title}
-            </a>
-          );
-        })
-      }
-
-      <div class="divider">Outras páginas</div>
       {
         links.map((link) => {
           return (
