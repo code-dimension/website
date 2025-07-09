@@ -1,14 +1,25 @@
 export function setUtmParamsToUrl(url: string) {
   const utmParams = getUtmQueryParamsFromUrl();
+  const sckParams = createSCKParam(utmParams);
+  
+  const urlParams = {
+    ...sckParams,
+    ...utmParams
+  }
+  
+  return createUrl(url, urlParams);
+}
 
+function createUrl(url: string, urlParams: Record<string, string>): string {
   const urlInstance = new URL(url);
-
-  for (const key in utmParams) {
-    urlInstance.searchParams.set(key, utmParams[key]);
+  
+  for (const key in urlParams) {
+    urlInstance.searchParams.set(key, urlParams[key]);
   }
 
   return urlInstance.toString();
 }
+
 
 function getUtmQueryParamsFromUrl(): Record<string, string> {
   const url = new URL(window.location.href);
@@ -36,4 +47,19 @@ function getUtmQueryParamsFromUrl(): Record<string, string> {
   }, {} as Record<string, string>);
 
   return queryParamsObject;
+}
+
+function createSCKParam(utmParams: Record<string, string>): Record<string, string> {
+    const utmParamsArray = [utmParams.utm_source, utmParams.utm_medium, utmParams.utm_campaign, utmParams.utm_term, utmParams.utm_content];
+
+    const sckParamValue = utmParamsArray.filter(Boolean).join("|");
+    
+    debugger
+    if (!sckParamValue) {
+      return {} as Record<string, string>;
+    }
+
+    return {
+      sck: sckParamValue 
+    } 
 }
