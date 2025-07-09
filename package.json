@@ -10,10 +10,10 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/sitemap": "^3.2.1",
-    "@astrojs/tailwind": "^5.0.0",
+    "@astrojs/sitemap": "^3.4.1",
+    "@astrojs/tailwind": "^6.0.2",
     "@sentry/astro": "^9.8.0",
-    "astro": "^3.6.5",
+    "astro": "^5.11.0",
     "axios": "^1.8.4",
     "promise-polyfill": "^8.3.0",
     "swiper": "^10.2.0",
