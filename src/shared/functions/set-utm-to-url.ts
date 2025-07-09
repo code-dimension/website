@@ -54,7 +54,6 @@ function createSCKParam(utmParams: Record<string, string>): Record<string, strin
 
     const sckParamValue = utmParamsArray.filter(Boolean).join("|");
     
-    debugger
     if (!sckParamValue) {
       return {} as Record<string, string>;
     }
