@@ -10,6 +10,8 @@ import VitorSantos from "./images/Vitor-Santos.jpeg";
 import MatheusBentoDePereira from "./images/matheus-bento-de-pereira.jpeg";
 import PedroSantiago from "./images/pedro-santiago.jpeg";
 import LeonardoHenrique from "./images/Leonardo-Henrique.jpeg";
+import CaioRocha from "./images/Caio-Rocha.jpeg";
+
 import { Image } from "astro:assets";
 
 interface Review {
@@ -20,6 +22,12 @@ interface Review {
 }
 
 const reviews: Review[] = [
+  {
+    text: 'Assisti todas as aulas do curso Angular Moderno até agora, a forma que o Henrique ensina é excelente. Já tenho alguma experiência com as versões mais antigas do Angular, mas mesmo assim, ainda aprendi novos conceitos. Massa demais, de verdade!',
+    author: 'Caio Rocha',
+    role: 'Front-end Developer | Angular | React',
+    avatar: CaioRocha
+  },
   {
     text: 'Ficou muuuuuuito bom o conteúdo do curso, foi direto ao ponto, sem muito rodeio pra falar sobre um tópico específico, gostei demais! 🙂 Pequenos vídeos separadinhos com cada tema específico, top demais!',
     author: 'Leonardo Henrique',
