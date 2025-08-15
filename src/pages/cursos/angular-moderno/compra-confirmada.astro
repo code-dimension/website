@@ -6,10 +6,7 @@ const layoutProps = {
   title: "Compra Confirmada - Curso Angular Moderno",
   description:
     "Sua compra do curso Angular Moderno foi confirmada com sucesso!",
-  url: Astro.url.href,
-  image:
-    Astro.url.origin +
-    "/images/courses/angular-moderno/og-banner-pre-venda.webp",
+  url: Astro.url.href
 };
 ---
 
@@ -184,7 +181,7 @@ const layoutProps = {
                   >R$ 79</span
                 >x 12
               </div>
-              <div class="">
+              <div class="lg:mt-2">
                 Por <span
                   class="text-3xl lg:text-5xl font-bold text-primary mx-2"
                   >R$ 34</span
@@ -208,7 +205,7 @@ const layoutProps = {
                 >
               </div>
 
-              <div class="">
+              <div class="lg:mt-2">
                 Por <span
                   class="text-3xl lg:text-5xl font-bold text-primary mx-2"
                   >R$ 399</span
