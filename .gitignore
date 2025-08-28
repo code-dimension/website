@@ -1,5 +1,7 @@
 # build output
 dist/
+playwright-report
+e2e/test-results
 
 # generated types
 .astro/
@@ -20,4 +22,4 @@ pnpm-debug.log*
 # macOS-specific files
 .DS_Store
 
-.qwen
+
