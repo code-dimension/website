@@ -1,0 +1,52 @@
+---
+import { courses } from "@shared/data/courses";
+import ContentContainer from "../../shared/containers/ContentContainer.astro";
+import { getBlogPosts } from "@shared/functions/get-blog-posts";
+
+const POST_LIMIT = 3; 
+
+const posts = await getBlogPosts();
+---
+
+<section>
+  <ContentContainer>
+    <div class="flex flex-col items-center">
+      <div class="max-w-[800px] w-full">
+        <h1 class="section-title font-bold text-center">Nossos últimos artigos</h1>
+
+        <p class="w-full section-description leading-relaxed text-center mt-8">
+          Artigos detalhados que cobrem Angular do zero ao avançado, Frontend moderno, boas práticas de desenvolvimento
+          e os fundamentos mais importantes de Desenvolvimento Web.
+        </p>
+      </div>
+      <div class="mt-28 flex justify-center flex-wrap gap-8">
+        {
+          posts.slice(0, POST_LIMIT).map((post) => (
+            <div class="card max-w-[350px] w-full bg-base-100 shadow-2xl">
+              <figure>
+                <img class="card-image" src={post.image} alt={post.title} />
+              </figure>
+              <div class="card-body">
+                <h2 class="card-title">{post.title}</h2>
+
+                <p class="mt-3">{post.description}</p>
+
+                <div class="card-actions mt-3">
+                  <a class="btn btn-primary w-full" href={post.link}>
+                    Ler mais
+                  </a>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </ContentContainer>
+</section>
+
+<style>
+  .card-image {
+    @apply h-full max-h-[200px];
+  }
+</style>
