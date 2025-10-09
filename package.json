@@ -23,7 +23,6 @@
   },
   "devDependencies": {
     "@playwright/test": "^1.55.0",
-    "@qwen-code/qwen-code": "^0.0.9",
     "daisyui": "^4.6.0",
     "sass": "^1.63.6"
   }
