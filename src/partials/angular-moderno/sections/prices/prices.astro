@@ -1,5 +1,7 @@
 ---
 import ContentContainer from "@shared/containers/ContentContainer.astro";
+import AddLeadModal from "@partials/shared/add-lead-modal/add-lead-modal.astro";
+import { precoParcelado12x, precoAVista } from "./prices";
 
 const features = [
   "Aprenda tudo sobre Angular 20",
@@ -14,16 +16,10 @@ const features = [
 <ContentContainer>
   <div class="flex justify-center">
     <div class="w-full max-w-[1000px]">
-      <h2 class="text-4xl font-bold text-center mb-16 lg:mb-8">
-        Tudo o que você vai receber com essa formação
-      </h2>
+      <h2 class="text-4xl font-bold text-center mb-16 lg:mb-8">Tudo o que você vai receber com essa formação</h2>
+      <p class="mb-8 lg:mb-0 text-center text-lg">Confira logo abaixo os valores para adquirir esse super curso!</p>
       <p class="mb-8 lg:mb-0 text-center text-lg">
-        Confira logo abaixo os valores para adquirir esse super curso!
-      </p>
-      <p class="mb-8 lg:mb-0 text-center text-lg">
-        Você pode parcelar os valores no cartão de crédito <strong
-          >em até 12x SEM JUROS</strong
-        >
+        Você pode parcelar os valores no cartão de crédito <strong>em até 12x SEM JUROS</strong>
       </p>
     </div>
   </div>
@@ -59,29 +55,25 @@ const features = [
           </div>
 
           <div class="card-actions justify-center mt-8">
-            <a id="comprar-parcelado" class="btn btn-primary w-full bounceIn"
-              >Comprar parcelado em 12x sem juros!</a
-            >
+            <a id="comprar-parcelado" class="btn btn-primary w-full bounceIn">Comprar parcelado em 12x sem juros!</a>
           </div>
 
           <div class="divider mt-8">Ou</div>
 
           <strong class="text-2xl">À vista</strong>
-          
+
           <p class="mt-4">
             <strong>de</strong>
             <strong class="line-through text-3xl ml-4">R$ 389,00</strong>
           </p>
-          
+
           <p class="mt-4">
             <strong>por</strong>
             <strong class="text-6xl text-primary ml-3">R$ 194</strong>
           </p>
 
           <div class="card-actions justify-center mt-8">
-            <a id="comprar-a-vista" class="btn btn-primary w-full bounceIn"
-              >Comprar à vista!</a
-            >
+            <a id="comprar-a-vista" class="btn btn-primary w-full bounceIn">Comprar à vista!</a>
           </div>
         </div>
       </div>
@@ -89,203 +81,9 @@ const features = [
   </div>
 </ContentContainer>
 
-<div id="catch-contact-modal" class="modal">
-  <div class="modal-box">
-    <p class="text-center mb-4 text-neutral-500 text-base">
-      Falta pouco para você se tornar referência em Angular!
-    </p>
-    <h1 class="font-bold text-2xl text-center mb-4">
-      Preencha os dados abaixo para começar sua jornada!
-    </h1>
-
-    <form>
-      <label data-field="name" class="form-control w-full">
-        <div class="label">
-          <span
-            class="label-text after:content-['*'] after:text-error after:ml-1"
-            >Qual seu nome?</span
-          >
-        </div>
-        <input
-          type="text"
-          placeholder="Digite seu nome"
-          class="input input-bordered w-full"
-          required
-        />
-        <div class="label">
-          <span class="label-text-alt hidden"></span>
-        </div>
-      </label>
-
-      <label data-field="email" class="form-control w-full">
-        <div class="label">
-          <span
-            class="label-text after:content-['*'] after:text-error after:ml-1"
-            >Qual seu email?</span
-          >
-        </div>
-        <input
-          type="email"
-          placeholder="meusuper@email.com"
-          title="Invalid email address"
-          class="input input-bordered w-full"
-          required
-        />
-        <div class="label">
-          <span class="label-text-alt hidden">Bottom Left label</span>
-        </div>
-      </label>
-
-      <label data-field="phone" class="form-control w-full">
-        <div class="label">
-          <span
-            class="label-text after:content-['*'] after:text-error after:ml-1"
-            >Qual seu telefone?</span
-          >
-        </div>
-        <input
-          type="tel"
-          placeholder="(99) 99999-9999"
-          class="input input-bordered w-full"
-          required
-        />
-        <div class="label">
-          <span class="label-text-alt hidden">Bottom Left label</span>
-        </div>
-      </label>
-
-      <div class="modal-action">
-        <button type="submit" class="btn btn-primary w-full"
-          >Começar jornada!</button
-        >
-      </div>
-    </form>
-  </div>
-  <label class="modal-backdrop" for="my_modal_7">Close</label>
-</div>
-
-<script>
-  import { setUtmParamsToUrl } from "@shared/functions/set-utm-to-url";
-  import { precoAVista, precoParcelado12x } from "./prices";
-  import axios from "axios";
-
-  let submitHandler = (event: Event) => {};
-
-  registerClickOnComprarParcelado();
-
-  registerClickOnComprarAVista();
-
-  registerClickOutsideModal();
-
-  function registerClickOutsideModal() {
-    document.querySelector(".modal-backdrop")?.addEventListener("click", () => {
-      document.querySelector(".modal")?.classList.remove("modal-open");
-    });
-  }
-
-  function registerClickOnComprarAVista() {
-    document
-      .querySelector("#comprar-parcelado")
-      ?.addEventListener("click", () => {
-        openModal();
-        registerFormSubmit(setUtmParamsToUrl(precoParcelado12x));
-      });
-  }
-
-  function registerClickOnComprarParcelado() {
-    document
-      .querySelector("#comprar-a-vista")
-      ?.addEventListener("click", () => {
-        openModal();
-        registerFormSubmit(setUtmParamsToUrl(precoAVista));
-      });
-  }
-
-  function openModal() {
-    document.querySelector(".modal")?.classList.add("modal-open");
-  }
-
-  function registerFormSubmit(url: string) {
-    removeSubmitHandler();
-
-    submitHandler = (event: Event) => {
-      event.preventDefault();
-
-      const name = document.querySelector<HTMLInputElement>(
-        '#catch-contact-modal [data-field="name"] input'
-      )?.value as string;
-
-      const email = document.querySelector<HTMLInputElement>(
-        '#catch-contact-modal [data-field="email"] input'
-      )?.value as string;
-
-      const phonenumber = document.querySelector<HTMLInputElement>(
-        '#catch-contact-modal [data-field="phone"] input'
-      )?.value as string;
-
-      document.querySelector("#catch-contact-modal button")!.textContent =
-        "Enviando...";
-
-      addEmailToMailingList({ name, email, phonenumber }).then(() => {
-        redirectToCheckout({ name, email, phonenumber, url });
-      });
-    };
-
-    document
-      .querySelector("#catch-contact-modal form")!
-      .addEventListener("submit", submitHandler);
-  }
-
-  function removeSubmitHandler() {
-    document
-      .querySelector("#catch-contact-modal form")!
-      .removeEventListener("submit", submitHandler);
-  }
-
-  function addEmailToMailingList({
-    name,
-    email,
-    phonenumber,
-  }: {
-    name: string;
-    email: string;
-    phonenumber: string;
-  }) {
-    return new Promise((resolve) => {
-      axios
-        .post("https://n8nserver.vps.webdock.cloud/webhook/6e3a9809-16ad-45a0-b10a-f23ee775fd8f", {
-          mailingListId: "1090537",
-          email: email,
-          name: name,
-          phone: phonenumber,
-        })
-        .then((res) => {
-          resolve(res);
-        })
-        .catch((error) => {
-          resolve(error);
-        });
-    });
-  }
-
-  function redirectToCheckout({
-    name,
-    email,
-    phonenumber,
-    url,
-  }: {
-    name: string;
-    email: string;
-    phonenumber: string;
-    url: string;
-  }) {
-    const urlInstance = new URL(url);
-    urlInstance.searchParams.append("name", name);
-    urlInstance.searchParams.append("email", email);
-    urlInstance.searchParams.append("phonenumber", phonenumber);
-
-    const anchor = document.createElement("a");
-    anchor.href = urlInstance.toString();
-    anchor.click();
-  }
-</script>
+<AddLeadModal
+  precoAVistaUrl={precoAVista}
+  precoParcelado12xUrl={precoParcelado12x}
+  comprarAVistaSelector="#comprar-a-vista"
+  comprarParcelado12xSelector="#comprar-parcelado"
+/>
