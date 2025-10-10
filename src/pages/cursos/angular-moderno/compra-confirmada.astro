@@ -1,34 +1,34 @@
 ---
 import CourseLayout from "@layouts/CourseLayout.astro";
+import AddLeadModal from "@partials/shared/add-lead-modal/add-lead-modal.astro";
 import ContentContainer from "@shared/containers/ContentContainer.astro";
+import { mailingListId } from "@shared/data/mailing-lists";
 
 const layoutProps = {
   title: "Compra Confirmada - Curso Angular Moderno",
-  description:
-    "Sua compra do curso Angular Moderno foi confirmada com sucesso!",
+  description: "Sua compra do curso Angular Moderno foi confirmada com sucesso!",
   url: Astro.url.href,
 };
+
+const precoParcelado12xCom50OFF =
+  "https://pay.hotmart.com/V95801413V?bid=1729685763026&offDiscount=COMPRACONFIRMADA50&split=12";
+
+const precoAVistaCom50OFF =
+  "https://pay.hotmart.com/V95801413V?off=cxca8nxz&bid=1729686428410&offDiscount=COMPRACONFIRMADA50";
 ---
 
 <CourseLayout {...layoutProps}>
   <!-- Green approval bar -->
-  <div class="bg-green-600 text-white text-center py-4 font-bold text-lg">
-    COMPRA CONFIRMADA!
-  </div>
+  <div class="bg-green-600 text-white text-center py-4 font-bold text-lg">COMPRA CONFIRMADA!</div>
 
   <!-- Success message section -->
   <ContentContainer>
     <div class="flex flex-col items-center justify-center text-center py-12">
-      <h1 class="text-2xl md:text-3xl font-bold pb-4">
-        Parabéns! Sua aquisição foi processada com sucesso.
-      </h1>
+      <h1 class="text-2xl md:text-3xl font-bold pb-4">Parabéns! Sua aquisição foi processada com sucesso.</h1>
       <p class="text-lg pt-4">
-        Sua vaga no <span class="angular-font-color">Curso Angular Moderno</span
-        > já está garantida.
+        Sua vaga no <span class="angular-font-color">Curso Angular Moderno</span> já está garantida.
       </p>
-      <p class="text-lg pt-4">
-        Você está prestes a acelerar sua carreira e elevar seu nível como dev!
-      </p>
+      <p class="text-lg pt-4">Você está prestes a acelerar sua carreira e elevar seu nível como dev!</p>
     </div>
   </ContentContainer>
 
@@ -41,16 +41,13 @@ const layoutProps = {
     <ContentContainer>
       <div class="py-12">
         <h2 class="text-2xl text-center pb-8">
-          Agora que você vai dominar o <span class="angular-font-color"
-            >Angular Moderno</span
-          >, existe um <strong>próximo passo</strong> que vai te diferenciar da maioria
-          dos devs no mercado:
-          <strong>escrever código testável, seguro e de alta performance</strong
-          >.
+          Agora que você vai dominar o <span class="angular-font-color">Angular Moderno</span>, existe um <strong
+            >próximo passo</strong
+          > que vai te diferenciar da maioria dos devs no mercado:
+          <strong>escrever código testável, seguro e de alta performance</strong>.
         </h2>
         <p class="text-xl text-center max-w-3xl mx-auto">
-          Desenvolvedores que dominam testes automatizados estão entre os mais
-          valorizados no mercado.
+          Desenvolvedores que dominam testes automatizados estão entre os mais valorizados no mercado.
         </p>
       </div>
     </ContentContainer>
@@ -59,50 +56,25 @@ const layoutProps = {
     <ContentContainer>
       <div class="max-w-4xl mx-auto px-8 py-12 shadow-2xl rounded-lg">
         <div class="flex justify-center mb-8">
-          <div class="badge badge-lg badge-warning">
-            Oferta exclusiva para novos alunos
-          </div>
+          <div class="badge badge-lg badge-warning">Oferta exclusiva para novos alunos</div>
         </div>
 
-        <h2 class="text-3xl font-bold text-center mb-8">
-          Curso de Testes Automatizados com Angular
-        </h2>
+        <h2 class="text-3xl font-bold text-center mb-8">Curso de Testes Automatizados com Angular</h2>
 
         <div class="py-4">
-          <h3 class="text-lg lg:text-2xl font-bold text-center pb-2">
-            Domine essas tecnologias:
-          </h3>
+          <h3 class="text-lg lg:text-2xl font-bold text-center pb-2">Domine essas tecnologias:</h3>
           <div class="flex justify-center flex-wrap gap-8">
             <div class="tooltip tooltip-bottom" data-tip="Angular">
-              <img
-                src="/images/courses/testes-automatizados/angular_gradient.png"
-                class="tech-image"
-                alt="Angular"
-              />
+              <img src="/images/courses/testes-automatizados/angular_gradient.png" class="tech-image" alt="Angular" />
             </div>
             <div class="tooltip tooltip-bottom" data-tip="Nx">
-              <img
-                src="/images/courses/testes-automatizados/nx.svg"
-                class="tech-image"
-                alt="Nx"
-              />
+              <img src="/images/courses/testes-automatizados/nx.svg" class="tech-image" alt="Nx" />
             </div>
             <div class="tooltip tooltip-bottom" data-tip="Jest">
-              <img
-                src="/images/courses/testes-automatizados/jest.svg"
-                alt="Jest"
-                class="tech-image p-2 sm:p-4"
-              />
+              <img src="/images/courses/testes-automatizados/jest.svg" alt="Jest" class="tech-image p-2 sm:p-4" />
             </div>
-            <div
-              class="flex flex-col justify-center tooltip tooltip-bottom"
-              data-tip="ng-mocks"
-            >
-              <h3
-                class="text-xl sm:text-2xl xl:text-3xl font-bold text-red-600 text-center"
-              >
-                ng-mocks
-              </h3>
+            <div class="flex flex-col justify-center tooltip tooltip-bottom" data-tip="ng-mocks">
+              <h3 class="text-xl sm:text-2xl xl:text-3xl font-bold text-red-600 text-center">ng-mocks</h3>
             </div>
             <div class="tooltip tooltip-bottom" data-tip="Cypress">
               <img
@@ -126,10 +98,7 @@ const layoutProps = {
             <ul class="space-y-4">
               <li class="flex items-start">
                 <span class="text-green-600 mr-2">✓</span>
-                <span
-                  >Criar testes unitários, de integração e E2E que evitam bugs
-                  antes de irem para produção.</span
-                >
+                <span>Criar testes unitários, de integração e E2E que evitam bugs antes de irem para produção.</span>
               </li>
               <li class="flex items-start">
                 <span class="text-green-600 mr-2">✓</span>
@@ -141,10 +110,7 @@ const layoutProps = {
               </li>
               <li class="flex items-start">
                 <span class="text-green-600 mr-2">✓</span>
-                <span
-                  >Garantir que seu código seja estável, rápido e fácil de
-                  manter.</span
-                >
+                <span>Garantir que seu código seja estável, rápido e fácil de manter.</span>
               </li>
               <li class="flex items-start">
                 <span class="text-green-600 mr-2">✓</span>
@@ -152,16 +118,11 @@ const layoutProps = {
               </li>
               <li class="flex items-start">
                 <span class="text-green-600 mr-2">✓</span>
-                <span
-                  >Todas as aulas com legendas em português, inglês e espanhol.</span
-                >
+                <span>Todas as aulas com legendas em português, inglês e espanhol.</span>
               </li>
               <li class="flex items-start">
                 <span class="text-green-600 mr-2">✓</span>
-                <span
-                  >Certificado de conclusão que irá destacar seu currículo ainda
-                  mais.</span
-                >
+                <span>Certificado de conclusão que irá destacar seu currículo ainda mais.</span>
               </li>
               <li class="flex items-start">
                 <span class="text-green-600 mr-2">✓</span>
@@ -170,22 +131,15 @@ const layoutProps = {
             </ul>
           </div>
 
-          <div
-            class="bg-gray-50 p-8 rounded-lg border border-gray-200 flex flex-col align-center justify-center"
-          >
+          <div class="bg-gray-50 p-8 rounded-lg border border-gray-200 flex flex-col align-center justify-center">
             <div class="flex flex-col items-center">
               <div class="badge badge-lg badge-warning">Desconto de 50%</div>
 
               <div class="mt-8">
-                De <span class="text-lg lg:text-3xl line-through font-bold mx-2"
-                  >R$ 79</span
-                >x 12
+                De <span class="text-lg lg:text-3xl line-through font-bold mx-2">R$ 79</span>x 12
               </div>
               <div class="lg:mt-2">
-                Por <span
-                  class="text-3xl lg:text-5xl font-bold text-primary mx-2"
-                  >R$ 34</span
-                > x 12
+                Por <span class="text-3xl lg:text-5xl font-bold text-primary mx-2">R$ 34</span> x 12
               </div>
 
               <button
@@ -200,16 +154,11 @@ const layoutProps = {
               <strong class="text-2xl">À vista</strong>
 
               <div class="mt-4">
-                De <span class="text-lg lg:text-3xl line-through font-bold mx-2"
-                  >R$ 703</span
-                >
+                De <span class="text-lg lg:text-3xl line-through font-bold mx-2">R$ 703</span>
               </div>
 
               <div class="lg:mt-2">
-                Por <span
-                  class="text-3xl lg:text-5xl font-bold text-primary mx-2"
-                  >R$ 399</span
-                >
+                Por <span class="text-3xl lg:text-5xl font-bold text-primary mx-2">R$ 399</span>
               </div>
 
               <button
@@ -226,81 +175,13 @@ const layoutProps = {
   </section>
 </CourseLayout>
 
-<div id="catch-contact-modal" class="modal">
-  <div class="modal-box">
-    <p class="text-center mb-4 text-neutral-500 text-base">
-      Falta pouco para você se tornar referência em testes automatizados com
-      Angular!
-    </p>
-    <h1 class="font-bold text-2xl text-center mb-4">
-      Preencha os dados abaixo para começar sua jornada!
-    </h1>
-
-    <form>
-      <label data-field="name" class="form-control w-full">
-        <div class="label">
-          <span
-            class="label-text after:content-['*'] after:text-error after:ml-1"
-            >Qual seu nome?</span
-          >
-        </div>
-        <input
-          type="text"
-          placeholder="Digite seu nome"
-          class="input input-bordered w-full"
-          required
-        />
-        <div class="label">
-          <span class="label-text-alt hidden"></span>
-        </div>
-      </label>
-
-      <label data-field="email" class="form-control w-full">
-        <div class="label">
-          <span
-            class="label-text after:content-['*'] after:text-error after:ml-1"
-            >Qual seu email?</span
-          >
-        </div>
-        <input
-          type="email"
-          placeholder="meusuper@email.com"
-          title="Invalid email address"
-          class="input input-bordered w-full"
-          required
-        />
-        <div class="label">
-          <span class="label-text-alt hidden">Bottom Left label</span>
-        </div>
-      </label>
-
-      <label data-field="phone" class="form-control w-full">
-        <div class="label">
-          <span
-            class="label-text after:content-['*'] after:text-error after:ml-1"
-            >Qual seu telefone?</span
-          >
-        </div>
-        <input
-          type="tel"
-          placeholder="(99) 99999-9999"
-          class="input input-bordered w-full"
-          required
-        />
-        <div class="label">
-          <span class="label-text-alt hidden">Bottom Left label</span>
-        </div>
-      </label>
-
-      <div class="modal-action">
-        <button type="submit" class="btn btn-primary w-full"
-          >Começar jornada!</button
-        >
-      </div>
-    </form>
-  </div>
-  <label class="modal-backdrop" for="my_modal_7">Close</label>
-</div>
+<AddLeadModal
+  mailingListId={mailingListId.testesAutomatizadosComAngular}
+  precoAVistaUrl={precoAVistaCom50OFF}
+  precoParcelado12xUrl={precoParcelado12xCom50OFF}
+  comprarAVistaSelector="#comprar-a-vista"
+  comprarParcelado12xSelector="#comprar-parcelado"
+/>
 
 <style lang="scss">
   .tech-image {
@@ -308,133 +189,3 @@ const layoutProps = {
   }
 </style>
 
-<script>
-  import { setUtmParamsToUrl } from "@shared/functions/set-utm-to-url";
-  import axios from "axios";
-
-  const precoParcelado12xCom50OFF =
-    "https://pay.hotmart.com/V95801413V?bid=1729685763026&offDiscount=COMPRACONFIRMADA50&split=12";
-
-  const precoAVista12xCom50OFF =
-    "https://pay.hotmart.com/V95801413V?off=cxca8nxz&bid=1729686428410&offDiscount=COMPRACONFIRMADA50";
-
-  let submitHandler = (event: Event) => {};
-
-  registerClickOnComprarParcelado();
-
-  registerClickOnComprarAVista();
-
-  registerClickOutsideModal();
-
-  function registerClickOutsideModal() {
-    document.querySelector(".modal-backdrop")?.addEventListener("click", () => {
-      document.querySelector(".modal")?.classList.remove("modal-open");
-    });
-  }
-
-  function registerClickOnComprarAVista() {
-    document
-      .querySelector("#comprar-a-vista")
-      ?.addEventListener("click", () => {
-        openModal();
-        registerFormSubmit(setUtmParamsToUrl(precoAVista12xCom50OFF));
-      });
-  }
-
-  function registerClickOnComprarParcelado() {
-    document
-      .querySelector("#comprar-parcelado")
-      ?.addEventListener("click", () => {
-        openModal();
-        registerFormSubmit(setUtmParamsToUrl(precoParcelado12xCom50OFF));
-      });
-  }
-
-  function openModal() {
-    document.querySelector(".modal")?.classList.add("modal-open");
-  }
-
-  function registerFormSubmit(url: string) {
-    removeSubmitHandler();
-
-    submitHandler = (event: Event) => {
-      event.preventDefault();
-
-      const name = document.querySelector<HTMLInputElement>(
-        '#catch-contact-modal [data-field="name"] input'
-      )?.value as string;
-
-      const email = document.querySelector<HTMLInputElement>(
-        '#catch-contact-modal [data-field="email"] input'
-      )?.value as string;
-
-      const phonenumber = document.querySelector<HTMLInputElement>(
-        '#catch-contact-modal [data-field="phone"] input'
-      )?.value as string;
-
-      document.querySelector("#catch-contact-modal button")!.textContent =
-        "Enviando...";
-
-      addEmailToMailingList({ name, email, phonenumber }).then(() => {
-        redirectToCheckout({ name, email, phonenumber, url });
-      });
-    };
-
-    document
-      .querySelector("#catch-contact-modal form")!
-      .addEventListener("submit", submitHandler);
-  }
-
-  function removeSubmitHandler() {
-    document
-      .querySelector("#catch-contact-modal form")!
-      .removeEventListener("submit", submitHandler);
-  }
-
-  function addEmailToMailingList({
-    name,
-    email,
-    phonenumber,
-  }: {
-    name: string;
-    email: string;
-    phonenumber: string;
-  }) {
-    return new Promise((resolve) => {
-      axios
-        .post("https://email-server.codedimension.com.br/add-email", {
-          mailingListID: "1040123",
-          email: email,
-          name: name,
-          phone: phonenumber,
-        })
-        .then((res) => {
-          resolve(res);
-        })
-        .catch((error) => {
-          resolve(error);
-        });
-    });
-  }
-
-  function redirectToCheckout({
-    name,
-    email,
-    phonenumber,
-    url,
-  }: {
-    name: string;
-    email: string;
-    phonenumber: string;
-    url: string;
-  }) {
-    const urlInstance = new URL(url);
-    urlInstance.searchParams.append("name", name);
-    urlInstance.searchParams.append("email", email);
-    urlInstance.searchParams.append("phonenumber", phonenumber);
-
-    const anchor = document.createElement("a");
-    anchor.href = urlInstance.toString();
-    anchor.click();
-  }
-</script>
