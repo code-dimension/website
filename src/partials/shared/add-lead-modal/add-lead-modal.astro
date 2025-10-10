@@ -62,6 +62,7 @@ const props = Astro.props;
   import { setUtmParamsToUrl } from "@shared/functions/set-utm-to-url";
   import { addEmailToMailingList } from "@shared/functions/add-mail-to-mailing-list";
   import type { LeadModalProps } from "./types";
+  import { getUserDataFromLocalStorage, setUserDataInLocalStorage } from "@shared/functions/save-userin-storage";
 
   const { precoAVistaUrl, precoParcelado12xUrl, comprarAVistaSelector, comprarParcelado12xSelector, mailingListId } =
     getData();
@@ -73,6 +74,8 @@ const props = Astro.props;
   registerClickOnComprarAVista();
 
   registerClickOutsideModal();
+
+  setUserDataFromLocalStorageInForm();
 
   function getData(): LeadModalProps {
     const leadModalDataAsString = document.querySelector("[data-lead-modal]")?.getAttribute("data-lead-modal")!;
@@ -104,22 +107,33 @@ const props = Astro.props;
     document.querySelector(".modal")?.classList.add("modal-open");
   }
 
+  function setUserDataFromLocalStorageInForm() {
+    const userData = getUserDataFromLocalStorage();
+
+    if (userData === null) return;
+
+    const { nameEl, emailEl, phonenumberEl } = getFormFields();
+
+    nameEl.value = userData.name;
+    emailEl.value = userData.email;
+    phonenumberEl.value = userData.phone;
+  }
+
   function registerFormSubmit(url: string) {
     removeSubmitHandler();
 
     submitHandler = (event: Event) => {
       event.preventDefault();
 
-      const name = document.querySelector<HTMLInputElement>('#add-lead-modal [data-field="name"] input')
-        ?.value as string;
+      const { nameEl, emailEl, phonenumberEl } = getFormFields();
 
-      const email = document.querySelector<HTMLInputElement>('#add-lead-modal [data-field="email"] input')
-        ?.value as string;
-
-      const phonenumber = document.querySelector<HTMLInputElement>('#add-lead-modal [data-field="phone"] input')
-        ?.value as string;
+      const name = nameEl.value as string;
+      const email = emailEl.value as string;
+      const phonenumber = phonenumberEl.value as string;
 
       document.querySelector("#add-lead-modal button")!.textContent = "Enviando...";
+
+      setUserDataInLocalStorage({ name, email, phone: phonenumber });
 
       addEmailToMailingList({ mailingListId, name, email, phonenumber }).then(() => {
         redirectToCheckout({ name, email, phonenumber, url });
@@ -131,6 +145,14 @@ const props = Astro.props;
 
   function removeSubmitHandler() {
     document.querySelector("#add-lead-modal form")!.removeEventListener("submit", submitHandler);
+  }
+
+  function getFormFields() {
+    const nameEl = document.querySelector<HTMLInputElement>('#add-lead-modal [data-field="name"] input')!;
+    const emailEl = document.querySelector<HTMLInputElement>('#add-lead-modal [data-field="email"] input')!;
+    const phonenumberEl = document.querySelector<HTMLInputElement>('#add-lead-modal [data-field="phone"] input')!;
+
+    return { nameEl, emailEl, phonenumberEl };
   }
 
   function redirectToCheckout({
