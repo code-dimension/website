@@ -2,42 +2,41 @@
 import ContentContainer from "./../../shared/containers/ContentContainer.astro";
 ---
 
-<ContentContainer>
+<div class="relative">
   <div
-    class="h-[calc(100vh_-_105px)] xl:h-[calc(100vh_-_90px)] flex flex-col justify-center relative -mt-6"
+    class="absolute top-0 left-0 w-full h-full opacity-10 bg-[url(/images/home/code-banner-bg-1000px.png)] bg-repeat-space"
   >
-    <div class="flex justify-center xl:justify-start z-20">
-      <div
-        class="w-full max-w-[630px] flex flex-col justify-center text-center xl:text-start"
-      >
-        <h1 class="hero-title">
-          Alcance o próximo nível
-          <div>na sua carreira!</div>
-        </h1>
+  </div>
+  <ContentContainer>
+    <div class="h-[calc(100vh_-_105px)] xl:h-[calc(100vh_-_90px)] flex flex-col justify-center relative -mt-6">
+      <div class="flex justify-center xl:justify-start z-20">
+        <div class="w-full max-w-[630px] flex flex-col justify-center text-center xl:text-start">
+          <h1 class="hero-title">
+            Alcance o próximo nível
+            <div>na sua carreira!</div>
+          </h1>
 
-        <p class="hero-description py-10 text-black">
-          Na <strong class="text-primary">Code Dimension</strong> você encontra todos
-          os cursos necessários para se tornar uma pessoa desenvolvedora <strong
-            class="angular-font-color">Angular</strong
-          > de <strong>alto nível</strong>.
-        </p>
+          <p class="hero-description py-10 text-black">
+            Na <strong class="text-primary">Code Dimension</strong> você encontra todos os cursos necessários para se tornar
+            uma pessoa desenvolvedora <strong class="angular-font-color">Angular</strong> de <strong>alto nível</strong
+            >.
+          </p>
 
-        <div class="flex w-full justify-center xl:justify-start">
-          <button
-            class="btn btn-primary w-full max-w-[300px]"
-            scroll-to="courses-section">Confira nossos cursos!</button
-          >
+          <div class="flex w-full justify-center xl:justify-start">
+            <button class="btn btn-primary w-full max-w-[300px]" scroll-to="courses-section"
+              >Confira nossos cursos!</button
+            >
+          </div>
         </div>
       </div>
-    </div>
-    <img
-      src="/images/home/banner-image.webp"
-      class="hidden xl:block xl:max-w-[500px] 3xl:max-w-[650px] absolute w-full opacity-10 xl:opacity-100 right-0 3xl:-right-20 rounded-bl-[137px] rounded-br-[116px] -mt-[60px]"
-    />
+      <img
+        src="/images/home/banner-image.webp"
+        class="hidden xl:block xl:max-w-[500px] 3xl:max-w-[650px] absolute w-full opacity-10 xl:opacity-100 right-0 3xl:-right-20 rounded-bl-[137px] rounded-br-[116px] -mt-[60px]"
+      />
 
-    <div class="flex justify-center bottom-0 absolute w-full">
-      <i class="bi bi-arrow-down-circle text-lg sm:text-2xl text-primary animate-bounce"
-      ></i>
+      <div class="flex justify-center bottom-0 absolute w-full">
+        <i class="bi bi-arrow-down-circle text-lg sm:text-2xl text-primary animate-bounce"></i>
+      </div>
     </div>
-  </div>
-</ContentContainer>
+  </ContentContainer>
+</div>
