@@ -1,0 +1,16 @@
+<rss version="2.0">
+  <channel>
+    <item>
+      <title>Fake Post 1</title>
+      <link>http://127.0.0.1:8080/blog/fake-post-1.html</link>
+      <description>Fake description 1</description>
+      <image>https://placehold.co/600x400</image>
+    </item>
+    <item>
+      <title>Fake Post 2</title>
+      <link>http://127.0.0.1:8080/blog/fake-post-2.html</link>
+      <description>Fake description 2</description>
+      <image>https://placehold.co/600x400</image>
+    </item>
+  </channel>
+</rss>

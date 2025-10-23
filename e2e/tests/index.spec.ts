@@ -64,16 +64,16 @@ test.describe("Home page", () => {
       const blogCard = page.locator(".card", { hasText: "Fake Post 1" });
       await blogCard.getByText("Ler mais").click();
 
-      const newPage = await page.waitForEvent("popup");
-      await expect(newPage).toHaveURL("https://blog.codedimension.com.br/fake-post-1");
+      await page.waitForURL("http://127.0.0.1:8080/blog/fake-post-1.html");
+      await expect(page).toHaveURL("http://127.0.0.1:8080/blog/fake-post-1.html");
     });
 
     test("should navigate to the correct blog post page for Fake Post 2", async ({ page }) => {
       const blogCard = page.locator(".card", { hasText: "Fake Post 2" });
       await blogCard.getByText("Ler mais").click();
 
-      const newPage = await page.waitForEvent("popup");
-      await expect(newPage).toHaveURL("https://blog.codedimension.com.br/fake-post-2");
+      await page.waitForURL("http://127.0.0.1:8080/blog/fake-post-2.html");
+      await expect(page).toHaveURL("http://127.0.0.1:8080/blog/fake-post-2.html");
     });
   });
 });
