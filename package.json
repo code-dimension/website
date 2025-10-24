@@ -10,7 +10,8 @@
     "astro": "astro",
     "test": "concurrently 'npm run start:testing-server' 'npm run dev'",
     "test:e2e": "playwright test",
-    "test:e2e:ui": "playwright test --ui"
+    "test:e2e:ui": "playwright test --ui",
+    "prepare": "husky"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.4.1",
@@ -18,16 +19,24 @@
     "@sentry/astro": "^9.8.0",
     "astro": "^5.11.0",
     "axios": "^1.8.4",
+    "daisyui": "^4.6.0",
     "fast-xml-parser": "^5.3.0",
     "promise-polyfill": "^8.3.0",
     "swiper": "^10.2.0",
-    "tailwindcss": "^3.3.2",
-    "daisyui": "^4.6.0"
+    "tailwindcss": "^3.3.2"
   },
   "devDependencies": {
     "@playwright/test": "^1.55.0",
     "concurrently": "^9.2.1",
     "http-server": "^14.1.1",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.6",
+    "prettier": "^3.6.2",
     "sass": "^1.63.6"
+  },
+  "lint-staged": {
+    "*.{ts,scss,json,css,astro,mjs,md}": [
+      "prettier --write"
+    ]
   }
 }
