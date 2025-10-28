@@ -1,0 +1,33 @@
+---
+import CourseLayout from "@layouts/CourseLayout.astro";
+import ContentContainer from "@shared/containers/ContentContainer.astro";
+
+const layoutProps = {
+  title: "Code Universe 25 - Inscrição Confirmada",
+  description:
+    "Inscrição confirmada para o Code Universe 25! Acesse o grupo VIP no WhatsApp para não perder nenhuma atualização e ter acesso a conteúdos exclusivos.",
+  url: Astro.url.href,
+  image: Astro.url.origin + "/images/events/code-universe-25/code-universe-25-banner-image.jpg",
+};
+---
+
+<CourseLayout {...layoutProps}>
+  <ContentContainer>
+    <div class="flex justify-center mt-4 xl:mt-20">
+      <div class="w-full flex flex-col items-center justify-center">
+        <h1 class="hero-title mb-12 text-center">Inscrição confirmada!</h1>
+
+        <p class="hero-description mb-12 text-black text-center max-w-[680px]">
+          Agora, o último passo é entrar no nosso grupo exclusivo VIP no WhatsApp para não perder nenhuma atualização e
+          ter acesso a conteúdos especiais.
+        </p>
+
+        <div class="flex justify-center w-full max-w-[350px]">
+          <a class="btn btn-primary w-full" href="https://chat.whatsapp.com/EpzUqt3FA6LJiPZ79Khme0">
+            Entrar no Grupo VIP!
+          </a>
+        </div>
+      </div>
+    </div>
+  </ContentContainer>
+</CourseLayout>

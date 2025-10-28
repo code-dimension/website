@@ -1,0 +1,151 @@
+---
+import type { AddAtendeeModalProps } from "./types";
+
+interface Props extends AddAtendeeModalProps {}
+
+const props = Astro.props;
+---
+
+<div class="hidden" data-atendee-modal={JSON.stringify({ ...props })}></div>
+
+<div id="add-atendee-modal" class="modal">
+  <div class="modal-box">
+    <p class="text-center mb-4 text-neutral-500 text-base">Falta pouco para você se inscrever nesse super evento!</p>
+    <h1 class="font-bold text-2xl text-center mb-4">Preencha os dados abaixo para começar sua jornada!</h1>
+
+    <form>
+      <label data-field="name" class="form-control w-full">
+        <div class="label">
+          <span class="label-text after:content-['*'] after:text-error after:ml-1">Qual seu nome?</span>
+        </div>
+        <input type="text" placeholder="Digite seu nome" class="input input-bordered w-full" required />
+        <div class="label">
+          <span class="label-text-alt hidden"></span>
+        </div>
+      </label>
+
+      <label data-field="email" class="form-control w-full">
+        <div class="label">
+          <span class="label-text after:content-['*'] after:text-error after:ml-1">Qual seu email?</span>
+        </div>
+        <input
+          type="email"
+          placeholder="meusuper@email.com"
+          title="Invalid email address"
+          class="input input-bordered w-full"
+          required
+        />
+        <div class="label">
+          <span class="label-text-alt hidden">Bottom Left label</span>
+        </div>
+      </label>
+
+      <label data-field="phone" class="form-control w-full">
+        <div class="label">
+          <span class="label-text after:content-['*'] after:text-error after:ml-1">Qual seu telefone?</span>
+        </div>
+        <input type="tel" placeholder="48987654321" class="input input-bordered w-full" required />
+        <div class="label">
+          <span class="label-text-alt hidden">Bottom Left label</span>
+        </div>
+      </label>
+
+      <div class="modal-action">
+        <button type="submit" class="btn btn-primary w-full">Confirmar inscrição!</button>
+      </div>
+    </form>
+  </div>
+  <label class="modal-backdrop" for="my_modal_7">Close</label>
+</div>
+
+<script>
+  import { addEmailToMailingList } from "@shared/functions/add-mail-to-mailing-list";
+  import type { AddAtendeeModalProps } from "./types";
+  import { getUserDataFromLocalStorage, setUserDataInLocalStorage } from "@shared/functions/save-userin-storage";
+
+  const { mailingListId, btnSelector, redirectUrl } = getData();
+
+  let submitHandler = (event: Event) => {};
+
+  registerButtonAction(btnSelector, redirectUrl);
+
+  registerClickOutsideModal();
+
+  setUserDataFromLocalStorageInForm();
+
+  function getData(): AddAtendeeModalProps {
+    const leadModalDataAsString = document.querySelector("[data-atendee-modal]")?.getAttribute("data-atendee-modal")!;
+    return JSON.parse(leadModalDataAsString);
+  }
+
+  function registerClickOutsideModal() {
+    document.querySelector(".modal-backdrop")?.addEventListener("click", () => {
+      document.querySelector(".modal")?.classList.remove("modal-open");
+    });
+  }
+
+  function registerButtonAction(btnSelector: string, url: string) {
+    document.querySelector(btnSelector)?.addEventListener("click", () => {
+      openModal();
+      registerFormSubmit(url);
+    });
+  }
+
+  function openModal() {
+    document.querySelector(".modal")?.classList.add("modal-open");
+  }
+
+  function setUserDataFromLocalStorageInForm() {
+    const userData = getUserDataFromLocalStorage();
+
+    if (userData === null) return;
+
+    const { nameEl, emailEl, phonenumberEl } = getFormFields();
+
+    nameEl.value = userData.name;
+    emailEl.value = userData.email;
+    phonenumberEl.value = userData.phone;
+  }
+
+  function registerFormSubmit(url: string) {
+    removeSubmitHandler();
+
+    submitHandler = (event: Event) => {
+      event.preventDefault();
+
+      const { nameEl, emailEl, phonenumberEl } = getFormFields();
+
+      const name = nameEl.value as string;
+      const email = emailEl.value as string;
+      const phonenumber = phonenumberEl.value as string;
+
+      document.querySelector("#add-atendee-modal button")!.textContent = "Enviando...";
+
+      setUserDataInLocalStorage({ name, email, phone: phonenumber });
+
+      addEmailToMailingList({ mailingListId, name, email, phonenumber }).then(() => {
+        redirect(url);
+      });
+    };
+
+    document.querySelector("#add-atendee-modal form")!.addEventListener("submit", submitHandler);
+  }
+
+  function removeSubmitHandler() {
+    document.querySelector("#add-atendee-modal form")!.removeEventListener("submit", submitHandler);
+  }
+
+  function getFormFields() {
+    const nameEl = document.querySelector<HTMLInputElement>('#add-atendee-modal [data-field="name"] input')!;
+    const emailEl = document.querySelector<HTMLInputElement>('#add-atendee-modal [data-field="email"] input')!;
+    const phonenumberEl = document.querySelector<HTMLInputElement>('#add-atendee-modal [data-field="phone"] input')!;
+
+    return { nameEl, emailEl, phonenumberEl };
+  }
+
+  function redirect(url: string) {
+    const anchor = document.createElement("a");
+    anchor.href = url;
+    anchor.click();
+  }
+</script>
