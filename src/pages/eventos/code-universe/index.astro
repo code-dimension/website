@@ -3,7 +3,7 @@ import CourseLayout from "@layouts/CourseLayout.astro";
 import AddAtendeeModal from "@partials/shared/add-atendee-modal/add-atendee-modal.astro";
 import ContentContainer from "@shared/containers/ContentContainer.astro";
 import { Image } from "astro:assets";
-import Cube from "./assets/code-universe-25.png";
+import Cube from "./assets/code-universe-banner.png";
 
 const layoutProps = {
   title: "Code Universe 25",
@@ -24,35 +24,40 @@ const layoutProps = {
     <ContentContainer>
       <div class="h-[calc(100vh_-_105px)] xl:h-[calc(100vh_-_90px)] flex flex-col justify-center relative -mt-6">
         <div class="flex justify-center xl:justify-start z-20">
-          <div class="w-full max-w-[630px] flex flex-col justify-center text-center xl:text-start">
-            <h1
-              class="text-4xl sm:text-6xl font-bold bg-gradient-to-br from-indigo-500 to-stone-900 bg-clip-text text-transparent"
+          <div
+            class="w-full max-w-[630px] flex flex-col justify-center text-center xl:text-start items-center xl:items-start"
+          >
+            <span
+              class="text-xl font-bold bg-gradient-to-br from-indigo-500 to-stone-900 bg-clip-text text-transparent"
             >
-              Code Universe 25
-            </h1>
+              Code Universe
+            </span>
 
-            <p class="hero-description pt-10 text-black">
-              O mercado não vai esperar. No Code Universe 25, vamos revelar como construir AGORA a carreira Angular
-              sólida que todos vão querer em 2026.
+            <h1 class="hero-title mt-8">Plano de Carreira Dev Angular</h1>
+
+            <p class="hero-description mt-8 text-black">
+              Pare de se sentir perdido: descubra o passo a passo definitivo para ir de júnior a sênior muito mais
+              rápido.
             </p>
 
-            <p class="hero-description pb-10 pt-4 text-black">
-              Quer ser um profissional de destaque? Você precisa estar aqui.
-            </p>
+            <div
+              class="flex flex-col sm:flex-row items-center justify-center mt-8 p-2 rounded-xl bg-[rgba(255,0,0,0.11)]"
+            >
+              <div class="flex items-center justify-center">
+                <div class="bg-[rgba(255,0,0,0.20)] w-5 h-5 rounded-full mr-2 flex items-center justify-center">
+                  <div class="bg-red-500 w-3 h-3 rounded-full"></div>
+                </div>
 
-            <div class="flex justify-center xl:justify-start w-full xl:max-w-[350px] gap-4 mb-8">
-              <div>
-                <i class="bi bi-calendar-check"></i>
-                27/11 às 19h
+                <strong class="text-error sm:after:content-[':']">EVENTO AO VIVO</strong>
               </div>
-              <div>
-                <i class="bi bi-youtube"></i>
-                AO VIVO NO YOUTUBE
-              </div>
+
+              <div class="ml-0 sm:ml-2 mt-1 sm:mt-0">Quinta-feira, 27/11 às 19h</div>
             </div>
 
-            <div class="flex w-full justify-center xl:justify-start">
-              <button id="add-atendee" class="btn btn-primary w-full max-w-[300px]">Quero participar!</button>
+            <div class="flex w-full justify-center xl:justify-start mt-8">
+              <button id="add-atendee" class="btn btn-primary w-full max-w-[300px]"
+                >GARANTIR MINHA VAGA GRATUITA !</button
+              >
             </div>
           </div>
         </div>

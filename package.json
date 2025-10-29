@@ -3,6 +3,7 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
+    "start": "astro dev",
     "dev": "astro dev",
     "start:testing-server": "http-server e2e/mocks",
     "build": "astro build",
