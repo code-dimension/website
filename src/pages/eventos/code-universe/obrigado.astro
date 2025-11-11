@@ -1,6 +1,7 @@
 ---
 import CourseLayout from "@layouts/CourseLayout.astro";
 import ContentContainer from "@shared/containers/ContentContainer.astro";
+import { whatsAppGroupLinks } from "./data";
 
 const layoutProps = {
   title: "Code Universe - Inscrição Confirmada",
@@ -28,9 +29,7 @@ const layoutProps = {
         </p>
 
         <div class="flex justify-center w-full max-w-[350px]">
-          <a class="btn btn-primary w-full" href="https://chat.whatsapp.com/EpzUqt3FA6LJiPZ79Khme0">
-            Entrar no Grupo VIP!
-          </a>
+          <a class="btn btn-primary w-full" href={whatsAppGroupLinks.marketingCampaign}> Entrar no Grupo VIP! </a>
         </div>
       </div>
     </div>

@@ -1,10 +1,7 @@
 import { test, expect, type Page } from "@playwright/test";
+import { whatsAppGroupLinks } from "src/pages/eventos/code-universe/data";
 
 const mailingListId = "1098078";
-
-const whatsAppGroupLinks = {
-  marketingCampaign: "https://chat.whatsapp.com/EpzUqt3FA6LJiPZ79Khme0",
-};
 
 const fakeUserData = {
   name: "Test User",
