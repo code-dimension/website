@@ -5,11 +5,11 @@
   "scripts": {
     "start": "astro dev",
     "dev": "astro dev",
-    "start:testing-server": "http-server e2e/mocks",
+    "start:testing-server": "concurrently 'http-server e2e/mocks' 'npm run dev'",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "test": "concurrently 'npm run start:testing-server' 'npm run dev'",
+    "test": "npm run test:e2e",
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
     "prepare": "husky"
