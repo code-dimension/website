@@ -62,6 +62,8 @@ const props = Astro.props;
   import { addEmailToMailingList } from "@shared/functions/add-mail-to-mailing-list";
   import type { AddAtendeeModalProps } from "./types";
   import { getUserDataFromLocalStorage, setUserDataInLocalStorage } from "@shared/functions/save-userin-storage";
+  import { getUtmQueryParamsFromUrl } from "@shared/functions/get-utm-from-url";
+  import { createSCKParam } from "@shared/functions/create-sck-param";
 
   const { mailingListId, btnSelector, redirectUrl } = getData();
 
@@ -123,7 +125,9 @@ const props = Astro.props;
 
       setUserDataInLocalStorage({ name, email, phone: phonenumber });
 
-      addEmailToMailingList({ mailingListId, name, email, phonenumber }).then(() => {
+      const { sck } = createSCKParam(getUtmQueryParamsFromUrl());
+
+      addEmailToMailingList({ mailingListId, name, email, phonenumber, sck }).then(() => {
         redirect(url);
       });
     };
