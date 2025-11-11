@@ -1,0 +1,13 @@
+<button id="button">Click</button>
+
+<div id="result"></div>
+
+<script>
+  document.querySelector("#button").addEventListener("click", () => {
+    fetch("https://n8nserver.vps.webdock.cloud/webhook/c78a109e-d924-438d-8335-c01cd16cdcca")
+      .then((res) => res.json())
+      .then((data) => {
+        document.querySelector("#result").innerHTML = JSON.stringify(data);
+      });
+  });
+</script>
