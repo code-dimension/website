@@ -22,7 +22,7 @@ const layoutProps = {
     </div>
 
     <ContentContainer>
-      <div class="h-[calc(100vh_-_105px)] xl:h-[calc(100vh_-_90px)] flex flex-col justify-center relative -mt-6">
+      <div class="xl:h-[calc(100vh_-_90px)] flex flex-col justify-center relative xl:-mt-6">
         <div class="flex justify-center xl:justify-start z-20">
           <div
             class="w-full max-w-[630px] flex flex-col justify-center text-center xl:text-start items-center xl:items-start"
@@ -33,11 +33,35 @@ const layoutProps = {
               Code Universe
             </span>
 
-            <h1 class="hero-title mt-8">Plano de Carreira Dev <span class="angular-font-color">Angular</span></h1>
+            <h1 class="hero-title mt-8 max-w-[480px] 3xl:max-w-[530px]">
+              Guia de Evolução para Devs
+              <span class="angular-font-color">Angular</span>
+            </h1>
 
             <p class="hero-description mt-8 text-black">
-              Pare de se sentir perdido: descubra o passo a passo definitivo para ir de júnior a sênior muito mais
-              rápido.
+              Descubra o que você realmente precisa dominar em cada nível da carreira para evoluir sem perder tempo com
+              conteúdo aleatório.
+            </p>
+
+            <p class="hero-description mt-8 text-black mb-2">
+              Participe do evento ao vivo e receba:
+
+              <div>
+                <i class="bi bi-check"></i>
+                Guia completo de evolução para devs Angular
+              </div>
+              <div>
+                <i class="bi bi-check"></i>
+                Materiais exclusivos para participantes
+              </div>
+              <div>
+                <i class="bi bi-check"></i>
+                Mentoria individual (apenas 5 vagas)
+              </div>
+              <div>
+                <i class="bi bi-check"></i>
+                Desconto de até 90% OFF em todos os cursos da Code Dimension
+              </div>
             </p>
 
             <div
@@ -54,10 +78,11 @@ const layoutProps = {
               <div class="ml-0 sm:ml-2 mt-1 sm:mt-0">Quinta-feira, 27/11 às 19h</div>
             </div>
 
-            <div class="flex w-full justify-center xl:justify-start mt-8">
-              <button id="add-atendee" class="btn btn-primary w-full max-w-[300px]"
-                >GARANTIR MINHA VAGA GRATUITA !</button
-              >
+            <div class="flex flex-col w-full items-center mt-8 max-w-[300px]">
+              <button id="add-atendee" class="btn btn-primary w-full">GARANTIR MINHA VAGA!</button>
+              <div class="text-xs mt-2 font-bold">
+                Evento 100% online e <span class="text-success">gratuito</span>
+              </div>
             </div>
           </div>
         </div>
