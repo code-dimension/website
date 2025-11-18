@@ -1,4 +1,5 @@
 ---
+import BannerAlert from "@partials/shared/banner-alert/banner-alert.astro";
 import ContentContainer from "../../shared/containers/ContentContainer.astro";
 
 const links = [
@@ -19,27 +20,18 @@ const links = [
 
 <div class="h-[105px] xl:h-[90px] w-full"></div>
 
-<div
-  class="w-full glass fixed top-0 left-0 z-40 border-bottom h-[105px] xl:h-[90px]"
->
+<div class="w-full glass fixed top-0 left-0 z-40 border-bottom h-[105px] xl:h-[90px]">
   <ContentContainer>
     <div class="py-3 flex items-center">
       <a href="/">
-        <img
-          src="/images/logomark/logo-cd-symbol.svg"
-          alt="Code Dimension Logo"
-          class="w-[50px]"
-        />
+        <img src="/images/logomark/logo-cd-symbol.svg" alt="Code Dimension Logo" class="w-[50px]" />
       </a>
 
       <nav class="hidden xl:inline-block ml-auto">
         {
           links.map((link) => {
             return (
-              <a
-                class="btn btn-ghost mx-1 font-normal text-base hover:bg-primary hover:text-white"
-                href={link.url}
-              >
+              <a class="btn btn-ghost mx-1 font-normal text-base hover:bg-primary hover:text-white" href={link.url}>
                 {link.label}
               </a>
             );
@@ -47,44 +39,26 @@ const links = [
         }
       </nav>
 
-      <a
-        class="cursor-pointer ml-auto block xl:hidden"
-        id="mobile-menu-handler"
-      >
-        <img
-          class="w-[32px] ml-auto"
-          src="/images/header/mobile/mobile-menu.svg"
-          alt="Hamburger Menu"
-        />
+      <a class="cursor-pointer ml-auto block xl:hidden" id="mobile-menu-handler">
+        <img class="w-[32px] ml-auto" src="/images/header/mobile/mobile-menu.svg" alt="Hamburger Menu" />
       </a>
     </div>
   </ContentContainer>
 </div>
 
-<div
-  id="mobile-menu-modal"
-  class="header fixed top-0 z-50 w-full h-full hidden bg-base-100"
->
+<BannerAlert />
+
+<div id="mobile-menu-modal" class="header fixed top-0 z-50 w-full h-full hidden bg-base-100">
   <ContentContainer>
     <div class="flex">
-      <img
-        src="/images/logomark/logo-cd-symbol.svg"
-        alt="Code Dimension Logo"
-        class="w-[50px]"
-      />
+      <img src="/images/logomark/logo-cd-symbol.svg" alt="Code Dimension Logo" class="w-[50px]" />
 
       <a id="close-mobile-menu-modal" class="cursor-pointer ml-auto">
-        <img
-          src="/images/header/mobile/close-menu.svg"
-          alt="Close Mobile Menu"
-          class="w-[48px]"
-        />
+        <img src="/images/header/mobile/close-menu.svg" alt="Close Mobile Menu" class="w-[48px]" />
       </a>
     </div>
 
-    <nav
-      class="flex flex-col items-center justify-center h-[calc(100%_-_44px)]"
-    >
+    <nav class="flex flex-col items-center justify-center h-[calc(100%_-_44px)]">
       {
         links.map((link) => {
           return (
@@ -101,9 +75,7 @@ const links = [
 <script>
   const mobileMenu = document.querySelector("#mobile-menu-handler");
   const mobileMenuModal = document.querySelector("#mobile-menu-modal");
-  const closeMobileMenuModal = document.querySelector(
-    "#close-mobile-menu-modal"
-  );
+  const closeMobileMenuModal = document.querySelector("#close-mobile-menu-modal");
 
   const openModal = () => {
     mobileMenuModal?.classList.add("block");
