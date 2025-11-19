@@ -1,7 +1,7 @@
 export interface Course {
   imageUrl: string;
   imageAlt: string;
-  badgeClass: 'badge-info' | 'badge-warning' | 'badge-accent';
+  badgeClass: "badge-info" | "badge-warning" | "badge-accent" | "badge-primary";
   badgeText: string;
   title: string;
   description: string;
@@ -13,7 +13,7 @@ export const courses: Course[] = [
     imageUrl: "/images/courses/angular-moderno/angular-moderno-banner-card-home.webp",
     imageAlt: "Angular Moderno",
     badgeClass: "badge-warning",
-    badgeText: "Pré-Venda",
+    badgeText: "Lançamento",
     title: "Angular Moderno",
     description:
       "Aprenda todas as novidades do Angular 20 e se torne um desenvolvedor mais produtivo e eficiente no seu dia a dia!",
@@ -22,8 +22,8 @@ export const courses: Course[] = [
   {
     imageUrl: "/images/courses/testes-automatizados/banner-robot.png",
     imageAlt: "Curso Testes Automatizados com Angular",
-    badgeClass: "badge-warning",
-    badgeText: "Lançamento",
+    badgeClass: "badge-primary",
+    badgeText: "Super Curso",
     title: "Testes Automatizados com Angular",
     description:
       "Aprenda a criar testes eficientes de verdade e torne-se um profissional altamente requisitado no mercado!",
