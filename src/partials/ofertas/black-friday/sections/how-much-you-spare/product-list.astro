@@ -1,0 +1,26 @@
+---
+interface Product {
+  title: string;
+  price: number;
+}
+
+interface Props {
+  items: Product[];
+  cssClass?: string;
+}
+
+const { items, cssClass } = Astro.props;
+---
+
+<div class={`flex flex-col items-center xl:items-start space-y-4 ${cssClass}`}>
+  {
+    items.map((product) => (
+      <div class="flex w-full items-center">
+        <i class="bi bi-plus text-xl text-primary" />
+        <div class="ml-2 max-w-[400px] mr-2" set:html={product.title} />
+        <div class="border-dashed border-b-2 grow-[1]" />
+        <div class="ml-auto">R${product.price}</div>
+      </div>
+    ))
+  }
+</div>

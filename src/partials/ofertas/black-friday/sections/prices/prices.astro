@@ -1,0 +1,91 @@
+---
+import ContentContainer from "@shared/containers/ContentContainer.astro";
+import AddLeadModal from "@partials/shared/add-lead-modal/add-lead-modal.astro";
+import { precoParcelado12x, precoAVista } from "./prices";
+import { mailingListId } from "@shared/data/mailing-lists";
+
+const features = [
+  "Acesso total a todos os cursos",
+  "Receba as atualizações do contéudo",
+  "Acesso à comunidade ativa no WhatsApp e Discord, com suporte direto",
+  "Todas as aulas com legendas em português",
+  "Certificado de conclusão com reconhecimento profissional",
+];
+---
+
+<ContentContainer>
+  <div class="flex justify-center">
+    <div class="w-full max-w-[1000px]">
+      <h2 class="text-4xl font-bold text-center mb-16 lg:mb-8">
+        Tudo o que <span class="text-primary">você vai receber</span> com essa assinatura
+      </h2>
+      <p class="mb-8 lg:mb-0 text-center text-lg">Confira logo abaixo os valores para adquirir esse super curso!</p>
+      <p class="mb-8 lg:mb-0 text-center text-lg">
+        Você pode parcelar os valores no cartão de crédito <strong>em até 12x SEM JUROS</strong>
+      </p>
+    </div>
+  </div>
+
+  <div class="flex flex-col items-center mt-16">
+    <div class="w-full max-w-[800px] flex justify-center">
+      <div class="card bg-base-100 w-full max-w-[450px] shadow-xl">
+        <div class="card-body border border-primary rounded-lg">
+          <h2 class="card-title flex flex-wrap">
+            <div class="badge badge-warning badge-lg">Oferta de Black Friday</div>
+          </h2>
+
+          <p class="mt-8">
+            <strong>de</strong>
+            <strong class="line-through text-3xl ml-4">R$ 5860</strong>
+          </p>
+          <p>
+            <strong>por</strong>
+            <strong class="text-6xl text-primary ml-2">R$ 97</strong>
+            <strong class="ml-2">x 12</strong>
+          </p>
+
+          <div class="mt-8 space-y-2">
+            {
+              features.map((feature) => (
+                <div class="flex">
+                  <i class="bi-check-lg text-xl text-primary" />
+                  <div class="ml-2" set:html={feature} />
+                </div>
+              ))
+            }
+          </div>
+
+          <div class="card-actions justify-center mt-8">
+            <a id="comprar-parcelado" class="btn btn-primary w-full bounceIn">Comprar parcelado em 12x sem juros!</a>
+          </div>
+
+          <div class="divider mt-8">Ou</div>
+
+          <strong class="text-2xl">À vista</strong>
+
+          <p class="mt-4">
+            <strong>de</strong>
+            <strong class="line-through text-3xl ml-4">R$ 5860</strong>
+          </p>
+
+          <p class="mt-4">
+            <strong>por</strong>
+            <strong class="text-6xl text-primary ml-3">R$ 947</strong>
+          </p>
+
+          <div class="card-actions justify-center mt-8">
+            <a id="comprar-a-vista" class="btn btn-primary w-full bounceIn">Comprar à vista!</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ContentContainer>
+
+<AddLeadModal
+  mailingListId={mailingListId.angularModerno}
+  precoAVistaUrl={precoAVista}
+  precoParcelado12xUrl={precoParcelado12x}
+  comprarAVistaSelector="#comprar-a-vista"
+  comprarParcelado12xSelector="#comprar-parcelado"
+/>

@@ -1,0 +1,51 @@
+---
+import CourseLayout from "@layouts/CourseLayout.astro";
+import Banner from "@partials/ofertas/black-friday/sections/banner/Banner.astro";
+import HowMuchYouSpare from "@partials/ofertas/black-friday/sections/how-much-you-spare/index.astro";
+import WhatYouWillReceive from "@partials/ofertas/black-friday/sections/what-you-will-receive/index.astro";
+import Instructor from "@partials/ofertas/black-friday/sections/instructor/instructor.astro";
+import HowItWorks from "@partials/ofertas/black-friday/sections/how-it-works/index.astro";
+import Prices from "@partials/ofertas/black-friday/sections/prices/prices.astro";
+import Reviews from "@partials/ofertas/black-friday/sections/reviews/reviews.astro";
+import Faq from "@partials/ofertas/black-friday/sections/faq/faq.astro";
+
+const layoutProps = {
+  title: "Curso Angular Moderno",
+  description:
+    "Aprenda todas as novidades do Angular 20 e se torne um desenvolvedor mais produtivo e eficiente no seu dia a dia!",
+  url: Astro.url.href,
+  image: Astro.url.origin + "/images/courses/angular-moderno/og-banner-pre-venda.webp",
+};
+---
+
+<CourseLayout {...layoutProps}>
+  <Banner />
+
+  <section class="page-section">
+    <WhatYouWillReceive />
+  </section>
+
+  <section class="page-section">
+    <HowMuchYouSpare />
+  </section>
+
+  <section class="page-section">
+    <Instructor />
+  </section>
+
+  <section class="page-section">
+    <Reviews />
+  </section>
+
+  <section class="page-section">
+    <HowItWorks />
+  </section>
+
+  <section class="page-section" scroll-target="prices">
+    <Prices />
+  </section>
+
+  <section class="page-section">
+    <Faq />
+  </section>
+</CourseLayout>

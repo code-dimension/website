@@ -1,0 +1,56 @@
+---
+import ContentContainer from "@shared/containers/ContentContainer.astro";
+
+import { Image } from "astro:assets";
+import ScrollToPricesButton from "../../shared/scroll-to-prices-button.astro";
+---
+
+<ContentContainer>
+  <div class="3xl:h-screen flex flex-col justify-center relative my-[70px] xs:my-[100px] 3xl:my-0">
+    <div class="flex justify-center xl:justify-start">
+      <div
+        class="w-full flex flex-col items-center xl:items-start justify-center text-center xl:text-start xl:px-32 3xl:px-0"
+      >
+        <h1 class="hero-title max-w-[470px] 3xl:max-w-[600px]">
+          Domine <span class="angular-font-color">Angular</span> Com os Cursos Mais Atualizados do Mercado
+        </h1>
+
+        <div class="hero-description my-8 3xl:my-12 text-black max-w-[560px] 3xl:max-w-[680px]">
+          <div class="flex">
+            <i class="bi-check text-xl"></i>
+            <div class="ml-2">Acesso anual as todos os cursos</div>
+          </div>
+
+          <div class="flex">
+            <i class="bi-check text-xl"></i>
+            <div class="ml-2">Atualizações dos conteúdos</div>
+          </div>
+
+          <div class="flex">
+            <i class="bi-check text-xl"></i>
+            <div class="ml-2">Mentoria mensal para resolução de dúvidas</div>
+          </div>
+        </div>
+
+        <div class="flex justify-center xl:justify-start w-full max-w-[350px]">
+          <ScrollToPricesButton />
+        </div>
+
+        <div class="py-4 hint-text">
+          <div class="font-bold">
+            <span class="text-green-600">Compra segura</span> com <span class="text-green-600"
+              >garantia incondicional de 7 dias</span
+            >.
+          </div>
+          <div class="font-bold">Receba o seu acesso imediatamente após a confirmação de pagamento.</div>
+        </div>
+      </div>
+
+      <img
+        src={"https://placehold.co/500"}
+        alt={"Angular Moderno"}
+        class="hidden xl:block max-w-[500px] 3xl:max-w-[650px] absolute w-full opacity-10 xl:opacity-100 xl:right-24 right-0 3xl:right-0 xl:-mt-[85px] 3xl:-mt-[120px]"
+      />
+    </div>
+  </div>
+</ContentContainer>

@@ -1,0 +1,80 @@
+---
+import ContentContainer from "@shared/containers/ContentContainer.astro";
+import ProductList from "./product-list.astro";
+
+const products = [
+  { title: "Curso Introdução ao Angular", price: 97 },
+  { title: "Curso Angular Moderno", price: 479 },
+  { title: "Curso Testes Automatizados com Angular", price: 948 },
+  { title: "Curso Formul rios com Angular", price: 479 },
+  { title: "Curso Signal Forms", price: 349 },
+  { title: "Curso SSR / SSG com Angular", price: 479 },
+  // { title: "Curso Micro Front-End com Angular", price: 599 },
+  // { title: "Curso Desenvolvendo com IA", price: 359 },
+  // { title: "Curso Automa es com N8N", price: 239 },
+  // { title: "Curso NgRx Signals", price: 359 },
+  // { title: "Curso Monorepos com Nx", price: 599 },
+  // { title: "Curso Pacotes Angular com Nx", price: 479 },
+  { title: "E-book Engenharia de prompts", price: 29 },
+  { title: "Mentoria em Grupo (12 meses)", price: 3000 },
+];
+
+const totalProducts = products.reduce((acc, product) => acc + product.price, 0);
+const annualPrice = 12 * 97;
+const totalSavings = totalProducts - annualPrice;
+const totalSavingsPercentage = ((totalSavings / totalProducts) * 100).toFixed(0);
+---
+
+<ContentContainer>
+  <div class="flex justify-center flex-wrap">
+    <div class="flex flex-col items-center">
+      <h2 class="section-title mb-12 text-center">Veja quanto você <span class="text-primary">economiza</span></h2>
+
+      <div class="flex flex-col items-center">
+        <p class="mb-8 text-center sm:text-start">
+          Confira abaixo a soma do valor de todos os produtos que você pagaria se comprasse cada um deles separadamente.
+        </p>
+
+        <div class="border rounded-lg p-4 w-full max-w-[600px] mt-4">
+          <div class="flex justify-center xl:justify-start">
+            <ProductList cssClass="w-full" items={products} />
+          </div>
+
+          <div class="mt-8 flex w-full items-center">
+            <div>
+              <strong>Valor total se comprado separadamente</strong>
+            </div>
+            <div class="border-dashed border-b-2 grow-[1]"></div>
+            <div class="text-error ml-auto">
+              <strong>
+                R${totalProducts}
+              </strong>
+            </div>
+          </div>
+
+          <div class="mt-4 flex w-full items-center">
+            <div>
+              <strong>Valor da assinatura anual</strong>
+            </div>
+            <div class="border-dashed border-b-2 grow-[1]"></div>
+            <div class="text-success ml-auto">
+              <strong> 12 x R$97 </strong>
+            </div>
+          </div>
+
+          <div class="mt-4 flex w-full items-center">
+            <div>
+              <strong>Você economiza</strong>
+            </div>
+            <div class="border-dashed border-b-2 grow-[1]"></div>
+            <div class="text-success ml-auto">
+              <strong>
+                R${totalSavings} ({totalSavingsPercentage}%)
+              </strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ContentContainer>

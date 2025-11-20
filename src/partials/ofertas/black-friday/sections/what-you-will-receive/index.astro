@@ -1,0 +1,196 @@
+---
+import ContentContainer from "@shared/containers/ContentContainer.astro";
+import CourseItem from "./course-item.astro";
+import BonusItem from "./bonus-item.astro";
+import ScrollToPricesButton from "../../shared/scroll-to-prices-button.astro";
+
+interface Course {
+  title: string;
+  description: string;
+}
+
+interface Bonus {
+  title: string;
+  description: string;
+  icon: string;
+}
+
+export const completedCourses: Course[] = [
+  {
+    title: "Introdução ao Angular",
+    description:
+      "Saia do zero e construa uma base sólida no framework desenvolvendo uma aplicação completa com Angular Material. <br /> <br /> Domine os fundamentos essenciais, integrando Componentes, Roteamento, Services e chamadas HTTP para criar interfaces modernas e funcionais.",
+  },
+  {
+    title: "Angular Moderno",
+    description:
+      "Domine o Angular 20 com o único curso do Brasil 100% atualizado, aprendendo na prática recursos de ponta como Standalone API, Signals e Zoneless.<br /> <br />  Construa um sistema de gestão financeira completo e torne-se um especialista em criar aplicações performáticas e escaláveis.",
+  },
+  {
+    title: "Testes Automatizados com Angular",
+    description:
+      "Vá do zero ao avançado em testes automatizados no Angular dominando Jest, Cypress, ng-mocks e TDD. <br /> <br /> Aprenda a estruturar projetos escaláveis com Nx e cubra todas as camadas da aplicação, de testes unitários a E2E, com confiança profissional.",
+  },
+];
+
+export const plannedCourses: Course[] = [
+  {
+    title: "Formulários com Angular",
+    description:
+      "Domine a criação de formulários avançados no Angular com Reactive Forms. <br /> <br /> Aprenda a implementar validações assíncronas, encapsule lógicas com Control Value Accessor e arquitete soluções de alto nível, como um gerador de formulários dinâmicos via JSON.",
+  },
+  {
+    title: "Signals Forms",
+    description:
+      "Domine a criação de formulários modernos baseados em Signals, entendendo seus fundamentos e benefícios de performance. <br /> <br /> Aprenda a implementar validações nativas e customizadas, desenvolva componentes de campos reutilizáveis alinhados ao futuro do Angular e muito mais!",
+  },
+  {
+    title: "SSR / SSG com Angular",
+    description:
+      "Domine a renderização avançada com SSR e SSG para maximizar o SEO e a performance das suas aplicações Angular. <br /> <br /> Aprenda a configurar a hidratação, gerencie estados entre servidor e cliente com segurança e otimize o carregamento inicial para entregar experiências ultrarrápidas.",
+  },
+  {
+    title: "Micro Front-End com Angular",
+    description:
+      "Explore diferentes arquiteturas de Micro Front-Ends, dominando desde Native Federation até o uso de Web Components com Angular Elements. <br /> <br /> Aprenda a estabelecer protocolos de comunicação robustos via eventos e aplique boas práticas para criar sistemas modulares e desacoplados.",
+  },
+  {
+    title: "Desenvolvendo com IA",
+    description:
+      "Acelere a criação de aplicações Angular integrando Inteligência Artificial ao seu fluxo de trabalho.<br /> <br /> Domine a engenharia de prompts e contextos, e utilize técnicas avançadas como ARS (AI Request Specification) para guiar a IA na geração de códigos precisos e produtivos.",
+  },
+  {
+    title: "Automações com N8N",
+    description:
+      "Domine a automação de fluxos com N8N, criando desde agendamentos via CRON até endpoints e Webhooks seguros com CORS. <br /> <br />Aprenda a realizar Self-Hosting profissional e implemente lógicas complexas utilizando loops, condicionais e manipulação avançada de dados.",
+  },
+  {
+    title: "NgRx Signals",
+    description:
+      "Domine o gerenciamento de estado moderno com NgRx SignalStore, eliminando o boilerplate tradicional.<br /> <br /> Aprenda a criar Stores funcionais, modulares e type-safe, integrando nativamente com Signals para construir arquiteturas reativas leves e escaláveis.",
+  },
+  {
+    title: "Monorepos com Nx",
+    description:
+      "Escale o desenvolvimento de múltiplas aplicações utilizando todo o poder dos Monorepos com Nx. <br /> <br />Organize seu código em bibliotecas compartilhadas, automatize tarefas com geradores e otimize seus pipelines de CI/CD utilizando a detecção de mudanças (Affected) para builds inteligentes.",
+  },
+  {
+    title: "Pacotes Angular com Nx",
+    description:
+      "Domine a criação de bibliotecas Angular profissionais configurando Publishable Libs e automatize todo o ciclo de entrega com Nx Release. <br /> <br /> Utilize Conventional Commits para gerenciar versionamento e changelogs, garantindo publicações padronizadas e seguras no NPM ou registros privados.",
+  },
+];
+
+export const exclusivesBonuses: Bonus[] = [
+  {
+    title: "E-book Engenharia de Prompts",
+    description:
+      "Receba de bônus o ebook <strong>Engenharia de prompts: Otimize a comunicação com IA</strong> e eleve o nível da sua comunicação com IAs.  <br /> <br /> Domine a estruturação de contextos e comandos técnicos para obter respostas assertivas, eliminando a tentativa e erro do seu fluxo de trabalho.",
+    icon: "bi-book",
+  },
+  {
+    title: "Mentoria em Grupo Mensal",
+    description:
+      "Potencialize seu aprendizado com 12 meses de mentoria em grupo exclusiva para alunos. <br /> <br />Participe de encontros mensais focados em tirar dúvidas técnicas sobre as aulas, destravar exercícios e garantir a absorção total do conteúdo estudado.",
+    icon: "bi-calendar-check",
+  },
+  {
+    title: "Certificados para cada curso concluído",
+    description:
+      "Receba um certificado de conclusão nominal para cada curso finalizado na plataforma. <br /> <br />Valide suas competências técnicas individualmente e fortaleça seu perfil profissional para se destacar em processos seletivos e no LinkedIn.",
+    icon: "bi-award",
+  },
+  {
+    title: "Comunidade exclusiva",
+    description:
+      "Conecte-se a um ecossistema de desenvolvedores no Discord e WhatsApp para nunca mais estudar sozinho. <br /> <br />Troque experiências, tire dúvidas técnicas em tempo real e faça networking estratégico com profissionais focados no mesmo objetivo.",
+    icon: "bi-people",
+  },
+  {
+    title: "Suporte direto com o instrutor",
+    description:
+      "Tenha acesso direto ao especialista para tirar dúvidas técnicas e validar suas implementações.<br /> <br /> Elimine bloqueios rapidamente com suporte personalizado, garantindo que você avance nos estudos com segurança e sem perder tempo.",
+    icon: "bi-chat-left-text",
+  },
+];
+---
+
+<ContentContainer>
+  <div class="flex flex-col items-center">
+    <div class="flex flex-col items-center">
+      <h2 class="section-title text-center mb-8">
+        Tudo o que <span class="text-primary">você recebe</span> com a assinatura anual
+      </h2>
+    </div>
+
+    <div class="mt-8">
+      <div class="text-center text-xl">
+        <strong>
+          Cursos disponíveis <span class="text-primary">agora</span>
+        </strong>
+      </div>
+
+      <div class="flex justify-center flex-wrap mt-4">
+        {
+          completedCourses.map(({ title, description }) => {
+            return (
+              <div class="m-4 w-full sm:max-w-[380px] sm:min-h-[320px]">
+                <CourseItem>
+                  <Fragment slot="title" set:html={title} />
+                  <Fragment slot="description" set:html={description} />
+                </CourseItem>
+              </div>
+            );
+          })
+        }
+      </div>
+    </div>
+
+    <div class="mt-16">
+      <div class="text-center text-xl">
+        <strong>
+          Cursos planejados para <span class="text-primary">2026</span> e <span class="text-primary">2027</span>
+        </strong>
+      </div>
+      <div class="flex justify-center flex-wrap mt-4">
+        {
+          plannedCourses.map(({ title, description }) => {
+            return (
+              <div class="m-4 w-full sm:max-w-[380px] sm:min-h-[320px]">
+                <CourseItem>
+                  <Fragment slot="title" set:html={title} />
+                  <Fragment slot="description" set:html={description} />
+                </CourseItem>
+              </div>
+            );
+          })
+        }
+      </div>
+    </div>
+
+    <div class="mt-16">
+      <div class="text-center text-xl">
+        <strong>Bônus <span class="text-primary">exclusivos</span></strong>
+      </div>
+
+      <div class="flex justify-center flex-wrap mt-4">
+        {
+          exclusivesBonuses.map(({ title, description, icon }) => {
+            return (
+              <div class="m-4 w-full sm:max-w-[380px] sm:min-h-[280px]">
+                <BonusItem icon={icon}>
+                  <Fragment slot="title" set:html={title} />
+                  <Fragment slot="description" set:html={description} />
+                </BonusItem>
+              </div>
+            );
+          })
+        }
+      </div>
+    </div>
+  </div>
+
+  <div class="flex justify-center mt-16">
+    <ScrollToPricesButton />
+  </div>
+</ContentContainer>
