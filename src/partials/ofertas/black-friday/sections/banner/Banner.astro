@@ -3,6 +3,7 @@ import ContentContainer from "@shared/containers/ContentContainer.astro";
 
 import { Image } from "astro:assets";
 import ScrollToPricesButton from "../../shared/scroll-to-prices-button.astro";
+import BannerImage from "./assets/banner-black-friday.png";
 ---
 
 <ContentContainer>
@@ -46,8 +47,8 @@ import ScrollToPricesButton from "../../shared/scroll-to-prices-button.astro";
         </div>
       </div>
 
-      <img
-        src={"https://placehold.co/500"}
+      <Image
+        src={BannerImage}
         alt={"Angular Moderno"}
         class="hidden xl:block max-w-[500px] 3xl:max-w-[650px] absolute w-full opacity-10 xl:opacity-100 xl:right-24 right-0 3xl:right-0 xl:-mt-[85px] 3xl:-mt-[120px]"
       />
