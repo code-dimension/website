@@ -1,12 +1,12 @@
 <div
   id="countdown-container"
-  class="w-full flex flex-col md:flex-row justify-center items-center p-2 bg-warning gap-2 fixed top-0 z-10"
+  class="w-full flex flex-col md:flex-row justify-center items-center p-2 bg-warning gap-2 md:gap-4 fixed top-0 z-10"
 >
   <div>
     <strong>Essa oferta termina em:</strong>
   </div>
 
-  <div class="flex gap-4 justify-center items-center">
+  <div class="flex gap-2 justify-center items-center">
     <div id="countdown-days-container">
       <span class="text-2xl" id="countdown-days"></span>
       <span id="countdown-days-label"></span>
@@ -53,19 +53,11 @@
     const nowDate = DateTime.now();
     const diff = limitDate.diff(nowDate, ["days", "hours", "minutes", "seconds"]).toObject();
 
-    if (diff.days < 0 || diff.hours < 0 || diff.minutes < 0 || diff.seconds < 0) {
-      // If the countdown has finished
-      daysEl.textContent = "00";
-      hoursEl.textContent = "00";
-      minEl.textContent = "00";
-      secEl.textContent = "00";
+    if (diff.days === 0 && diff.hours === 0 && diff.minutes === 0 && diff.seconds === 0) {
+      countdownEl.classList.add("hidden");
+      clearInterval(intervalId);
       return;
     }
-
-    daysLabelEl.textContent = diff.days === 1 ? "dia" : "dias";
-    hoursLabelEl.textContent = diff.hours === 1 ? "hora" : "horas";
-    minLabelEl.textContent = diff.minutes === 1 ? "minuto" : "minutos";
-    secLabelEl.textContent = diff.seconds === 1 ? "segundo" : "segundos";
 
     if (diff.days === 0) {
       daysContainerEl.classList.add("hidden");
@@ -79,13 +71,10 @@
       minContainerEl.classList.add("hidden");
     }
 
-    console.log(diff);
-
-    if (diff.days === 0 && diff.hours === 0 && diff.minutes === 0 && diff.seconds === 0) {
-      countdownEl.classList.add("hidden");
-      clearInterval(intervalId);
-      return;
-    }
+    daysLabelEl.textContent = diff.days === 1 ? "dia" : "dias";
+    hoursLabelEl.textContent = diff.hours === 1 ? "hora" : "horas";
+    minLabelEl.textContent = diff.minutes === 1 ? "minuto" : "minutos";
+    secLabelEl.textContent = diff.seconds === 1 ? "segundo" : "segundos";
 
     daysEl.textContent = String(diff.days).padStart(2, "0");
     hoursEl.textContent = String(diff.hours).padStart(2, "0");
