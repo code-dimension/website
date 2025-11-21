@@ -1,0 +1,175 @@
+---
+import type { LeadGenericModalProps } from "./types";
+
+interface Props extends LeadGenericModalProps {}
+
+const props = Astro.props;
+---
+
+<div class="hidden" data-lead-generic-modal={JSON.stringify({ ...props })}></div>
+
+<div id="add-lead-generic-modal" class="modal">
+  <div class="modal-box">
+    <p class="text-center mb-4 text-neutral-500 text-base">Falta pouco para você se tornar referência em Angular!</p>
+    <h1 class="font-bold text-2xl text-center mb-4">Preencha os dados abaixo para começar sua jornada!</h1>
+
+    <form>
+      <label data-field="name" class="form-control w-full">
+        <div class="label">
+          <span class="label-text after:content-['*'] after:text-error after:ml-1">Qual seu nome?</span>
+        </div>
+        <input type="text" placeholder="Digite seu nome" class="input input-bordered w-full" required />
+        <div class="label">
+          <span class="label-text-alt hidden"></span>
+        </div>
+      </label>
+
+      <label data-field="email" class="form-control w-full">
+        <div class="label">
+          <span class="label-text after:content-['*'] after:text-error after:ml-1">Qual seu email?</span>
+        </div>
+        <input
+          type="email"
+          placeholder="meusuper@email.com"
+          title="Invalid email address"
+          class="input input-bordered w-full"
+          required
+        />
+        <div class="label">
+          <span class="label-text-alt hidden">Bottom Left label</span>
+        </div>
+      </label>
+
+      <label data-field="phone" class="form-control w-full">
+        <div class="label">
+          <span class="label-text after:content-['*'] after:text-error after:ml-1">Qual seu telefone?</span>
+        </div>
+        <input type="tel" placeholder="(99) 99999-9999" class="input input-bordered w-full" required />
+        <div class="label">
+          <span class="label-text-alt hidden">Bottom Left label</span>
+        </div>
+      </label>
+
+      <div class="modal-action">
+        <button type="submit" class="btn btn-primary w-full">Começar jornada!</button>
+      </div>
+    </form>
+  </div>
+  <label class="modal-backdrop" for="my_modal_7">Close</label>
+</div>
+
+<script>
+  import { setUtmParamsToUrl } from "@shared/functions/set-utm-to-url";
+  import { addEmailToMailingList } from "@shared/functions/add-mail-to-mailing-list";
+  import type { LeadGenericModalProps } from "./types";
+  import { getUserDataFromLocalStorage, setUserDataInLocalStorage } from "@shared/functions/save-userin-storage";
+
+  const { mailingListId, checkoutUrl, btnSelector } = getData();
+
+  let submitHandler = (event: Event) => {};
+
+  registerClickOnBtn();
+
+  registerClickOutsideModal();
+
+  setUserDataFromLocalStorageInForm();
+
+  function getData(): LeadGenericModalProps {
+    const leadModalDataAsString = document
+      .querySelector("[data-lead-generic-modal]")
+      ?.getAttribute("data-lead-generic-modal")!;
+    return JSON.parse(leadModalDataAsString);
+  }
+
+  function registerClickOutsideModal() {
+    document.querySelector(".modal-backdrop")?.addEventListener("click", () => {
+      document.querySelector(".modal")?.classList.remove("modal-open");
+    });
+  }
+
+  function registerClickOnBtn() {
+    registerButtonAction(btnSelector, checkoutUrl);
+  }
+
+  function registerButtonAction(btnSelector: string, url: string) {
+    document.querySelector(btnSelector)?.addEventListener("click", () => {
+      openModal();
+      registerFormSubmit(setUtmParamsToUrl(url));
+    });
+  }
+
+  function openModal() {
+    document.querySelector(".modal")?.classList.add("modal-open");
+  }
+
+  function setUserDataFromLocalStorageInForm() {
+    const userData = getUserDataFromLocalStorage();
+
+    if (userData === null) return;
+
+    const { nameEl, emailEl, phonenumberEl } = getFormFields();
+
+    nameEl.value = userData.name;
+    emailEl.value = userData.email;
+    phonenumberEl.value = userData.phone;
+  }
+
+  function registerFormSubmit(url: string) {
+    removeSubmitHandler();
+
+    submitHandler = (event: Event) => {
+      event.preventDefault();
+
+      const { nameEl, emailEl, phonenumberEl } = getFormFields();
+
+      const name = nameEl.value as string;
+      const email = emailEl.value as string;
+      const phonenumber = phonenumberEl.value as string;
+
+      document.querySelector("#add-lead-generic-modal button")!.textContent = "Enviando...";
+
+      setUserDataInLocalStorage({ name, email, phone: phonenumber });
+
+      addEmailToMailingList({ mailingListId, name, email, phonenumber }).then(() => {
+        redirectToCheckout({ name, email, phonenumber, url });
+      });
+    };
+
+    document.querySelector("#add-lead-generic-modal form")!.addEventListener("submit", submitHandler);
+  }
+
+  function removeSubmitHandler() {
+    document.querySelector("#add-lead-generic-modal form")!.removeEventListener("submit", submitHandler);
+  }
+
+  function getFormFields() {
+    const nameEl = document.querySelector<HTMLInputElement>('#add-lead-generic-modal [data-field="name"] input')!;
+    const emailEl = document.querySelector<HTMLInputElement>('#add-lead-generic-modal [data-field="email"] input')!;
+    const phonenumberEl = document.querySelector<HTMLInputElement>(
+      '#add-lead-generic-modal [data-field="phone"] input',
+    )!;
+
+    return { nameEl, emailEl, phonenumberEl };
+  }
+
+  function redirectToCheckout({
+    name,
+    email,
+    phonenumber,
+    url,
+  }: {
+    name: string;
+    email: string;
+    phonenumber: string;
+    url: string;
+  }) {
+    const urlInstance = new URL(url);
+    urlInstance.searchParams.append("name", name);
+    urlInstance.searchParams.append("email", email);
+    urlInstance.searchParams.append("phonenumber", phonenumber);
+
+    const anchor = document.createElement("a");
+    anchor.href = urlInstance.toString();
+    anchor.click();
+  }
+</script>
