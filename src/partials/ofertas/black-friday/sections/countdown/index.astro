@@ -1,0 +1,68 @@
+<div class="w-full flex flex-col md:flex-row justify-center items-center p-4 bg-warning gap-4">
+  <div>
+    <strong>Essa oferta acaba em:</strong>
+  </div>
+
+  <div class="flex gap-5 justify-center">
+    <div>
+      <span class="countdown font-mono text-2xl">
+        <span id="countdown-days"></span>
+      </span>
+      Dia(s)
+    </div>
+    <div>
+      <span class="countdown font-mono text-2xl">
+        <span id="countdown-hours"></span>
+      </span>
+      Hora(s)
+    </div>
+    <div>
+      <span class="countdown font-mono text-2xl">
+        <span id="countdown-minutes"></span>
+      </span>
+      Minuto(s)
+    </div>
+    <div>
+      <span class="countdown font-mono text-2xl">
+        <span id="countdown-seconds"></span>
+      </span>
+      segundo(s)
+    </div>
+  </div>
+</div>
+
+<script>
+  import { DateTime } from "luxon";
+
+  const limitDate = DateTime.fromISO("2025-12-02T23:59:59");
+
+  const daysEl = document.querySelector<HTMLElement>("#countdown-days");
+  const hoursEl = document.querySelector<HTMLElement>("#countdown-hours");
+  const minEl = document.querySelector<HTMLElement>("#countdown-minutes");
+  const secEl = document.querySelector<HTMLElement>("#countdown-seconds");
+
+  function updateCountdown() {
+    const nowDate = DateTime.now();
+    const diff = limitDate.diff(nowDate, ["days", "hours", "minutes", "seconds"]).toObject();
+
+    if (diff.days < 0 || diff.hours < 0 || diff.minutes < 0 || diff.seconds < 0) {
+      // If the countdown has finished
+      daysEl.textContent = "00";
+      hoursEl.textContent = "00";
+      minEl.textContent = "00";
+      secEl.textContent = "00";
+      return;
+    }
+
+    daysEl.style.setProperty("--value", String(diff.days).padStart(2, "0"));
+    hoursEl.style.setProperty("--value", String(diff.hours).padStart(2, "0"));
+    minEl.style.setProperty("--value", String(diff.minutes).padStart(2, "0"));
+    secEl.style.setProperty("--value", String(diff.seconds).padStart(2, "0"));
+  }
+
+  // Initial call to display the countdown immediately
+  updateCountdown();
+
+  // Update every second
+  setInterval(updateCountdown, 1000);
+</script>

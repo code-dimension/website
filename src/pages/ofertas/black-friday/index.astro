@@ -8,6 +8,7 @@ import HowItWorks from "@partials/ofertas/black-friday/sections/how-it-works/ind
 import Prices from "@partials/ofertas/black-friday/sections/prices/prices.astro";
 import Reviews from "@partials/ofertas/black-friday/sections/reviews/reviews.astro";
 import Faq from "@partials/ofertas/black-friday/sections/faq/faq.astro";
+import CountDown from "@partials/ofertas/black-friday/sections/countdown/index.astro";
 
 const layoutProps = {
   title: "Curso Angular Moderno",
@@ -19,6 +20,8 @@ const layoutProps = {
 ---
 
 <CourseLayout {...layoutProps}>
+  <CountDown />
+
   <Banner />
 
   <section class="page-section">
