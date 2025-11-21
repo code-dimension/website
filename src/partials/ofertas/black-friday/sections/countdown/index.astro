@@ -62,14 +62,14 @@
 
     if (diff.days === 0) {
       daysContainerEl.classList.add("hidden");
-    }
 
-    if (diff.hours === 0) {
-      hoursContainerEl.classList.add("hidden");
-    }
+      if (diff.hours === 0) {
+        hoursContainerEl.classList.add("hidden");
 
-    if (diff.minutes === 0) {
-      minContainerEl.classList.add("hidden");
+        if (diff.minutes === 0) {
+          minContainerEl.classList.add("hidden");
+        }
+      }
     }
 
     daysLabelEl.textContent = diff.days === 1 ? "dia" : "dias";
