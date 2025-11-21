@@ -1,32 +1,27 @@
-<div class="w-full flex flex-col md:flex-row justify-center items-center p-4 bg-warning gap-4">
+<div
+  id="countdown-container"
+  class="w-full flex flex-col md:flex-row justify-center items-center p-2 bg-warning gap-2 fixed top-0 z-10"
+>
   <div>
-    <strong>Essa oferta acaba em:</strong>
+    <strong>Essa oferta termina em:</strong>
   </div>
 
-  <div class="flex gap-5 justify-center">
-    <div>
-      <span class="countdown font-mono text-2xl">
-        <span id="countdown-days"></span>
-      </span>
-      Dia(s)
+  <div class="flex gap-4 justify-center items-center">
+    <div id="countdown-days-container">
+      <span class="text-2xl" id="countdown-days"></span>
+      <span id="countdown-days-label"></span>
+    </div>
+    <div id="countdown-hours-container">
+      <span class="countdown font-mono text-2xl" id="countdown-hours"> </span>
+      <span id="countdown-hours-label"></span>
+    </div>
+    <div id="countdown-minutes-container">
+      <span class="countdown font-mono text-2xl" id="countdown-minutes"> </span>
+      <span id="countdown-minutes-label"></span>
     </div>
     <div>
-      <span class="countdown font-mono text-2xl">
-        <span id="countdown-hours"></span>
-      </span>
-      Hora(s)
-    </div>
-    <div>
-      <span class="countdown font-mono text-2xl">
-        <span id="countdown-minutes"></span>
-      </span>
-      Minuto(s)
-    </div>
-    <div>
-      <span class="countdown font-mono text-2xl">
-        <span id="countdown-seconds"></span>
-      </span>
-      segundo(s)
+      <span class="countdown font-mono text-2xl" id="countdown-seconds"> </span>
+      <span id="countdown-seconds-label"></span>
     </div>
   </div>
 </div>
@@ -41,6 +36,19 @@
   const minEl = document.querySelector<HTMLElement>("#countdown-minutes");
   const secEl = document.querySelector<HTMLElement>("#countdown-seconds");
 
+  const daysLabelEl = document.querySelector<HTMLElement>("#countdown-days-label");
+  const hoursLabelEl = document.querySelector<HTMLElement>("#countdown-hours-label");
+  const minLabelEl = document.querySelector<HTMLElement>("#countdown-minutes-label");
+  const secLabelEl = document.querySelector<HTMLElement>("#countdown-seconds-label");
+
+  const daysContainerEl = document.querySelector<HTMLElement>("#countdown-days-container");
+  const hoursContainerEl = document.querySelector<HTMLElement>("#countdown-hours-container");
+  const minContainerEl = document.querySelector<HTMLElement>("#countdown-minutes-container");
+
+  const countdownEl = document.querySelector<HTMLElement>("#countdown-container");
+
+  let intervalId = null;
+
   function updateCountdown() {
     const nowDate = DateTime.now();
     const diff = limitDate.diff(nowDate, ["days", "hours", "minutes", "seconds"]).toObject();
@@ -54,15 +62,40 @@
       return;
     }
 
-    daysEl.style.setProperty("--value", String(diff.days).padStart(2, "0"));
-    hoursEl.style.setProperty("--value", String(diff.hours).padStart(2, "0"));
-    minEl.style.setProperty("--value", String(diff.minutes).padStart(2, "0"));
-    secEl.style.setProperty("--value", String(diff.seconds).padStart(2, "0"));
+    daysLabelEl.textContent = diff.days === 1 ? "dia" : "dias";
+    hoursLabelEl.textContent = diff.hours === 1 ? "hora" : "horas";
+    minLabelEl.textContent = diff.minutes === 1 ? "minuto" : "minutos";
+    secLabelEl.textContent = diff.seconds === 1 ? "segundo" : "segundos";
+
+    if (diff.days === 0) {
+      daysContainerEl.classList.add("hidden");
+    }
+
+    if (diff.hours === 0) {
+      hoursContainerEl.classList.add("hidden");
+    }
+
+    if (diff.minutes === 0) {
+      minContainerEl.classList.add("hidden");
+    }
+
+    console.log(diff);
+
+    if (diff.days === 0 && diff.hours === 0 && diff.minutes === 0 && diff.seconds === 0) {
+      countdownEl.classList.add("hidden");
+      clearInterval(intervalId);
+      return;
+    }
+
+    daysEl.textContent = String(diff.days).padStart(2, "0");
+    hoursEl.textContent = String(diff.hours).padStart(2, "0");
+    minEl.textContent = String(diff.minutes).padStart(2, "0");
+    secEl.textContent = String(Math.trunc(diff.seconds)).padStart(2, "0");
   }
 
   // Initial call to display the countdown immediately
   updateCountdown();
 
   // Update every second
-  setInterval(updateCountdown, 1000);
+  intervalId = setInterval(updateCountdown, 1000);
 </script>
