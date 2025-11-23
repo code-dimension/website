@@ -58,7 +58,7 @@ const features = [
           </div>
 
           <div class="card-actions justify-center mt-8">
-            <a href="/ofertas/black-friday/escolha" class="btn btn-primary w-full bounceIn"
+            <a id="buy-btn" href="/ofertas/black-friday/escolha" class="btn btn-primary w-full bounceIn"
               >Comprar parcelado em 12x sem juros!</a
             >
           </div>
@@ -67,3 +67,9 @@ const features = [
     </div>
   </div>
 </ContentContainer>
+
+<script>
+  import { setUtmToHref } from "@partials/ofertas/black-friday/shared/set-utm-to-href";
+
+  setUtmToHref("#buy-btn");
+</script>
