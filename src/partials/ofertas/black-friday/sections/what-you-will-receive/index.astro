@@ -82,12 +82,12 @@ export const plannedCourses: Course[] = [
 ];
 
 export const exclusivesBonuses: Bonus[] = [
-  {
-    title: "E-book Engenharia de Prompts",
-    description:
-      "Receba de bônus o ebook <strong>Engenharia de prompts: Otimize a comunicação com IA</strong> e eleve o nível da sua comunicação com IAs.  <br /> <br /> Domine a estruturação de contextos e comandos técnicos para obter respostas assertivas, eliminando a tentativa e erro do seu fluxo de trabalho.",
-    icon: "bi-book",
-  },
+  // {
+  //   title: "E-book Engenharia de Prompts",
+  //   description:
+  //     "Receba de bônus o ebook <strong>Engenharia de prompts: Otimize a comunicação com IA</strong> e eleve o nível da sua comunicação com IAs.  <br /> <br /> Domine a estruturação de contextos e comandos técnicos para obter respostas assertivas, eliminando a tentativa e erro do seu fluxo de trabalho.",
+  //   icon: "bi-book",
+  // },
   {
     title: "Mentoria em Grupo Mensal",
     description:
@@ -177,7 +177,7 @@ export const exclusivesBonuses: Bonus[] = [
         {
           exclusivesBonuses.map(({ title, description, icon }) => {
             return (
-              <div class="m-4 w-full sm:max-w-[380px] sm:min-h-[280px]">
+              <div class="m-4 w-full sm:max-w-[480px] sm:min-h-[280px]">
                 <BonusItem icon={icon}>
                   <Fragment slot="title" set:html={title} />
                   <Fragment slot="description" set:html={description} />
