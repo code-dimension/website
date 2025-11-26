@@ -1,0 +1,13 @@
+---
+import BaseReviews from "@partials/shared/reviews/reviews.astro";
+
+import ScrollToPricesButton from "../../shared/scroll-to-prices-button.astro";
+---
+
+<BaseReviews>
+  <Fragment slot="price-btn">
+    <div class="flex justify-center mt-8">
+      <ScrollToPricesButton />
+    </div>
+  </Fragment>
+</BaseReviews>

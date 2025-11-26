@@ -1,0 +1,54 @@
+---
+import CourseLayout from "@layouts/CourseLayout.astro";
+import Banner from "@partials/ofertas/black-friday/sections/banner/Banner.astro";
+import HowMuchYouSpare from "@partials/ofertas/black-friday/sections/how-much-you-spare/index.astro";
+import WhatYouWillReceive from "@partials/ofertas/black-friday/sections/what-you-will-receive/index.astro";
+import Instructor from "@partials/ofertas/black-friday/sections/instructor/instructor.astro";
+import HowItWorks from "@partials/ofertas/black-friday/sections/how-it-works/index.astro";
+import Prices from "@partials/ofertas/black-friday/sections/prices/prices.astro";
+import Reviews from "@partials/ofertas/black-friday/sections/reviews/reviews.astro";
+import Faq from "@partials/ofertas/black-friday/sections/faq/faq.astro";
+import CountDown from "@partials/ofertas/black-friday/sections/countdown/index.astro";
+
+const layoutProps = {
+  title: "Code Universe - Black Friday",
+  description:
+    "Domine angular com os cursos mais atualizados do mercado. Com nossa assinatura anual você terá acesso a todos os cursos e recebendo atualizações de conteúdo.",
+  url: Astro.url.href,
+  image: Astro.url.origin + "/images/ofertas/black-friday/banner-image-code-universe-black-friday.jpg",
+};
+---
+
+<CourseLayout {...layoutProps}>
+  <CountDown />
+
+  <Banner />
+
+  <section class="page-section">
+    <WhatYouWillReceive />
+  </section>
+
+  <section class="page-section">
+    <HowMuchYouSpare />
+  </section>
+
+  <section class="page-section">
+    <Instructor />
+  </section>
+
+  <section class="page-section">
+    <Reviews />
+  </section>
+
+  <section class="page-section">
+    <HowItWorks />
+  </section>
+
+  <section class="page-section" scroll-target="prices">
+    <Prices />
+  </section>
+
+  <section class="page-section">
+    <Faq />
+  </section>
+</CourseLayout>

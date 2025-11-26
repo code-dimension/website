@@ -1,0 +1,46 @@
+---
+import CourseLayout from "@layouts/CourseLayout.astro";
+import { checkoutParcelado12x } from "@partials/ofertas/black-friday/shared/links";
+import AddLeadGenericModal from "@partials/shared/add-lead-generic-modal/add-lead-generic-modal.astro";
+import { mailingListId } from "@shared/data/mailing-lists";
+
+const layoutProps = {
+  title: "Code Universe - Black Friday",
+  description:
+    "Domine angular com os cursos mais atualizados do mercado. Com nossa assinatura anual você terá acesso a todos os cursos e recebendo atualizações de conteúdo.",
+  url: Astro.url.href,
+  image: Astro.url.origin + "/images/ofertas/black-friday/banner-image-code-universe-black-friday.jpg",
+};
+---
+
+<CourseLayout {...layoutProps}>
+  <div class="3xl:h-screen flex flex-col justify-center my-[70px] xs:my-[100px] 3xl:my-0">
+    <div class="w-full flex flex-col items-center justify-center text-center xl:text-start xl:px-32 3xl:px-0">
+      <h1 class="hero-title">
+        Você é aluno(a) da <span class="text-primary">Code Dimension</span>?
+      </h1>
+
+      <div class="mt-8 text-gray-600">
+        É considerado um aluno(a) da Code Dimension qualquer pessoa que tenha adquirido pelo menos um dos nossos cursos.
+      </div>
+
+      <div class="flex mt-8">
+        <a id="iAmNotStudent" class="btn btn-primary mr-4"> Não sou aluno, ainda! </a>
+
+        <a id="iAmStudent" href="/ofertas/black-friday/escolha/verificacao" class="btn btn-primary">Sim, sou aluno!</a>
+      </div>
+    </div>
+  </div>
+</CourseLayout>
+
+<AddLeadGenericModal
+  mailingListId={mailingListId.blackFridayCodeUniverse}
+  checkoutUrl={checkoutParcelado12x}
+  btnSelector="#iAmNotStudent"
+/>
+
+<script>
+  import { setUtmToHref } from "@partials/ofertas/black-friday/shared/set-utm-to-href";
+
+  setUtmToHref("#iAmStudent");
+</script>

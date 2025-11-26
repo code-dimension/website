@@ -1,0 +1,66 @@
+---
+import ContentContainer from "@shared/containers/ContentContainer.astro";
+import ScrollToPricesButton from "../../shared/scroll-to-prices-button.astro";
+
+interface Item {
+  text: string;
+}
+
+export const items: Item[] = [
+  {
+    text: "Você assina por 1 ano e tem acesso IMEDIATO a todos os cursos disponíveis",
+  },
+  {
+    text: "Novos cursos lançados durante sua assinatura serão incluídos automaticamente",
+  },
+  {
+    text: "Você participa de 12 mentorias em grupo (1 por mês)",
+  },
+  {
+    text: "Você recebe atualizações de conteúdo conforme o Angular lançar novas versões",
+  },
+  {
+    text: "Ao final de 1 ano, você pode renovar a assinatura para manter seu acesso aos cursos",
+  },
+];
+---
+
+<ContentContainer>
+  <div class="flex justify-center">
+    <div class="w-full max-w-[1000px]">
+      <h2 class="text-4xl font-bold text-center">
+        Como a <span class="text-primary">assinatura anual</span> funciona na prática
+      </h2>
+    </div>
+  </div>
+
+  <div class="flex flex-col items-center mt-16">
+    <div class="w-full max-w-[800px] flex flex-col items-center border rounded-lg">
+      {
+        items.map(({ text }, index, array) => (
+          <div
+            class="w-full flex flex-col bg-white"
+            class:list={[
+              { "rounded-tl-lg rounded-tr-lg": index === 0 },
+              { "rounded-bl-lg rounded-br-lg": index === array.length - 1 },
+            ]}
+          >
+            <div class="p-4 w-full flex flex-col items-center lg:flex-row">
+              <div class="text-xl font-bold mb-4 lg:mb-0 lg:mr-4 w-[22px] text-primary flex justify-center">
+                {index + 1}
+              </div>
+              <div class="text-center lg:text-start">
+                <strong>{text}</strong>
+              </div>
+            </div>
+            {index < array.length - 1 && <div class="w-full h-px bg-gray-200" />}
+          </div>
+        ))
+      }
+    </div>
+  </div>
+
+  <div class="flex justify-center mt-16">
+    <ScrollToPricesButton />
+  </div>
+</ContentContainer>

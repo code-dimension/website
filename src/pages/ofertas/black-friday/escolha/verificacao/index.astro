@@ -1,0 +1,117 @@
+---
+import CourseLayout from "@layouts/CourseLayout.astro";
+
+const layoutProps = {
+  title: "Code Universe - Black Friday",
+  description:
+    "Domine angular com os cursos mais atualizados do mercado. Com nossa assinatura anual você terá acesso a todos os cursos e recebendo atualizações de conteúdo.",
+  url: Astro.url.href,
+  image: Astro.url.origin + "/images/ofertas/black-friday/banner-image-code-universe-black-friday.jpg",
+};
+---
+
+<CourseLayout {...layoutProps}>
+  <div class="3xl:h-screen flex flex-col justify-center my-[70px] xs:my-[100px] 3xl:my-0">
+    <div class="w-full flex flex-col items-center justify-center text-center xl:text-start xl:px-32 3xl:px-0">
+      <div class="w-full max-w-[400px] p-2">
+        <p class="text-sm text-gray-500">
+          Precisamos fazer uma pequena verificação antes de enviar você para o checkout.
+        </p>
+
+        <form class="mt-8">
+          <label class="form-control w-full">
+            <div class="label">
+              <span class="label-text font-bold">Digite o email usado para comprar pelo menos um de nossos cursos:</span
+              >
+            </div>
+            <input
+              type="email"
+              required
+              placeholder="meusuper@email.com"
+              class="input input-bordered w-full"
+              id="user-email"
+            />
+            <div class="label text-error hidden" id="user-email-validation"></div>
+          </label>
+
+          <button class="btn btn-primary w-full mt-4" id="submit-btn">Verificar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</CourseLayout>
+
+<script>
+  import { createSearchParamsUsingUtmFromUrl } from "@partials/ofertas/black-friday/shared/create-search-params-using-utm";
+  import { checkIfEmailIsStudent } from "@shared/functions/check-if-email-is-student";
+  import { redirectToUrl } from "@shared/functions/redirect-to-url";
+  import { getUserDataFromLocalStorage, setUserDataInLocalStorage } from "@shared/functions/save-userin-storage";
+
+  const emailInput = document.querySelector("#user-email") as HTMLInputElement;
+  const emailInputValidation = document.querySelector("#user-email-validation") as HTMLDivElement;
+  const submitBtn = document.querySelector("#submit-btn") as HTMLButtonElement;
+
+  const userData = getUserDataFromLocalStorage();
+
+  if (userData?.email) {
+    emailInput.value = userData.email;
+  }
+
+  document.querySelector("form")?.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const email = emailInput.value as string;
+
+    hideEmailError();
+    setSubmitBtnLabel("Verificando...");
+
+    checkIfEmailIsStudent(email)
+      .then((res) => {
+        if (!res.isStudent) {
+          setEmailIsNotAStudentError();
+        } else {
+          setUserDataInLocalStorage({
+            ...userData,
+            email,
+          });
+          goToSuccessPage();
+        }
+      })
+      .catch(() => {
+        setSomethingWentWrongError();
+      })
+      .finally(() => {
+        setSubmitBtnLabel("Verificar");
+      });
+  });
+
+  function setEmailIsNotAStudentError() {
+    emailInputValidation.classList.remove("hidden");
+    emailInputValidation.textContent = "Email não cadastrado como aluno.";
+  }
+
+  function setSomethingWentWrongError() {
+    emailInputValidation.classList.remove("hidden");
+    emailInputValidation.textContent = "Algo deu errado, tente novamente.";
+  }
+
+  function hideEmailError() {
+    emailInputValidation.classList.add("hidden");
+  }
+
+  function setSubmitBtnLabel(text: string) {
+    submitBtn.textContent = text;
+  }
+
+  function goToSuccessPage() {
+    const utmQueryParams = createSearchParamsUsingUtmFromUrl();
+
+    let successRoute = "/ofertas/black-friday/escolha/verificacao/sucesso";
+
+    if (utmQueryParams.size > 0) {
+      successRoute += `?${utmQueryParams.toString()}`;
+    }
+
+    redirectToUrl(successRoute);
+  }
+</script>

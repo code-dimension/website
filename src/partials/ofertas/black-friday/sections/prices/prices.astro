@@ -1,0 +1,77 @@
+---
+import ContentContainer from "@shared/containers/ContentContainer.astro";
+
+const features = [
+  "Acesso total a todos os cursos",
+  "Receba as atualizações do contéudo",
+  "Acesso à comunidade ativa no WhatsApp e Discord, com suporte direto",
+  "Todas as aulas com legendas em português",
+  "Certificado de conclusão com reconhecimento profissional",
+];
+---
+
+<ContentContainer>
+  <div class="flex justify-center">
+    <div class="w-full max-w-[1000px]">
+      <h2 class="text-4xl font-bold text-center mb-16 lg:mb-8">
+        Tudo o que <span class="text-primary">você vai receber</span> com essa assinatura
+      </h2>
+      <p class="mb-8 lg:mb-0 text-center text-lg">
+        Confira logo abaixo os valores para adquirir essa super assinatura!
+      </p>
+      <p class="mb-8 lg:mb-0 text-center text-lg">
+        Você pode parcelar os valores no cartão de crédito <strong>em até 12x SEM JUROS</strong>
+      </p>
+    </div>
+  </div>
+
+  <div class="flex flex-col items-center mt-16">
+    <div class="w-full max-w-[800px] flex justify-center">
+      <div class="card bg-base-100 w-full max-w-[450px] shadow-xl">
+        <div class="card-body border border-primary rounded-lg">
+          <h2 class="card-title flex flex-wrap">
+            <div class="badge badge-warning badge-lg">Oferta de Black Friday</div>
+          </h2>
+
+          <p class="mt-8">
+            <strong>de</strong>
+            <strong class="line-through text-3xl ml-4">R$ 5860</strong>
+          </p>
+          <p class="mt-4">
+            <strong>por</strong>
+
+            <span class="indicator">
+              <span class="indicator-item badge badge-warning -top-2">80% OFF</span>
+              <strong class="text-6xl text-primary ml-3">R$ 97</strong>
+            </span>
+
+            <strong class="ml-2">x 12</strong>
+          </p>
+
+          <div class="mt-8 space-y-2">
+            {
+              features.map((feature) => (
+                <div class="flex">
+                  <i class="bi-check-lg text-xl text-primary" />
+                  <div class="ml-2" set:html={feature} />
+                </div>
+              ))
+            }
+          </div>
+
+          <div class="card-actions justify-center mt-8">
+            <a id="buy-btn" href="/ofertas/black-friday/escolha" class="btn btn-primary w-full bounceIn"
+              >Comprar parcelado em 12x sem juros!</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ContentContainer>
+
+<script>
+  import { setUtmToHref } from "@partials/ofertas/black-friday/shared/set-utm-to-href";
+
+  setUtmToHref("#buy-btn");
+</script>

@@ -1,0 +1,34 @@
+---
+import CourseLayout from "@layouts/CourseLayout.astro";
+import AddLeadGenericModal from "@partials/shared/add-lead-generic-modal/add-lead-generic-modal.astro";
+import { checkoutParcelado12xComCupom } from "@partials/ofertas/black-friday/shared/links";
+import { mailingListId } from "@shared/data/mailing-lists";
+
+const layoutProps = {
+  title: "Code Universe - Black Friday",
+  description:
+    "Domine angular com os cursos mais atualizados do mercado. Com nossa assinatura anual você terá acesso a todos os cursos e recebendo atualizações de conteúdo.",
+  url: Astro.url.href,
+  image: Astro.url.origin + "/images/ofertas/black-friday/banner-image-code-universe-black-friday.jpg",
+};
+---
+
+<CourseLayout {...layoutProps}>
+  <div class="3xl:h-screen flex flex-col justify-center my-[70px] xs:my-[100px] 3xl:my-0">
+    <div class="w-full flex flex-col items-center justify-center text-center xl:text-start xl:px-32 3xl:px-0">
+      <div class="w-full max-w-[600px] p-2 flex flex-col items-center">
+        <p class="text-success text-3xl font-bold">Verificação realizada com sucesso!</p>
+
+        <p class="mt-8">Clique no botão abaixo para iniciar o processo de compra.</p>
+
+        <button class="btn btn-primary w-full max-w-[440px] mt-4" id="start-checkout">Iniciar compra</button>
+      </div>
+    </div>
+  </div>
+</CourseLayout>
+
+<AddLeadGenericModal
+  mailingListId={mailingListId.blackFridayCodeUniverse}
+  checkoutUrl={checkoutParcelado12xComCupom}
+  btnSelector="#start-checkout"
+/>
