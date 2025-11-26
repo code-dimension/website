@@ -30,7 +30,13 @@
 <script>
   import { DateTime } from "luxon";
 
-  const limitDate = DateTime.fromISO("2025-12-02T23:59:59");
+  let limitDate;
+
+  if (DateTime.now() > DateTime.fromISO("2025-11-30")) {
+    limitDate = DateTime.fromISO("2025-12-02T23:59:59");
+  } else {
+    limitDate = DateTime.fromISO("2025-11-30T23:59:59");
+  }
 
   const daysEl = document.querySelector<HTMLElement>("#countdown-days");
   const hoursEl = document.querySelector<HTMLElement>("#countdown-hours");
