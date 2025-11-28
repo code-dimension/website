@@ -1,13 +1,29 @@
-<div role="alert" class="alert bg-black shadow-lg flex flex-col xl:flex-row items-center justify-center">
-  <i class="bi bi-rocket text-white"></i>
+<div
+  id="banner-alert"
+  role="alert"
+  class="alert bg-black shadow-lg flex flex-col xl:flex-row items-center justify-center hidden"
+>
   <div class="text-center xl:text-start">
-    <h3 class="font-bold text-xl text-white"><span class="text-primary">Code Universe</span> vem aí!</h3>
+    <h3 class="font-bold text-xl text-white"><span class="text-warning">Black Friday</span> na Code!</h3>
     <div class="text-base text-white">
-      Destrave sua evolução com Angular e garanta promoções de <span class="text-primary">até 90% OFF</span> nos nossos cursos!
+      Receba acesso total a <span class="text-warning">todos os cursos</span> atuais e futuros com <span
+        class="text-warning">80% de desconto!</span
+      >
     </div>
   </div>
   <a
-    class="btn btn-primary btn-sm"
-    href="/eventos/code-universe/?utm_source=website&utm_medium=organic&utm_campaign=banner">Quero participar</a
+    class="btn btn-warning btn-sm"
+    href="/ofertas/black-friday/?utm_source=website&utm_medium=organic&utm_campaign=banner">Quero essa oportunidade!</a
   >
 </div>
+
+<script>
+  import { DateTime } from "luxon";
+
+  const limitDate = DateTime.fromISO("2025-12-02T23:59:59");
+  const nowDate = DateTime.now();
+
+  if (nowDate < limitDate) {
+    document.querySelector("#banner-alert").classList.remove("hidden");
+  }
+</script>
